@@ -14,8 +14,8 @@ $('sLearned').textContent=Object.values(st.cards).filter(s=>s.reps>0&&s.ivl>=1).
 function next(){const d=due().sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 cur=d[0]||(st.newCount<lim()?fresh()[0]:null);
 if(!cur&&ahead){cur=deck.filter(c=>st.cards[c.id]).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due)[0]||null;}
-$('more').hidden=true;shown=false;$('back').hidden=true;$('exbox').hidden=true;$('btns').hidden=true;
-if(!cur||left<=0){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 All done for today!';$('hint').textContent=left<=0?'Come back tomorrow':'Want to keep going?';$('more').hidden=false;$('more').style.display='flex';$('ahead').hidden=!Object.keys(st.cards).length;stats();return;}
+$('more').style.display='none';shown=false;$('back').hidden=true;$('exbox').hidden=true;$('btns').hidden=true;
+if(!cur||left<=0){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 All done for today!';$('hint').textContent=left<=0?'Come back tomorrow':'Want to keep going?';$('more').style.display='flex';$('ahead').hidden=!Object.keys(st.cards).length;stats();return;}
 $('front').textContent=st.rev?cur.en:cur.nl;$('back').textContent=st.rev?cur.nl:cur.en;$('hint').textContent='Tap to reveal';stats();labels();
 if(st.show||!st.cards[cur.id]){reveal(true);}
 if(!st.rev)speak();}
