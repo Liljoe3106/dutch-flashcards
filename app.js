@@ -2,22 +2,27 @@ const NEW_PER_DAY=15,SESSION=15*60,K='dfc_v1';
 const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"rev":false,"streak":0,"last":null,"newDay":null,"newCount":0,"show":true}');
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');const DAY=864e5;
-let deck=[],cur=null,shown=false,left=SESSION,tick=null;
+let ahead=false,deck=[],cur=null,shown=false,left=SESSION,tick=null;
+const lim=()=>NEW_PER_DAY+(st.extra||0);
 const $=id=>document.getElementById(id);
 if(st.show===undefined)st.show=true;
-if(st.newDay!==today()){st.newDay=today();st.newCount=0;save();}
+if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;save();}
 function due(){const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);}
 function fresh(){return deck.filter(c=>!st.cards[c.id]);}
-function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(NEW_PER_DAY-st.newCount,fresh().length));
+function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(lim()-st.newCount,fresh().length));
 $('sLearned').textContent=Object.values(st.cards).filter(s=>s.reps>0&&s.ivl>=1).length;$('sStreak').textContent=st.streak;}
 function next(){const d=due().sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
-cur=d[0]||(st.newCount<NEW_PER_DAY?fresh()[0]:null);shown=false;$('back').hidden=true;$('exbox').hidden=true;$('btns').hidden=true;
-if(!cur||left<=0){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 All done for today!';$('hint').textContent='Come back tomorrow';stats();return;}
+cur=d[0]||(st.newCount<lim()?fresh()[0]:null);
+if(!cur&&ahead){cur=deck.filter(c=>st.cards[c.id]).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due)[0]||null;}
+$('more').hidden=true;shown=false;$('back').hidden=true;$('exbox').hidden=true;$('btns').hidden=true;
+if(!cur||left<=0){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 All done for today!';$('hint').textContent=left<=0?'Come back tomorrow':'Want to keep going?';$('more').hidden=false;$('more').style.display='flex';$('ahead').hidden=!Object.keys(st.cards).length;stats();return;}
 $('front').textContent=st.rev?cur.en:cur.nl;$('back').textContent=st.rev?cur.nl:cur.en;$('hint').textContent='Tap to reveal';stats();labels();
 if(st.show||!st.cards[cur.id]){reveal(true);}
 if(!st.rev)speak();}
 function reveal(auto){if(!cur||shown)return;shown=true;$('back').hidden=false;$('btns').hidden=false;$('hint').textContent='';$('exbox').hidden=!cur.ex;$('ex').textContent=cur.ex||'';$('exEn').textContent=cur.exEn||'';if(st.rev&&auto!==true)speak();}
 function sched(q,o){const s=Object.assign({ef:2.5,ivl:0,reps:0,due:0},o||{});
+const early=ahead&&o&&o.due>Date.now()&&o.reps>0;
+if(early&&q>=3){const el=Math.max(1,(Date.now()-(o.t||Date.now()))/DAY);s.reps++;s.ivl=Math.max(s.ivl,Math.round(el*s.ef*(q==3?.8:q==5?1.3:1)));s.due=Date.now()+s.ivl*DAY;return s;}
 if(q<3){s.reps=0;s.ivl=0;s.due=Date.now()+60e3;}else{
 s.reps++;s.ivl=Math.max(1,s.reps==1?(q==5?4:1):s.reps==2?(q==3?3:6):Math.round(s.ivl*s.ef*(q==3?.8:q==5?1.3:1)));
 s.ef=Math.max(1.3,s.ef+0.1-(5-q)*(0.08+(5-q)*0.02));s.due=Date.now()+s.ivl*DAY;}return s;}
@@ -31,6 +36,8 @@ function tts(){const u=new SpeechSynthesisUtterance(cur.nl);u.lang='nl-NL';const
 function speak(){if(!cur)return;const a=$('aud');if(cur.audio){a.src=cur.audio;a.onerror=tts;a.play().catch(()=>{});}else tts();}
 $('card').onclick=reveal;document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
 $('say').onclick=speak;
+$('more10').onclick=()=>{st.extra=(st.extra||0)+10;save();if(left<=0)left=SESSION;next();};
+$('ahead').onclick=()=>{ahead=true;if(left<=0)left=SESSION;next();};
 $('exsay').onclick=e=>{e.stopPropagation();if(!cur)return;const a=$('aud');a.src=cur.exAudio;a.onerror=()=>{const u=new SpeechSynthesisUtterance(cur.ex);u.lang='nl-NL';speechSynthesis.speak(u);};a.play().catch(()=>{});};
 $('exp').onclick=async()=>{const code='DFC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(st))));
 try{await navigator.clipboard.writeText(code);}catch(e){}
