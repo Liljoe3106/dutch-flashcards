@@ -3,1932 +3,2898 @@
   "id": 1,
   "nl": "de",
   "en": "the (de-words)",
-  "audio": "audio/0001.mp3"
+  "audio": "audio/0001.mp3",
+  "ex": "De kat slaapt.",
+  "exEn": "The cat is sleeping.",
+  "exAudio": "audio/ex0001.mp3"
  },
  {
   "id": 2,
   "nl": "het",
   "en": "the (het-words) / it",
-  "audio": "audio/0002.mp3"
+  "audio": "audio/0002.mp3",
+  "ex": "Het huis is groot.",
+  "exEn": "The house is big.",
+  "exAudio": "audio/ex0002.mp3"
  },
  {
   "id": 3,
   "nl": "een",
   "en": "a / an",
-  "audio": "audio/0003.mp3"
+  "audio": "audio/0003.mp3",
+  "ex": "Ik heb een hond.",
+  "exEn": "I have a dog.",
+  "exAudio": "audio/ex0003.mp3"
  },
  {
   "id": 4,
   "nl": "en",
   "en": "and",
-  "audio": "audio/0004.mp3"
+  "audio": "audio/0004.mp3",
+  "ex": "Brood en kaas.",
+  "exEn": "Bread and cheese.",
+  "exAudio": "audio/ex0004.mp3"
  },
  {
   "id": 5,
   "nl": "of",
   "en": "or",
-  "audio": "audio/0005.mp3"
+  "audio": "audio/0005.mp3",
+  "ex": "Koffie of thee?",
+  "exEn": "Coffee or tea?",
+  "exAudio": "audio/ex0005.mp3"
  },
  {
   "id": 6,
   "nl": "maar",
   "en": "but",
-  "audio": "audio/0006.mp3"
+  "audio": "audio/0006.mp3",
+  "ex": "Het is koud, maar zonnig.",
+  "exEn": "It is cold, but sunny.",
+  "exAudio": "audio/ex0006.mp3"
  },
  {
   "id": 7,
   "nl": "want",
   "en": "because / for",
-  "audio": "audio/0007.mp3"
+  "audio": "audio/0007.mp3",
+  "ex": "Ik eet, want ik heb honger.",
+  "exEn": "I'm eating, because I'm hungry.",
+  "exAudio": "audio/ex0007.mp3"
  },
  {
   "id": 8,
   "nl": "omdat",
   "en": "because",
-  "audio": "audio/0008.mp3"
+  "audio": "audio/0008.mp3",
+  "ex": "Ik blijf thuis omdat ik ziek ben.",
+  "exEn": "I'm staying home because I'm ill.",
+  "exAudio": "audio/ex0008.mp3"
  },
  {
   "id": 9,
   "nl": "als",
   "en": "if / when / as",
-  "audio": "audio/0009.mp3"
+  "audio": "audio/0009.mp3",
+  "ex": "Als het regent, blijf ik thuis.",
+  "exEn": "If it rains, I'll stay home.",
+  "exAudio": "audio/ex0009.mp3"
  },
  {
   "id": 10,
   "nl": "dat",
   "en": "that",
-  "audio": "audio/0010.mp3"
+  "audio": "audio/0010.mp3",
+  "ex": "Ik weet dat je moe bent.",
+  "exEn": "I know that you are tired.",
+  "exAudio": "audio/ex0010.mp3"
  },
  {
   "id": 11,
   "nl": "dit",
   "en": "this",
-  "audio": "audio/0011.mp3"
+  "audio": "audio/0011.mp3",
+  "ex": "Dit is mijn huis.",
+  "exEn": "This is my house.",
+  "exAudio": "audio/ex0011.mp3"
  },
  {
   "id": 12,
   "nl": "die",
   "en": "that / those",
-  "audio": "audio/0012.mp3"
+  "audio": "audio/0012.mp3",
+  "ex": "Die auto is duur.",
+  "exEn": "That car is expensive.",
+  "exAudio": "audio/ex0012.mp3"
  },
  {
   "id": 13,
   "nl": "deze",
   "en": "this / these",
-  "audio": "audio/0013.mp3"
+  "audio": "audio/0013.mp3",
+  "ex": "Deze koffie is lekker.",
+  "exEn": "This coffee is tasty.",
+  "exAudio": "audio/ex0013.mp3"
  },
  {
   "id": 14,
   "nl": "wat",
   "en": "what",
-  "audio": "audio/0014.mp3"
+  "audio": "audio/0014.mp3",
+  "ex": "Wat is dat?",
+  "exEn": "What is that?",
+  "exAudio": "audio/ex0014.mp3"
  },
  {
   "id": 15,
   "nl": "wie",
   "en": "who",
-  "audio": "audio/0015.mp3"
+  "audio": "audio/0015.mp3",
+  "ex": "Wie is dat?",
+  "exEn": "Who is that?",
+  "exAudio": "audio/ex0015.mp3"
  },
  {
   "id": 16,
   "nl": "waar",
   "en": "where",
-  "audio": "audio/0016.mp3"
+  "audio": "audio/0016.mp3",
+  "ex": "Waar is het station?",
+  "exEn": "Where is the station?",
+  "exAudio": "audio/ex0016.mp3"
  },
  {
   "id": 17,
   "nl": "wanneer",
   "en": "when",
-  "audio": "audio/0017.mp3"
+  "audio": "audio/0017.mp3",
+  "ex": "Wanneer kom je?",
+  "exEn": "When are you coming?",
+  "exAudio": "audio/ex0017.mp3"
  },
  {
   "id": 18,
   "nl": "waarom",
   "en": "why",
-  "audio": "audio/0018.mp3"
+  "audio": "audio/0018.mp3",
+  "ex": "Waarom lach je?",
+  "exEn": "Why are you laughing?",
+  "exAudio": "audio/ex0018.mp3"
  },
  {
   "id": 19,
   "nl": "hoe",
   "en": "how",
-  "audio": "audio/0019.mp3"
+  "audio": "audio/0019.mp3",
+  "ex": "Hoe heet je?",
+  "exEn": "What is your name?",
+  "exAudio": "audio/ex0019.mp3"
  },
  {
   "id": 20,
   "nl": "welke",
   "en": "which",
-  "audio": "audio/0020.mp3"
+  "audio": "audio/0020.mp3",
+  "ex": "Welke trein gaat naar Amsterdam?",
+  "exEn": "Which train goes to Amsterdam?",
+  "exAudio": "audio/ex0020.mp3"
  },
  {
   "id": 21,
   "nl": "ik",
   "en": "I",
-  "audio": "audio/0021.mp3"
+  "audio": "audio/0021.mp3",
+  "ex": "Ik ben Joe.",
+  "exEn": "I am Joe.",
+  "exAudio": "audio/ex0021.mp3"
  },
  {
   "id": 22,
   "nl": "jij",
   "en": "you (informal)",
-  "audio": "audio/0022.mp3"
+  "audio": "audio/0022.mp3",
+  "ex": "Jij bent mijn vriend.",
+  "exEn": "You are my friend.",
+  "exAudio": "audio/ex0022.mp3"
  },
  {
   "id": 23,
   "nl": "u",
   "en": "you (formal)",
-  "audio": "audio/0023.mp3"
+  "audio": "audio/0023.mp3",
+  "ex": "Kunt u mij helpen?",
+  "exEn": "Can you help me?",
+  "exAudio": "audio/ex0023.mp3"
  },
  {
   "id": 24,
   "nl": "hij",
   "en": "he",
-  "audio": "audio/0024.mp3"
+  "audio": "audio/0024.mp3",
+  "ex": "Hij woont in Den Haag.",
+  "exEn": "He lives in The Hague.",
+  "exAudio": "audio/ex0024.mp3"
  },
  {
   "id": 25,
   "nl": "zij",
   "en": "she / they",
-  "audio": "audio/0025.mp3"
+  "audio": "audio/0025.mp3",
+  "ex": "Zij drinkt thee.",
+  "exEn": "She drinks tea.",
+  "exAudio": "audio/ex0025.mp3"
  },
  {
   "id": 26,
   "nl": "wij",
   "en": "we",
-  "audio": "audio/0026.mp3"
+  "audio": "audio/0026.mp3",
+  "ex": "Wij gaan naar huis.",
+  "exEn": "We are going home.",
+  "exAudio": "audio/ex0026.mp3"
  },
  {
   "id": 27,
   "nl": "jullie",
   "en": "you (plural)",
-  "audio": "audio/0027.mp3"
+  "audio": "audio/0027.mp3",
+  "ex": "Komen jullie ook?",
+  "exEn": "Are you coming too?",
+  "exAudio": "audio/ex0027.mp3"
  },
  {
   "id": 28,
   "nl": "mijn",
   "en": "my",
-  "audio": "audio/0028.mp3"
+  "audio": "audio/0028.mp3",
+  "ex": "Dit is mijn vrouw.",
+  "exEn": "This is my wife.",
+  "exAudio": "audio/ex0028.mp3"
  },
  {
   "id": 29,
   "nl": "jouw",
   "en": "your (informal)",
-  "audio": "audio/0029.mp3"
+  "audio": "audio/0029.mp3",
+  "ex": "Is dit jouw telefoon?",
+  "exEn": "Is this your phone?",
+  "exAudio": "audio/ex0029.mp3"
  },
  {
   "id": 30,
   "nl": "zijn",
   "en": "his",
-  "audio": "audio/0030.mp3"
+  "audio": "audio/0030.mp3",
+  "ex": "Dat is zijn auto.",
+  "exEn": "That is his car.",
+  "exAudio": "audio/ex0030.mp3"
  },
  {
   "id": 31,
   "nl": "haar",
   "en": "her / hair",
-  "audio": "audio/0031.mp3"
+  "audio": "audio/0031.mp3",
+  "ex": "Haar naam is Anna.",
+  "exEn": "Her name is Anna.",
+  "exAudio": "audio/ex0031.mp3"
  },
  {
   "id": 32,
   "nl": "ons",
   "en": "us / our",
-  "audio": "audio/0032.mp3"
+  "audio": "audio/0032.mp3",
+  "ex": "Dit is ons huis.",
+  "exEn": "This is our house.",
+  "exAudio": "audio/ex0032.mp3"
  },
  {
   "id": 33,
   "nl": "hun",
   "en": "their",
-  "audio": "audio/0033.mp3"
+  "audio": "audio/0033.mp3",
+  "ex": "Hun kinderen zijn klein.",
+  "exEn": "Their children are small.",
+  "exAudio": "audio/ex0033.mp3"
  },
  {
   "id": 34,
   "nl": "niet",
   "en": "not",
-  "audio": "audio/0034.mp3"
+  "audio": "audio/0034.mp3",
+  "ex": "Ik weet het niet.",
+  "exEn": "I don't know.",
+  "exAudio": "audio/ex0034.mp3"
  },
  {
   "id": 35,
   "nl": "geen",
   "en": "no / not a",
-  "audio": "audio/0035.mp3"
+  "audio": "audio/0035.mp3",
+  "ex": "Ik heb geen tijd.",
+  "exEn": "I have no time.",
+  "exAudio": "audio/ex0035.mp3"
  },
  {
   "id": 36,
   "nl": "wel",
   "en": "indeed / certainly",
-  "audio": "audio/0036.mp3"
+  "audio": "audio/0036.mp3",
+  "ex": "Dat is wel lekker!",
+  "exEn": "That really is tasty!",
+  "exAudio": "audio/ex0036.mp3"
  },
  {
   "id": 37,
   "nl": "ja",
   "en": "yes",
-  "audio": "audio/0037.mp3"
+  "audio": "audio/0037.mp3",
+  "ex": "Ja, graag.",
+  "exEn": "Yes, please.",
+  "exAudio": "audio/ex0037.mp3"
  },
  {
   "id": 38,
   "nl": "nee",
   "en": "no",
-  "audio": "audio/0038.mp3"
+  "audio": "audio/0038.mp3",
+  "ex": "Nee, dank je.",
+  "exEn": "No, thank you.",
+  "exAudio": "audio/ex0038.mp3"
  },
  {
   "id": 39,
   "nl": "misschien",
   "en": "maybe",
-  "audio": "audio/0039.mp3"
+  "audio": "audio/0039.mp3",
+  "ex": "Misschien morgen.",
+  "exEn": "Maybe tomorrow.",
+  "exAudio": "audio/ex0039.mp3"
  },
  {
   "id": 40,
   "nl": "heel",
   "en": "very / whole",
-  "audio": "audio/0040.mp3"
+  "audio": "audio/0040.mp3",
+  "ex": "Het is heel mooi.",
+  "exEn": "It is very beautiful.",
+  "exAudio": "audio/ex0040.mp3"
  },
  {
   "id": 41,
   "nl": "erg",
   "en": "very / bad",
-  "audio": "audio/0041.mp3"
+  "audio": "audio/0041.mp3",
+  "ex": "Het is erg koud.",
+  "exEn": "It is very cold.",
+  "exAudio": "audio/ex0041.mp3"
  },
  {
   "id": 42,
   "nl": "veel",
   "en": "much / many",
-  "audio": "audio/0042.mp3"
+  "audio": "audio/0042.mp3",
+  "ex": "Veel mensen fietsen.",
+  "exEn": "Many people cycle.",
+  "exAudio": "audio/ex0042.mp3"
  },
  {
   "id": 43,
   "nl": "weinig",
   "en": "little / few",
-  "audio": "audio/0043.mp3"
+  "audio": "audio/0043.mp3",
+  "ex": "Ik heb weinig geld.",
+  "exEn": "I have little money.",
+  "exAudio": "audio/ex0043.mp3"
  },
  {
   "id": 44,
   "nl": "meer",
   "en": "more",
-  "audio": "audio/0044.mp3"
+  "audio": "audio/0044.mp3",
+  "ex": "Meer koffie, alsjeblieft.",
+  "exEn": "More coffee, please.",
+  "exAudio": "audio/ex0044.mp3"
  },
  {
   "id": 45,
   "nl": "minder",
   "en": "less",
-  "audio": "audio/0045.mp3"
+  "audio": "audio/0045.mp3",
+  "ex": "Ik eet minder vlees.",
+  "exEn": "I eat less meat.",
+  "exAudio": "audio/ex0045.mp3"
  },
  {
   "id": 46,
   "nl": "ook",
   "en": "also / too",
-  "audio": "audio/0046.mp3"
+  "audio": "audio/0046.mp3",
+  "ex": "Ik kom ook.",
+  "exEn": "I'm coming too.",
+  "exAudio": "audio/ex0046.mp3"
  },
  {
   "id": 47,
   "nl": "nog",
   "en": "still / yet",
-  "audio": "audio/0047.mp3"
+  "audio": "audio/0047.mp3",
+  "ex": "Ben je nog moe?",
+  "exEn": "Are you still tired?",
+  "exAudio": "audio/ex0047.mp3"
  },
  {
   "id": 48,
   "nl": "al",
   "en": "already",
-  "audio": "audio/0048.mp3"
+  "audio": "audio/0048.mp3",
+  "ex": "Ik heb al gegeten.",
+  "exEn": "I have already eaten.",
+  "exAudio": "audio/ex0048.mp3"
  },
  {
   "id": 49,
   "nl": "alleen",
   "en": "only / alone",
-  "audio": "audio/0049.mp3"
+  "audio": "audio/0049.mp3",
+  "ex": "Ik ben alleen thuis.",
+  "exEn": "I'm home alone.",
+  "exAudio": "audio/ex0049.mp3"
  },
  {
   "id": 50,
   "nl": "altijd",
   "en": "always",
-  "audio": "audio/0050.mp3"
+  "audio": "audio/0050.mp3",
+  "ex": "Hij is altijd blij.",
+  "exEn": "He is always happy.",
+  "exAudio": "audio/ex0050.mp3"
  },
  {
   "id": 51,
   "nl": "nooit",
   "en": "never",
-  "audio": "audio/0051.mp3"
+  "audio": "audio/0051.mp3",
+  "ex": "Ik drink nooit koffie.",
+  "exEn": "I never drink coffee.",
+  "exAudio": "audio/ex0051.mp3"
  },
  {
   "id": 52,
   "nl": "soms",
   "en": "sometimes",
-  "audio": "audio/0052.mp3"
+  "audio": "audio/0052.mp3",
+  "ex": "Soms regent het.",
+  "exEn": "Sometimes it rains.",
+  "exAudio": "audio/ex0052.mp3"
  },
  {
   "id": 53,
   "nl": "vaak",
   "en": "often",
-  "audio": "audio/0053.mp3"
+  "audio": "audio/0053.mp3",
+  "ex": "We fietsen vaak.",
+  "exEn": "We often cycle.",
+  "exAudio": "audio/ex0053.mp3"
  },
  {
   "id": 54,
   "nl": "nu",
   "en": "now",
-  "audio": "audio/0054.mp3"
+  "audio": "audio/0054.mp3",
+  "ex": "Ik moet nu gaan.",
+  "exEn": "I have to go now.",
+  "exAudio": "audio/ex0054.mp3"
  },
  {
   "id": 55,
   "nl": "toen",
   "en": "then (past)",
-  "audio": "audio/0055.mp3"
+  "audio": "audio/0055.mp3",
+  "ex": "Toen was ik jong.",
+  "exEn": "Back then I was young.",
+  "exAudio": "audio/ex0055.mp3"
  },
  {
   "id": 56,
   "nl": "dan",
   "en": "then / than",
-  "audio": "audio/0056.mp3"
+  "audio": "audio/0056.mp3",
+  "ex": "Eerst eten, dan slapen.",
+  "exEn": "First eat, then sleep.",
+  "exAudio": "audio/ex0056.mp3"
  },
  {
   "id": 57,
   "nl": "straks",
   "en": "later / soon",
-  "audio": "audio/0057.mp3"
+  "audio": "audio/0057.mp3",
+  "ex": "Ik bel je straks.",
+  "exEn": "I'll call you later.",
+  "exAudio": "audio/ex0057.mp3"
  },
  {
   "id": 58,
   "nl": "vandaag",
   "en": "today",
-  "audio": "audio/0058.mp3"
+  "audio": "audio/0058.mp3",
+  "ex": "Vandaag is het warm.",
+  "exEn": "Today it is warm.",
+  "exAudio": "audio/ex0058.mp3"
  },
  {
   "id": 59,
   "nl": "morgen",
   "en": "tomorrow / morning",
-  "audio": "audio/0059.mp3"
+  "audio": "audio/0059.mp3",
+  "ex": "Tot morgen!",
+  "exEn": "See you tomorrow!",
+  "exAudio": "audio/ex0059.mp3"
  },
  {
   "id": 60,
   "nl": "gisteren",
   "en": "yesterday",
-  "audio": "audio/0060.mp3"
+  "audio": "audio/0060.mp3",
+  "ex": "Gisteren was ik moe.",
+  "exEn": "Yesterday I was tired.",
+  "exAudio": "audio/ex0060.mp3"
  },
  {
   "id": 61,
   "nl": "hier",
   "en": "here",
-  "audio": "audio/0061.mp3"
+  "audio": "audio/0061.mp3",
+  "ex": "Kom hier.",
+  "exEn": "Come here.",
+  "exAudio": "audio/ex0061.mp3"
  },
  {
   "id": 62,
   "nl": "daar",
   "en": "there",
-  "audio": "audio/0062.mp3"
+  "audio": "audio/0062.mp3",
+  "ex": "Het station is daar.",
+  "exEn": "The station is over there.",
+  "exAudio": "audio/ex0062.mp3"
  },
  {
   "id": 63,
   "nl": "met",
   "en": "with",
-  "audio": "audio/0063.mp3"
+  "audio": "audio/0063.mp3",
+  "ex": "Ik ga met de trein.",
+  "exEn": "I'm going by train.",
+  "exAudio": "audio/ex0063.mp3"
  },
  {
   "id": 64,
   "nl": "zonder",
   "en": "without",
-  "audio": "audio/0064.mp3"
+  "audio": "audio/0064.mp3",
+  "ex": "Koffie zonder melk.",
+  "exEn": "Coffee without milk.",
+  "exAudio": "audio/ex0064.mp3"
  },
  {
   "id": 65,
   "nl": "voor",
   "en": "for / before",
-  "audio": "audio/0065.mp3"
+  "audio": "audio/0065.mp3",
+  "ex": "Dit is voor jou.",
+  "exEn": "This is for you.",
+  "exAudio": "audio/ex0065.mp3"
  },
  {
   "id": 66,
   "nl": "na",
   "en": "after",
-  "audio": "audio/0066.mp3"
+  "audio": "audio/0066.mp3",
+  "ex": "Na het eten slaap ik.",
+  "exEn": "After dinner I sleep.",
+  "exAudio": "audio/ex0066.mp3"
  },
  {
   "id": 67,
   "nl": "in",
   "en": "in",
-  "audio": "audio/0067.mp3"
+  "audio": "audio/0067.mp3",
+  "ex": "Ik woon in Sheffield.",
+  "exEn": "I live in Sheffield.",
+  "exAudio": "audio/ex0067.mp3"
  },
  {
   "id": 68,
   "nl": "op",
   "en": "on",
-  "audio": "audio/0068.mp3"
+  "audio": "audio/0068.mp3",
+  "ex": "Het boek ligt op de tafel.",
+  "exEn": "The book is on the table.",
+  "exAudio": "audio/ex0068.mp3"
  },
  {
   "id": 69,
   "nl": "aan",
   "en": "at / on",
-  "audio": "audio/0069.mp3"
+  "audio": "audio/0069.mp3",
+  "ex": "Ik zit aan tafel.",
+  "exEn": "I'm sitting at the table.",
+  "exAudio": "audio/ex0069.mp3"
  },
  {
   "id": 70,
   "nl": "bij",
   "en": "at / near / with",
-  "audio": "audio/0070.mp3"
+  "audio": "audio/0070.mp3",
+  "ex": "Ik ben bij mijn familie.",
+  "exEn": "I'm with my family.",
+  "exAudio": "audio/ex0070.mp3"
  },
  {
   "id": 71,
   "nl": "van",
   "en": "of / from",
-  "audio": "audio/0071.mp3"
+  "audio": "audio/0071.mp3",
+  "ex": "Een cadeau van mijn moeder.",
+  "exEn": "A present from my mother.",
+  "exAudio": "audio/ex0071.mp3"
  },
  {
   "id": 72,
   "nl": "naar",
   "en": "to / towards",
-  "audio": "audio/0072.mp3"
+  "audio": "audio/0072.mp3",
+  "ex": "Ik ga naar de winkel.",
+  "exEn": "I'm going to the shop.",
+  "exAudio": "audio/ex0072.mp3"
  },
  {
   "id": 73,
   "nl": "uit",
   "en": "out / from",
-  "audio": "audio/0073.mp3"
+  "audio": "audio/0073.mp3",
+  "ex": "Ik kom uit Engeland.",
+  "exEn": "I'm from England.",
+  "exAudio": "audio/ex0073.mp3"
  },
  {
   "id": 74,
   "nl": "over",
   "en": "about / over",
-  "audio": "audio/0074.mp3"
+  "audio": "audio/0074.mp3",
+  "ex": "Het boek gaat over liefde.",
+  "exEn": "The book is about love.",
+  "exAudio": "audio/ex0074.mp3"
  },
  {
   "id": 75,
   "nl": "onder",
   "en": "under",
-  "audio": "audio/0075.mp3"
+  "audio": "audio/0075.mp3",
+  "ex": "De kat ligt onder het bed.",
+  "exEn": "The cat is lying under the bed.",
+  "exAudio": "audio/ex0075.mp3"
  },
  {
   "id": 76,
   "nl": "tussen",
   "en": "between",
-  "audio": "audio/0076.mp3"
+  "audio": "audio/0076.mp3",
+  "ex": "Ik zit tussen twee mensen.",
+  "exEn": "I'm sitting between two people.",
+  "exAudio": "audio/ex0076.mp3"
  },
  {
   "id": 77,
   "nl": "door",
   "en": "through / by",
-  "audio": "audio/0077.mp3"
+  "audio": "audio/0077.mp3",
+  "ex": "We lopen door het park.",
+  "exEn": "We walk through the park.",
+  "exAudio": "audio/ex0077.mp3"
  },
  {
   "id": 78,
   "nl": "tot",
   "en": "until",
-  "audio": "audio/0078.mp3"
+  "audio": "audio/0078.mp3",
+  "ex": "Tot ziens!",
+  "exEn": "Goodbye!",
+  "exAudio": "audio/ex0078.mp3"
  },
  {
   "id": 79,
   "nl": "om",
   "en": "at (time) / around",
-  "audio": "audio/0079.mp3"
+  "audio": "audio/0079.mp3",
+  "ex": "De trein gaat om acht uur.",
+  "exEn": "The train leaves at eight o'clock.",
+  "exAudio": "audio/ex0079.mp3"
  },
  {
   "id": 80,
   "nl": "te",
   "en": "too / to",
-  "audio": "audio/0080.mp3"
+  "audio": "audio/0080.mp3",
+  "ex": "Het is te duur.",
+  "exEn": "It is too expensive.",
+  "exAudio": "audio/ex0080.mp3"
  },
  {
   "id": 81,
   "nl": "zijn",
   "en": "to be",
-  "audio": "audio/0081.mp3"
+  "audio": "audio/0081.mp3",
+  "ex": "Ik ben moe.",
+  "exEn": "I am tired.",
+  "exAudio": "audio/ex0081.mp3"
  },
  {
   "id": 82,
   "nl": "hebben",
   "en": "to have",
-  "audio": "audio/0082.mp3"
+  "audio": "audio/0082.mp3",
+  "ex": "Ik heb een auto.",
+  "exEn": "I have a car.",
+  "exAudio": "audio/ex0082.mp3"
  },
  {
   "id": 83,
   "nl": "worden",
   "en": "to become",
-  "audio": "audio/0083.mp3"
+  "audio": "audio/0083.mp3",
+  "ex": "Het wordt koud.",
+  "exEn": "It's getting cold.",
+  "exAudio": "audio/ex0083.mp3"
  },
  {
   "id": 84,
   "nl": "kunnen",
   "en": "can / to be able",
-  "audio": "audio/0084.mp3"
+  "audio": "audio/0084.mp3",
+  "ex": "Ik kan zwemmen.",
+  "exEn": "I can swim.",
+  "exAudio": "audio/ex0084.mp3"
  },
  {
   "id": 85,
   "nl": "moeten",
   "en": "must / to have to",
-  "audio": "audio/0085.mp3"
+  "audio": "audio/0085.mp3",
+  "ex": "Ik moet werken.",
+  "exEn": "I have to work.",
+  "exAudio": "audio/ex0085.mp3"
  },
  {
   "id": 86,
   "nl": "willen",
   "en": "to want",
-  "audio": "audio/0086.mp3"
+  "audio": "audio/0086.mp3",
+  "ex": "Ik wil koffie.",
+  "exEn": "I want coffee.",
+  "exAudio": "audio/ex0086.mp3"
  },
  {
   "id": 87,
   "nl": "zullen",
   "en": "shall / will",
-  "audio": "audio/0087.mp3"
+  "audio": "audio/0087.mp3",
+  "ex": "Ik zal je helpen.",
+  "exEn": "I will help you.",
+  "exAudio": "audio/ex0087.mp3"
  },
  {
   "id": 88,
   "nl": "mogen",
   "en": "may / to be allowed",
-  "audio": "audio/0088.mp3"
+  "audio": "audio/0088.mp3",
+  "ex": "Mag ik binnenkomen?",
+  "exEn": "May I come in?",
+  "exAudio": "audio/ex0088.mp3"
  },
  {
   "id": 89,
   "nl": "gaan",
   "en": "to go",
-  "audio": "audio/0089.mp3"
+  "audio": "audio/0089.mp3",
+  "ex": "Ik ga naar huis.",
+  "exEn": "I'm going home.",
+  "exAudio": "audio/ex0089.mp3"
  },
  {
   "id": 90,
   "nl": "komen",
   "en": "to come",
-  "audio": "audio/0090.mp3"
+  "audio": "audio/0090.mp3",
+  "ex": "Kom je ook?",
+  "exEn": "Are you coming too?",
+  "exAudio": "audio/ex0090.mp3"
  },
  {
   "id": 91,
   "nl": "doen",
   "en": "to do",
-  "audio": "audio/0091.mp3"
+  "audio": "audio/0091.mp3",
+  "ex": "Wat doe je?",
+  "exEn": "What are you doing?",
+  "exAudio": "audio/ex0091.mp3"
  },
  {
   "id": 92,
   "nl": "maken",
   "en": "to make",
-  "audio": "audio/0092.mp3"
+  "audio": "audio/0092.mp3",
+  "ex": "Ik maak het ontbijt.",
+  "exEn": "I'm making breakfast.",
+  "exAudio": "audio/ex0092.mp3"
  },
  {
   "id": 93,
   "nl": "zeggen",
   "en": "to say",
-  "audio": "audio/0093.mp3"
+  "audio": "audio/0093.mp3",
+  "ex": "Wat zeg je?",
+  "exEn": "What are you saying?",
+  "exAudio": "audio/ex0093.mp3"
  },
  {
   "id": 94,
   "nl": "zien",
   "en": "to see",
-  "audio": "audio/0094.mp3"
+  "audio": "audio/0094.mp3",
+  "ex": "Ik zie de zee.",
+  "exEn": "I see the sea.",
+  "exAudio": "audio/ex0094.mp3"
  },
  {
   "id": 95,
   "nl": "weten",
   "en": "to know (a fact)",
-  "audio": "audio/0095.mp3"
+  "audio": "audio/0095.mp3",
+  "ex": "Ik weet het.",
+  "exEn": "I know.",
+  "exAudio": "audio/ex0095.mp3"
  },
  {
   "id": 96,
   "nl": "kennen",
   "en": "to know (a person)",
-  "audio": "audio/0096.mp3"
+  "audio": "audio/0096.mp3",
+  "ex": "Ik ken hem niet.",
+  "exEn": "I don't know him.",
+  "exAudio": "audio/ex0096.mp3"
  },
  {
   "id": 97,
   "nl": "denken",
   "en": "to think",
-  "audio": "audio/0097.mp3"
+  "audio": "audio/0097.mp3",
+  "ex": "Ik denk het niet.",
+  "exEn": "I don't think so.",
+  "exAudio": "audio/ex0097.mp3"
  },
  {
   "id": 98,
   "nl": "vinden",
   "en": "to find / to think",
-  "audio": "audio/0098.mp3"
+  "audio": "audio/0098.mp3",
+  "ex": "Ik vind het leuk.",
+  "exEn": "I like it.",
+  "exAudio": "audio/ex0098.mp3"
  },
  {
   "id": 99,
   "nl": "geven",
   "en": "to give",
-  "audio": "audio/0099.mp3"
+  "audio": "audio/0099.mp3",
+  "ex": "Geef mij het brood.",
+  "exEn": "Give me the bread.",
+  "exAudio": "audio/ex0099.mp3"
  },
  {
   "id": 100,
   "nl": "nemen",
   "en": "to take",
-  "audio": "audio/0100.mp3"
+  "audio": "audio/0100.mp3",
+  "ex": "Ik neem de bus.",
+  "exEn": "I'm taking the bus.",
+  "exAudio": "audio/ex0100.mp3"
  },
  {
   "id": 101,
   "nl": "krijgen",
   "en": "to get / receive",
-  "audio": "audio/0101.mp3"
+  "audio": "audio/0101.mp3",
+  "ex": "Ik krijg een cadeau.",
+  "exEn": "I'm getting a present.",
+  "exAudio": "audio/ex0101.mp3"
  },
  {
   "id": 102,
   "nl": "staan",
   "en": "to stand",
-  "audio": "audio/0102.mp3"
+  "audio": "audio/0102.mp3",
+  "ex": "Ik sta bij de deur.",
+  "exEn": "I'm standing by the door.",
+  "exAudio": "audio/ex0102.mp3"
  },
  {
   "id": 103,
   "nl": "zitten",
   "en": "to sit",
-  "audio": "audio/0103.mp3"
+  "audio": "audio/0103.mp3",
+  "ex": "Ik zit op een stoel.",
+  "exEn": "I'm sitting on a chair.",
+  "exAudio": "audio/ex0103.mp3"
  },
  {
   "id": 104,
   "nl": "liggen",
   "en": "to lie (down)",
-  "audio": "audio/0104.mp3"
+  "audio": "audio/0104.mp3",
+  "ex": "Hij ligt in bed.",
+  "exEn": "He is lying in bed.",
+  "exAudio": "audio/ex0104.mp3"
  },
  {
   "id": 105,
   "nl": "lopen",
   "en": "to walk",
-  "audio": "audio/0105.mp3"
+  "audio": "audio/0105.mp3",
+  "ex": "Ik loop naar school.",
+  "exEn": "I'm walking to school.",
+  "exAudio": "audio/ex0105.mp3"
  },
  {
   "id": 106,
   "nl": "rijden",
   "en": "to drive / ride",
-  "audio": "audio/0106.mp3"
+  "audio": "audio/0106.mp3",
+  "ex": "Wij rijden naar Amsterdam.",
+  "exEn": "We're driving to Amsterdam.",
+  "exAudio": "audio/ex0106.mp3"
  },
  {
   "id": 107,
   "nl": "blijven",
   "en": "to stay",
-  "audio": "audio/0107.mp3"
+  "audio": "audio/0107.mp3",
+  "ex": "Ik blijf een week.",
+  "exEn": "I'm staying for a week.",
+  "exAudio": "audio/ex0107.mp3"
  },
  {
   "id": 108,
   "nl": "houden",
   "en": "to hold / keep",
-  "audio": "audio/0108.mp3"
+  "audio": "audio/0108.mp3",
+  "ex": "Kun je dit even houden?",
+  "exEn": "Can you hold this for a moment?",
+  "exAudio": "audio/ex0108.mp3"
  },
  {
   "id": 109,
   "nl": "houden van",
   "en": "to love / like",
-  "audio": "audio/0109.mp3"
+  "audio": "audio/0109.mp3",
+  "ex": "Ik hou van jou.",
+  "exEn": "I love you.",
+  "exAudio": "audio/ex0109.mp3"
  },
  {
   "id": 110,
   "nl": "laten",
   "en": "to let",
-  "audio": "audio/0110.mp3"
+  "audio": "audio/0110.mp3",
+  "ex": "Laat mij maar.",
+  "exEn": "Let me do it.",
+  "exAudio": "audio/ex0110.mp3"
  },
  {
   "id": 111,
   "nl": "vragen",
   "en": "to ask",
-  "audio": "audio/0111.mp3"
+  "audio": "audio/0111.mp3",
+  "ex": "Mag ik iets vragen?",
+  "exEn": "May I ask something?",
+  "exAudio": "audio/ex0111.mp3"
  },
  {
   "id": 112,
   "nl": "antwoorden",
   "en": "to answer",
-  "audio": "audio/0112.mp3"
+  "audio": "audio/0112.mp3",
+  "ex": "Hij antwoordt niet.",
+  "exEn": "He doesn't answer.",
+  "exAudio": "audio/ex0112.mp3"
  },
  {
   "id": 113,
   "nl": "spreken",
   "en": "to speak",
-  "audio": "audio/0113.mp3"
+  "audio": "audio/0113.mp3",
+  "ex": "Ik spreek een beetje Nederlands.",
+  "exEn": "I speak a little Dutch.",
+  "exAudio": "audio/ex0113.mp3"
  },
  {
   "id": 114,
   "nl": "praten",
   "en": "to talk",
-  "audio": "audio/0114.mp3"
+  "audio": "audio/0114.mp3",
+  "ex": "We praten veel.",
+  "exEn": "We talk a lot.",
+  "exAudio": "audio/ex0114.mp3"
  },
  {
   "id": 115,
   "nl": "horen",
   "en": "to hear",
-  "audio": "audio/0115.mp3"
+  "audio": "audio/0115.mp3",
+  "ex": "Ik hoor muziek.",
+  "exEn": "I hear music.",
+  "exAudio": "audio/ex0115.mp3"
  },
  {
   "id": 116,
   "nl": "luisteren",
   "en": "to listen",
-  "audio": "audio/0116.mp3"
+  "audio": "audio/0116.mp3",
+  "ex": "Luister goed.",
+  "exEn": "Listen carefully.",
+  "exAudio": "audio/ex0116.mp3"
  },
  {
   "id": 117,
   "nl": "kijken",
   "en": "to look / watch",
-  "audio": "audio/0117.mp3"
+  "audio": "audio/0117.mp3",
+  "ex": "Ik kijk televisie.",
+  "exEn": "I'm watching television.",
+  "exAudio": "audio/ex0117.mp3"
  },
  {
   "id": 118,
   "nl": "lezen",
   "en": "to read",
-  "audio": "audio/0118.mp3"
+  "audio": "audio/0118.mp3",
+  "ex": "Ik lees een boek.",
+  "exEn": "I'm reading a book.",
+  "exAudio": "audio/ex0118.mp3"
  },
  {
   "id": 119,
   "nl": "schrijven",
   "en": "to write",
-  "audio": "audio/0119.mp3"
+  "audio": "audio/0119.mp3",
+  "ex": "Ik schrijf een brief.",
+  "exEn": "I'm writing a letter.",
+  "exAudio": "audio/ex0119.mp3"
  },
  {
   "id": 120,
   "nl": "leren",
   "en": "to learn / teach",
-  "audio": "audio/0120.mp3"
+  "audio": "audio/0120.mp3",
+  "ex": "Ik leer Nederlands.",
+  "exEn": "I'm learning Dutch.",
+  "exAudio": "audio/ex0120.mp3"
  },
  {
   "id": 121,
   "nl": "werken",
   "en": "to work",
-  "audio": "audio/0121.mp3"
+  "audio": "audio/0121.mp3",
+  "ex": "Ik werk in een kantoor.",
+  "exEn": "I work in an office.",
+  "exAudio": "audio/ex0121.mp3"
  },
  {
   "id": 122,
   "nl": "wonen",
   "en": "to live (reside)",
-  "audio": "audio/0122.mp3"
+  "audio": "audio/0122.mp3",
+  "ex": "Waar woon je?",
+  "exEn": "Where do you live?",
+  "exAudio": "audio/ex0122.mp3"
  },
  {
   "id": 123,
   "nl": "leven",
   "en": "to live",
-  "audio": "audio/0123.mp3"
+  "audio": "audio/0123.mp3",
+  "ex": "Hij leeft nog.",
+  "exEn": "He is still alive.",
+  "exAudio": "audio/ex0123.mp3"
  },
  {
   "id": 124,
   "nl": "eten",
   "en": "to eat",
-  "audio": "audio/0124.mp3"
+  "audio": "audio/0124.mp3",
+  "ex": "Wij eten om zes uur.",
+  "exEn": "We eat at six o'clock.",
+  "exAudio": "audio/ex0124.mp3"
  },
  {
   "id": 125,
   "nl": "drinken",
   "en": "to drink",
-  "audio": "audio/0125.mp3"
+  "audio": "audio/0125.mp3",
+  "ex": "Wat wil je drinken?",
+  "exEn": "What would you like to drink?",
+  "exAudio": "audio/ex0125.mp3"
  },
  {
   "id": 126,
   "nl": "slapen",
   "en": "to sleep",
-  "audio": "audio/0126.mp3"
+  "audio": "audio/0126.mp3",
+  "ex": "Ik slaap slecht.",
+  "exEn": "I'm sleeping badly.",
+  "exAudio": "audio/ex0126.mp3"
  },
  {
   "id": 127,
   "nl": "kopen",
   "en": "to buy",
-  "audio": "audio/0127.mp3"
+  "audio": "audio/0127.mp3",
+  "ex": "Ik koop brood.",
+  "exEn": "I'm buying bread.",
+  "exAudio": "audio/ex0127.mp3"
  },
  {
   "id": 128,
   "nl": "betalen",
   "en": "to pay",
-  "audio": "audio/0128.mp3"
+  "audio": "audio/0128.mp3",
+  "ex": "Kan ik met de kaart betalen?",
+  "exEn": "Can I pay by card?",
+  "exAudio": "audio/ex0128.mp3"
  },
  {
   "id": 129,
   "nl": "zoeken",
   "en": "to search / look for",
-  "audio": "audio/0129.mp3"
+  "audio": "audio/0129.mp3",
+  "ex": "Ik zoek mijn sleutels.",
+  "exEn": "I'm looking for my keys.",
+  "exAudio": "audio/ex0129.mp3"
  },
  {
   "id": 130,
   "nl": "helpen",
   "en": "to help",
-  "audio": "audio/0130.mp3"
+  "audio": "audio/0130.mp3",
+  "ex": "Kan ik je helpen?",
+  "exEn": "Can I help you?",
+  "exAudio": "audio/ex0130.mp3"
  },
  {
   "id": 131,
   "nl": "beginnen",
   "en": "to begin",
-  "audio": "audio/0131.mp3"
+  "audio": "audio/0131.mp3",
+  "ex": "De film begint om acht uur.",
+  "exEn": "The film starts at eight o'clock.",
+  "exAudio": "audio/ex0131.mp3"
  },
  {
   "id": 132,
   "nl": "stoppen",
   "en": "to stop",
-  "audio": "audio/0132.mp3"
+  "audio": "audio/0132.mp3",
+  "ex": "Stop hier, alsjeblieft.",
+  "exEn": "Stop here, please.",
+  "exAudio": "audio/ex0132.mp3"
  },
  {
   "id": 133,
   "nl": "wachten",
   "en": "to wait",
-  "audio": "audio/0133.mp3"
+  "audio": "audio/0133.mp3",
+  "ex": "Ik wacht op de bus.",
+  "exEn": "I'm waiting for the bus.",
+  "exAudio": "audio/ex0133.mp3"
  },
  {
   "id": 134,
   "nl": "proberen",
   "en": "to try",
-  "audio": "audio/0134.mp3"
+  "audio": "audio/0134.mp3",
+  "ex": "Ik probeer het.",
+  "exEn": "I'll try.",
+  "exAudio": "audio/ex0134.mp3"
  },
  {
   "id": 135,
   "nl": "begrijpen",
   "en": "to understand",
-  "audio": "audio/0135.mp3"
+  "audio": "audio/0135.mp3",
+  "ex": "Ik begrijp het.",
+  "exEn": "I understand.",
+  "exAudio": "audio/ex0135.mp3"
  },
  {
   "id": 136,
   "nl": "spelen",
   "en": "to play",
-  "audio": "audio/0136.mp3"
+  "audio": "audio/0136.mp3",
+  "ex": "De kinderen spelen buiten.",
+  "exEn": "The children are playing outside.",
+  "exAudio": "audio/ex0136.mp3"
  },
  {
   "id": 137,
   "nl": "koken",
   "en": "to cook",
-  "audio": "audio/0137.mp3"
+  "audio": "audio/0137.mp3",
+  "ex": "Ik kook vanavond.",
+  "exEn": "I'm cooking tonight.",
+  "exAudio": "audio/ex0137.mp3"
  },
  {
   "id": 138,
   "nl": "bellen",
   "en": "to call (phone)",
-  "audio": "audio/0138.mp3"
+  "audio": "audio/0138.mp3",
+  "ex": "Ik bel je morgen.",
+  "exEn": "I'll call you tomorrow.",
+  "exAudio": "audio/ex0138.mp3"
  },
  {
   "id": 139,
   "nl": "sturen",
   "en": "to send",
-  "audio": "audio/0139.mp3"
+  "audio": "audio/0139.mp3",
+  "ex": "Ik stuur je een bericht.",
+  "exEn": "I'll send you a message.",
+  "exAudio": "audio/ex0139.mp3"
  },
  {
   "id": 140,
   "nl": "openen",
   "en": "to open",
-  "audio": "audio/0140.mp3"
+  "audio": "audio/0140.mp3",
+  "ex": "Mag ik het raam openen?",
+  "exEn": "May I open the window?",
+  "exAudio": "audio/ex0140.mp3"
  },
  {
   "id": 141,
   "nl": "sluiten",
   "en": "to close",
-  "audio": "audio/0141.mp3"
+  "audio": "audio/0141.mp3",
+  "ex": "Doe de deur dicht.",
+  "exEn": "Close the door.",
+  "exAudio": "audio/ex0141.mp3"
  },
  {
   "id": 142,
   "nl": "goed",
   "en": "good / well",
-  "audio": "audio/0142.mp3"
+  "audio": "audio/0142.mp3",
+  "ex": "Goed gedaan!",
+  "exEn": "Well done!",
+  "exAudio": "audio/ex0142.mp3"
  },
  {
   "id": 143,
   "nl": "slecht",
   "en": "bad",
-  "audio": "audio/0143.mp3"
+  "audio": "audio/0143.mp3",
+  "ex": "Het weer is slecht.",
+  "exEn": "The weather is bad.",
+  "exAudio": "audio/ex0143.mp3"
  },
  {
   "id": 144,
   "nl": "groot",
   "en": "big",
-  "audio": "audio/0144.mp3"
+  "audio": "audio/0144.mp3",
+  "ex": "Het huis is groot.",
+  "exEn": "The house is big.",
+  "exAudio": "audio/ex0144.mp3"
  },
  {
   "id": 145,
   "nl": "klein",
   "en": "small",
-  "audio": "audio/0145.mp3"
+  "audio": "audio/0145.mp3",
+  "ex": "De kamer is klein.",
+  "exEn": "The room is small.",
+  "exAudio": "audio/ex0145.mp3"
  },
  {
   "id": 146,
   "nl": "nieuw",
   "en": "new",
-  "audio": "audio/0146.mp3"
+  "audio": "audio/0146.mp3",
+  "ex": "Ik heb een nieuwe fiets.",
+  "exEn": "I have a new bike.",
+  "exAudio": "audio/ex0146.mp3"
  },
  {
   "id": 147,
   "nl": "oud",
   "en": "old",
-  "audio": "audio/0147.mp3"
+  "audio": "audio/0147.mp3",
+  "ex": "Mijn opa is oud.",
+  "exEn": "My grandad is old.",
+  "exAudio": "audio/ex0147.mp3"
  },
  {
   "id": 148,
   "nl": "jong",
   "en": "young",
-  "audio": "audio/0148.mp3"
+  "audio": "audio/0148.mp3",
+  "ex": "Zij is nog jong.",
+  "exEn": "She is still young.",
+  "exAudio": "audio/ex0148.mp3"
  },
  {
   "id": 149,
   "nl": "mooi",
   "en": "beautiful",
-  "audio": "audio/0149.mp3"
+  "audio": "audio/0149.mp3",
+  "ex": "Wat een mooie dag!",
+  "exEn": "What a beautiful day!",
+  "exAudio": "audio/ex0149.mp3"
  },
  {
   "id": 150,
   "nl": "lekker",
   "en": "tasty / nice",
-  "audio": "audio/0150.mp3"
+  "audio": "audio/0150.mp3",
+  "ex": "Het eten is lekker.",
+  "exEn": "The food is tasty.",
+  "exAudio": "audio/ex0150.mp3"
  },
  {
   "id": 151,
   "nl": "leuk",
   "en": "fun / nice",
-  "audio": "audio/0151.mp3"
+  "audio": "audio/0151.mp3",
+  "ex": "Dat is leuk!",
+  "exEn": "That's fun!",
+  "exAudio": "audio/ex0151.mp3"
  },
  {
   "id": 152,
   "nl": "warm",
   "en": "warm",
-  "audio": "audio/0152.mp3"
+  "audio": "audio/0152.mp3",
+  "ex": "Het is warm vandaag.",
+  "exEn": "It is warm today.",
+  "exAudio": "audio/ex0152.mp3"
  },
  {
   "id": 153,
   "nl": "koud",
   "en": "cold",
-  "audio": "audio/0153.mp3"
+  "audio": "audio/0153.mp3",
+  "ex": "Het water is koud.",
+  "exEn": "The water is cold.",
+  "exAudio": "audio/ex0153.mp3"
  },
  {
   "id": 154,
   "nl": "snel",
   "en": "fast",
-  "audio": "audio/0154.mp3"
+  "audio": "audio/0154.mp3",
+  "ex": "De trein is snel.",
+  "exEn": "The train is fast.",
+  "exAudio": "audio/ex0154.mp3"
  },
  {
   "id": 155,
   "nl": "langzaam",
   "en": "slow",
-  "audio": "audio/0155.mp3"
+  "audio": "audio/0155.mp3",
+  "ex": "Spreek langzaam, alsjeblieft.",
+  "exEn": "Speak slowly, please.",
+  "exAudio": "audio/ex0155.mp3"
  },
  {
   "id": 156,
   "nl": "lang",
   "en": "long / tall",
-  "audio": "audio/0156.mp3"
+  "audio": "audio/0156.mp3",
+  "ex": "Het is een lange dag.",
+  "exEn": "It's a long day.",
+  "exAudio": "audio/ex0156.mp3"
  },
  {
   "id": 157,
   "nl": "kort",
   "en": "short",
-  "audio": "audio/0157.mp3"
+  "audio": "audio/0157.mp3",
+  "ex": "De film is kort.",
+  "exEn": "The film is short.",
+  "exAudio": "audio/ex0157.mp3"
  },
  {
   "id": 158,
   "nl": "duur",
   "en": "expensive",
-  "audio": "audio/0158.mp3"
+  "audio": "audio/0158.mp3",
+  "ex": "Amsterdam is duur.",
+  "exEn": "Amsterdam is expensive.",
+  "exAudio": "audio/ex0158.mp3"
  },
  {
   "id": 159,
   "nl": "goedkoop",
   "en": "cheap",
-  "audio": "audio/0159.mp3"
+  "audio": "audio/0159.mp3",
+  "ex": "Dit is goedkoop.",
+  "exEn": "This is cheap.",
+  "exAudio": "audio/ex0159.mp3"
  },
  {
   "id": 160,
   "nl": "makkelijk",
   "en": "easy",
-  "audio": "audio/0160.mp3"
+  "audio": "audio/0160.mp3",
+  "ex": "Nederlands is niet makkelijk.",
+  "exEn": "Dutch is not easy.",
+  "exAudio": "audio/ex0160.mp3"
  },
  {
   "id": 161,
   "nl": "moeilijk",
   "en": "difficult",
-  "audio": "audio/0161.mp3"
+  "audio": "audio/0161.mp3",
+  "ex": "Dat is moeilijk.",
+  "exEn": "That is difficult.",
+  "exAudio": "audio/ex0161.mp3"
  },
  {
   "id": 162,
   "nl": "blij",
   "en": "happy",
-  "audio": "audio/0162.mp3"
+  "audio": "audio/0162.mp3",
+  "ex": "Ik ben blij.",
+  "exEn": "I am happy.",
+  "exAudio": "audio/ex0162.mp3"
  },
  {
   "id": 163,
   "nl": "moe",
   "en": "tired",
-  "audio": "audio/0163.mp3"
+  "audio": "audio/0163.mp3",
+  "ex": "Ik ben moe.",
+  "exEn": "I'm tired.",
+  "exAudio": "audio/ex0163.mp3"
  },
  {
   "id": 164,
   "nl": "ziek",
   "en": "ill",
-  "audio": "audio/0164.mp3"
+  "audio": "audio/0164.mp3",
+  "ex": "Mijn zoon is ziek.",
+  "exEn": "My son is ill.",
+  "exAudio": "audio/ex0164.mp3"
  },
  {
   "id": 165,
   "nl": "druk",
   "en": "busy",
-  "audio": "audio/0165.mp3"
+  "audio": "audio/0165.mp3",
+  "ex": "Het is druk in de stad.",
+  "exEn": "It's busy in the city.",
+  "exAudio": "audio/ex0165.mp3"
  },
  {
   "id": 166,
   "nl": "rustig",
   "en": "calm / quiet",
-  "audio": "audio/0166.mp3"
+  "audio": "audio/0166.mp3",
+  "ex": "Het is rustig hier.",
+  "exEn": "It's quiet here.",
+  "exAudio": "audio/ex0166.mp3"
  },
  {
   "id": 167,
   "nl": "belangrijk",
   "en": "important",
-  "audio": "audio/0167.mp3"
+  "audio": "audio/0167.mp3",
+  "ex": "Dit is belangrijk.",
+  "exEn": "This is important.",
+  "exAudio": "audio/ex0167.mp3"
  },
  {
   "id": 168,
   "nl": "anders",
   "en": "different / otherwise",
-  "audio": "audio/0168.mp3"
+  "audio": "audio/0168.mp3",
+  "ex": "Het is hier anders.",
+  "exEn": "It's different here.",
+  "exAudio": "audio/ex0168.mp3"
  },
  {
   "id": 169,
   "nl": "zelfde",
   "en": "same",
-  "audio": "audio/0169.mp3"
+  "audio": "audio/0169.mp3",
+  "ex": "We hebben dezelfde auto.",
+  "exEn": "We have the same car.",
+  "exAudio": "audio/ex0169.mp3"
  },
  {
   "id": 170,
   "nl": "eerste",
   "en": "first",
-  "audio": "audio/0170.mp3"
+  "audio": "audio/0170.mp3",
+  "ex": "Dit is mijn eerste keer.",
+  "exEn": "This is my first time.",
+  "exAudio": "audio/ex0170.mp3"
  },
  {
   "id": 171,
   "nl": "laatste",
   "en": "last",
-  "audio": "audio/0171.mp3"
+  "audio": "audio/0171.mp3",
+  "ex": "Dit is de laatste trein.",
+  "exEn": "This is the last train.",
+  "exAudio": "audio/ex0171.mp3"
  },
  {
   "id": 172,
   "nl": "hallo",
   "en": "hello",
-  "audio": "audio/0172.mp3"
+  "audio": "audio/0172.mp3",
+  "ex": "Hallo, hoe gaat het?",
+  "exEn": "Hello, how are you?",
+  "exAudio": "audio/ex0172.mp3"
  },
  {
   "id": 173,
   "nl": "hoi",
   "en": "hi",
-  "audio": "audio/0173.mp3"
+  "audio": "audio/0173.mp3",
+  "ex": "Hoi, ik ben Joe.",
+  "exEn": "Hi, I'm Joe.",
+  "exAudio": "audio/ex0173.mp3"
  },
  {
   "id": 174,
   "nl": "dag",
   "en": "bye / day",
-  "audio": "audio/0174.mp3"
+  "audio": "audio/0174.mp3",
+  "ex": "Dag, tot morgen!",
+  "exEn": "Bye, see you tomorrow!",
+  "exAudio": "audio/ex0174.mp3"
  },
  {
   "id": 175,
   "nl": "doei",
   "en": "bye (informal)",
-  "audio": "audio/0175.mp3"
+  "audio": "audio/0175.mp3",
+  "ex": "Doei, tot straks!",
+  "exEn": "Bye, see you later!",
+  "exAudio": "audio/ex0175.mp3"
  },
  {
   "id": 176,
   "nl": "goedemorgen",
   "en": "good morning",
-  "audio": "audio/0176.mp3"
+  "audio": "audio/0176.mp3",
+  "ex": "Goedemorgen, hoe gaat het?",
+  "exEn": "Good morning, how are you?",
+  "exAudio": "audio/ex0176.mp3"
  },
  {
   "id": 177,
   "nl": "goedemiddag",
   "en": "good afternoon",
-  "audio": "audio/0177.mp3"
+  "audio": "audio/0177.mp3",
+  "ex": "Goedemiddag, mevrouw.",
+  "exEn": "Good afternoon, madam.",
+  "exAudio": "audio/ex0177.mp3"
  },
  {
   "id": 178,
   "nl": "goedenavond",
   "en": "good evening",
-  "audio": "audio/0178.mp3"
+  "audio": "audio/0178.mp3",
+  "ex": "Goedenavond, allemaal.",
+  "exEn": "Good evening, everyone.",
+  "exAudio": "audio/ex0178.mp3"
  },
  {
   "id": 179,
   "nl": "welterusten",
   "en": "good night (sleep well)",
-  "audio": "audio/0179.mp3"
+  "audio": "audio/0179.mp3",
+  "ex": "Welterusten, slaap lekker.",
+  "exEn": "Good night, sleep well.",
+  "exAudio": "audio/ex0179.mp3"
  },
  {
   "id": 180,
   "nl": "dank je wel",
   "en": "thank you (informal)",
-  "audio": "audio/0180.mp3"
+  "audio": "audio/0180.mp3",
+  "ex": "Dank je wel voor je hulp.",
+  "exEn": "Thank you for your help.",
+  "exAudio": "audio/ex0180.mp3"
  },
  {
   "id": 181,
   "nl": "dank u wel",
   "en": "thank you (formal)",
-  "audio": "audio/0181.mp3"
+  "audio": "audio/0181.mp3",
+  "ex": "Dank u wel, meneer.",
+  "exEn": "Thank you, sir.",
+  "exAudio": "audio/ex0181.mp3"
  },
  {
   "id": 182,
   "nl": "alsjeblieft",
   "en": "please / here you go (informal)",
-  "audio": "audio/0182.mp3"
+  "audio": "audio/0182.mp3",
+  "ex": "Een koffie, alsjeblieft.",
+  "exEn": "A coffee, please.",
+  "exAudio": "audio/ex0182.mp3"
  },
  {
   "id": 183,
   "nl": "alstublieft",
   "en": "please / here you go (formal)",
-  "audio": "audio/0183.mp3"
+  "audio": "audio/0183.mp3",
+  "ex": "Twee bier, alstublieft.",
+  "exEn": "Two beers, please.",
+  "exAudio": "audio/ex0183.mp3"
  },
  {
   "id": 184,
   "nl": "graag gedaan",
   "en": "you're welcome",
-  "audio": "audio/0184.mp3"
+  "audio": "audio/0184.mp3",
+  "ex": "Graag gedaan!",
+  "exEn": "You're welcome!",
+  "exAudio": "audio/ex0184.mp3"
  },
  {
   "id": 185,
   "nl": "sorry",
   "en": "sorry",
-  "audio": "audio/0185.mp3"
+  "audio": "audio/0185.mp3",
+  "ex": "Sorry, ik ben te laat.",
+  "exEn": "Sorry, I'm late.",
+  "exAudio": "audio/ex0185.mp3"
  },
  {
   "id": 186,
   "nl": "pardon",
   "en": "excuse me",
-  "audio": "audio/0186.mp3"
+  "audio": "audio/0186.mp3",
+  "ex": "Pardon, waar is het toilet?",
+  "exEn": "Excuse me, where is the toilet?",
+  "exAudio": "audio/ex0186.mp3"
  },
  {
   "id": 187,
   "nl": "hoe gaat het?",
   "en": "how are you?",
-  "audio": "audio/0187.mp3"
+  "audio": "audio/0187.mp3",
+  "ex": "Hoe gaat het met je?",
+  "exEn": "How are you doing?",
+  "exAudio": "audio/ex0187.mp3"
  },
  {
   "id": 188,
   "nl": "het gaat goed",
   "en": "I'm fine",
-  "audio": "audio/0188.mp3"
+  "audio": "audio/0188.mp3",
+  "ex": "Het gaat goed, dank je.",
+  "exEn": "I'm fine, thanks.",
+  "exAudio": "audio/ex0188.mp3"
  },
  {
   "id": 189,
   "nl": "tot ziens",
   "en": "see you / goodbye",
-  "audio": "audio/0189.mp3"
+  "audio": "audio/0189.mp3",
+  "ex": "Tot ziens, en bedankt!",
+  "exEn": "Goodbye, and thanks!",
+  "exAudio": "audio/ex0189.mp3"
  },
  {
   "id": 190,
   "nl": "tot morgen",
   "en": "see you tomorrow",
-  "audio": "audio/0190.mp3"
+  "audio": "audio/0190.mp3",
+  "ex": "Tot morgen, slaap lekker.",
+  "exEn": "See you tomorrow, sleep well.",
+  "exAudio": "audio/ex0190.mp3"
  },
  {
   "id": 191,
   "nl": "ik begrijp het niet",
   "en": "I don't understand",
-  "audio": "audio/0191.mp3"
+  "audio": "audio/0191.mp3",
+  "ex": "Sorry, ik begrijp het niet.",
+  "exEn": "Sorry, I don't understand.",
+  "exAudio": "audio/ex0191.mp3"
  },
  {
   "id": 192,
   "nl": "spreekt u Engels?",
   "en": "do you speak English?",
-  "audio": "audio/0192.mp3"
+  "audio": "audio/0192.mp3",
+  "ex": "Spreekt u Engels? Ik spreek weinig Nederlands.",
+  "exEn": "Do you speak English? I speak little Dutch.",
+  "exAudio": "audio/ex0192.mp3"
  },
  {
   "id": 193,
   "nl": "ik heet ...",
   "en": "my name is ...",
-  "audio": "audio/0193.mp3"
+  "audio": "audio/0193.mp3",
+  "ex": "Hallo, ik heet Joe.",
+  "exEn": "Hello, my name is Joe.",
+  "exAudio": "audio/ex0193.mp3"
  },
  {
   "id": 194,
   "nl": "wat kost het?",
   "en": "how much is it?",
-  "audio": "audio/0194.mp3"
+  "audio": "audio/0194.mp3",
+  "ex": "Wat kost het brood?",
+  "exEn": "How much is the bread?",
+  "exAudio": "audio/ex0194.mp3"
  },
  {
   "id": 195,
   "nl": "de rekening, alstublieft",
   "en": "the bill, please",
-  "audio": "audio/0195.mp3"
+  "audio": "audio/0195.mp3",
+  "ex": "De rekening, alstublieft.",
+  "exEn": "The bill, please.",
+  "exAudio": "audio/ex0195.mp3"
  },
  {
   "id": 196,
   "nl": "proost",
   "en": "cheers",
-  "audio": "audio/0196.mp3"
+  "audio": "audio/0196.mp3",
+  "ex": "Proost! Op je gezondheid!",
+  "exEn": "Cheers! To your health!",
+  "exAudio": "audio/ex0196.mp3"
  },
  {
   "id": 197,
   "nl": "gefeliciteerd",
   "en": "congratulations",
-  "audio": "audio/0197.mp3"
+  "audio": "audio/0197.mp3",
+  "ex": "Gefeliciteerd met je verjaardag!",
+  "exEn": "Happy birthday!",
+  "exAudio": "audio/ex0197.mp3"
  },
  {
   "id": 198,
   "nl": "gecondoleerd",
   "en": "my condolences",
-  "audio": "audio/0198.mp3"
+  "audio": "audio/0198.mp3",
+  "ex": "Gecondoleerd met je vader.",
+  "exEn": "My condolences on your father.",
+  "exAudio": "audio/ex0198.mp3"
  },
  {
   "id": 199,
   "nl": "nul",
   "en": "zero",
-  "audio": "audio/0199.mp3"
+  "audio": "audio/0199.mp3",
+  "ex": "Het is nul graden.",
+  "exEn": "It is zero degrees.",
+  "exAudio": "audio/ex0199.mp3"
  },
  {
   "id": 200,
   "nl": "één",
   "en": "one",
-  "audio": "audio/0200.mp3"
+  "audio": "audio/0200.mp3",
+  "ex": "Ik heb één broer.",
+  "exEn": "I have one brother.",
+  "exAudio": "audio/ex0200.mp3"
  },
  {
   "id": 201,
   "nl": "twee",
   "en": "two",
-  "audio": "audio/0201.mp3"
+  "audio": "audio/0201.mp3",
+  "ex": "Ik heb twee kinderen.",
+  "exEn": "I have two children.",
+  "exAudio": "audio/ex0201.mp3"
  },
  {
   "id": 202,
   "nl": "drie",
   "en": "three",
-  "audio": "audio/0202.mp3"
+  "audio": "audio/0202.mp3",
+  "ex": "Drie koffie, alsjeblieft.",
+  "exEn": "Three coffees, please.",
+  "exAudio": "audio/ex0202.mp3"
  },
  {
   "id": 203,
   "nl": "vier",
   "en": "four",
-  "audio": "audio/0203.mp3"
+  "audio": "audio/0203.mp3",
+  "ex": "Het is vier uur.",
+  "exEn": "It is four o'clock.",
+  "exAudio": "audio/ex0203.mp3"
  },
  {
   "id": 204,
   "nl": "vijf",
   "en": "five",
-  "audio": "audio/0204.mp3"
+  "audio": "audio/0204.mp3",
+  "ex": "Ik werk vijf dagen.",
+  "exEn": "I work five days.",
+  "exAudio": "audio/ex0204.mp3"
  },
  {
   "id": 205,
   "nl": "zes",
   "en": "six",
-  "audio": "audio/0205.mp3"
+  "audio": "audio/0205.mp3",
+  "ex": "Ik sta om zes uur op.",
+  "exEn": "I get up at six o'clock.",
+  "exAudio": "audio/ex0205.mp3"
  },
  {
   "id": 206,
   "nl": "zeven",
   "en": "seven",
-  "audio": "audio/0206.mp3"
+  "audio": "audio/0206.mp3",
+  "ex": "Een week heeft zeven dagen.",
+  "exEn": "A week has seven days.",
+  "exAudio": "audio/ex0206.mp3"
  },
  {
   "id": 207,
   "nl": "acht",
   "en": "eight",
-  "audio": "audio/0207.mp3"
+  "audio": "audio/0207.mp3",
+  "ex": "De winkel gaat om acht uur open.",
+  "exEn": "The shop opens at eight o'clock.",
+  "exAudio": "audio/ex0207.mp3"
  },
  {
   "id": 208,
   "nl": "negen",
   "en": "nine",
-  "audio": "audio/0208.mp3"
+  "audio": "audio/0208.mp3",
+  "ex": "De les begint om negen uur.",
+  "exEn": "The lesson starts at nine o'clock.",
+  "exAudio": "audio/ex0208.mp3"
  },
  {
   "id": 209,
   "nl": "tien",
   "en": "ten",
-  "audio": "audio/0209.mp3"
+  "audio": "audio/0209.mp3",
+  "ex": "Ik blijf tien dagen.",
+  "exEn": "I'm staying ten days.",
+  "exAudio": "audio/ex0209.mp3"
  },
  {
   "id": 210,
   "nl": "twintig",
   "en": "twenty",
-  "audio": "audio/0210.mp3"
+  "audio": "audio/0210.mp3",
+  "ex": "Ik ben twintig minuten te laat.",
+  "exEn": "I'm twenty minutes late.",
+  "exAudio": "audio/ex0210.mp3"
  },
  {
   "id": 211,
   "nl": "honderd",
   "en": "hundred",
-  "audio": "audio/0211.mp3"
+  "audio": "audio/0211.mp3",
+  "ex": "Het kost honderd euro.",
+  "exEn": "It costs a hundred euros.",
+  "exAudio": "audio/ex0211.mp3"
  },
  {
   "id": 212,
   "nl": "duizend",
   "en": "thousand",
-  "audio": "audio/0212.mp3"
+  "audio": "audio/0212.mp3",
+  "ex": "Duizend dank!",
+  "exEn": "A thousand thanks!",
+  "exAudio": "audio/ex0212.mp3"
  },
  {
   "id": 213,
   "nl": "maandag",
   "en": "Monday",
-  "audio": "audio/0213.mp3"
+  "audio": "audio/0213.mp3",
+  "ex": "Op maandag werk ik.",
+  "exEn": "On Monday I work.",
+  "exAudio": "audio/ex0213.mp3"
  },
  {
   "id": 214,
   "nl": "dinsdag",
   "en": "Tuesday",
-  "audio": "audio/0214.mp3"
+  "audio": "audio/0214.mp3",
+  "ex": "Dinsdag ga ik naar de dokter.",
+  "exEn": "On Tuesday I'm going to the doctor.",
+  "exAudio": "audio/ex0214.mp3"
  },
  {
   "id": 215,
   "nl": "woensdag",
   "en": "Wednesday",
-  "audio": "audio/0215.mp3"
+  "audio": "audio/0215.mp3",
+  "ex": "Woensdag is de markt.",
+  "exEn": "Wednesday is market day.",
+  "exAudio": "audio/ex0215.mp3"
  },
  {
   "id": 216,
   "nl": "donderdag",
   "en": "Thursday",
-  "audio": "audio/0216.mp3"
+  "audio": "audio/0216.mp3",
+  "ex": "Ik vlieg op donderdag.",
+  "exEn": "I'm flying on Thursday.",
+  "exAudio": "audio/ex0216.mp3"
  },
  {
   "id": 217,
   "nl": "vrijdag",
   "en": "Friday",
-  "audio": "audio/0217.mp3"
+  "audio": "audio/0217.mp3",
+  "ex": "Vrijdag eten we samen.",
+  "exEn": "On Friday we eat together.",
+  "exAudio": "audio/ex0217.mp3"
  },
  {
   "id": 218,
   "nl": "zaterdag",
   "en": "Saturday",
-  "audio": "audio/0218.mp3"
+  "audio": "audio/0218.mp3",
+  "ex": "Zaterdag slaap ik lang.",
+  "exEn": "On Saturday I sleep in.",
+  "exAudio": "audio/ex0218.mp3"
  },
  {
   "id": 219,
   "nl": "zondag",
   "en": "Sunday",
-  "audio": "audio/0219.mp3"
+  "audio": "audio/0219.mp3",
+  "ex": "Zondag is een rustige dag.",
+  "exEn": "Sunday is a quiet day.",
+  "exAudio": "audio/ex0219.mp3"
  },
  {
   "id": 220,
   "nl": "de man",
   "en": "the man",
-  "audio": "audio/0220.mp3"
+  "audio": "audio/0220.mp3",
+  "ex": "De man leest de krant.",
+  "exEn": "The man is reading the newspaper.",
+  "exAudio": "audio/ex0220.mp3"
  },
  {
   "id": 221,
   "nl": "de vrouw",
   "en": "the woman / wife",
-  "audio": "audio/0221.mp3"
+  "audio": "audio/0221.mp3",
+  "ex": "Mijn vrouw is Nederlands.",
+  "exEn": "My wife is Dutch.",
+  "exAudio": "audio/ex0221.mp3"
  },
  {
   "id": 222,
   "nl": "het kind",
   "en": "the child",
-  "audio": "audio/0222.mp3"
+  "audio": "audio/0222.mp3",
+  "ex": "Het kind speelt.",
+  "exEn": "The child is playing.",
+  "exAudio": "audio/ex0222.mp3"
  },
  {
   "id": 223,
   "nl": "de kinderen",
   "en": "the children",
-  "audio": "audio/0223.mp3"
+  "audio": "audio/0223.mp3",
+  "ex": "De kinderen slapen.",
+  "exEn": "The children are sleeping.",
+  "exAudio": "audio/ex0223.mp3"
  },
  {
   "id": 224,
   "nl": "de vader",
   "en": "the father",
-  "audio": "audio/0224.mp3"
+  "audio": "audio/0224.mp3",
+  "ex": "Mijn vader werkt veel.",
+  "exEn": "My father works a lot.",
+  "exAudio": "audio/ex0224.mp3"
  },
  {
   "id": 225,
   "nl": "de moeder",
   "en": "the mother",
-  "audio": "audio/0225.mp3"
+  "audio": "audio/0225.mp3",
+  "ex": "Mijn moeder kookt.",
+  "exEn": "My mother is cooking.",
+  "exAudio": "audio/ex0225.mp3"
  },
  {
   "id": 226,
   "nl": "de zoon",
   "en": "the son",
-  "audio": "audio/0226.mp3"
+  "audio": "audio/0226.mp3",
+  "ex": "Mijn zoon is tien jaar.",
+  "exEn": "My son is ten years old.",
+  "exAudio": "audio/ex0226.mp3"
  },
  {
   "id": 227,
   "nl": "de dochter",
   "en": "the daughter",
-  "audio": "audio/0227.mp3"
+  "audio": "audio/0227.mp3",
+  "ex": "Onze dochter is klein.",
+  "exEn": "Our daughter is little.",
+  "exAudio": "audio/ex0227.mp3"
  },
  {
   "id": 228,
   "nl": "de broer",
   "en": "the brother",
-  "audio": "audio/0228.mp3"
+  "audio": "audio/0228.mp3",
+  "ex": "Mijn broer woont in Londen.",
+  "exEn": "My brother lives in London.",
+  "exAudio": "audio/ex0228.mp3"
  },
  {
   "id": 229,
   "nl": "de zus",
   "en": "the sister",
-  "audio": "audio/0229.mp3"
+  "audio": "audio/0229.mp3",
+  "ex": "Mijn zus heeft een kat.",
+  "exEn": "My sister has a cat.",
+  "exAudio": "audio/ex0229.mp3"
  },
  {
   "id": 230,
   "nl": "de opa",
   "en": "the grandad",
-  "audio": "audio/0230.mp3"
+  "audio": "audio/0230.mp3",
+  "ex": "Opa vertelt een verhaal.",
+  "exEn": "Grandad is telling a story.",
+  "exAudio": "audio/ex0230.mp3"
  },
  {
   "id": 231,
   "nl": "de oma",
   "en": "the grandma",
-  "audio": "audio/0231.mp3"
+  "audio": "audio/0231.mp3",
+  "ex": "Oma bakt een taart.",
+  "exEn": "Grandma is baking a cake.",
+  "exAudio": "audio/ex0231.mp3"
  },
  {
   "id": 232,
   "nl": "de familie",
   "en": "the (extended) family",
-  "audio": "audio/0232.mp3"
+  "audio": "audio/0232.mp3",
+  "ex": "De familie komt op bezoek.",
+  "exEn": "The family is coming to visit.",
+  "exAudio": "audio/ex0232.mp3"
  },
  {
   "id": 233,
   "nl": "het gezin",
   "en": "the family (household)",
-  "audio": "audio/0233.mp3"
+  "audio": "audio/0233.mp3",
+  "ex": "Ons gezin is klein.",
+  "exEn": "Our family is small.",
+  "exAudio": "audio/ex0233.mp3"
  },
  {
   "id": 234,
   "nl": "de vriend",
   "en": "the friend (m) / boyfriend",
-  "audio": "audio/0234.mp3"
+  "audio": "audio/0234.mp3",
+  "ex": "Hij is mijn beste vriend.",
+  "exEn": "He is my best friend.",
+  "exAudio": "audio/ex0234.mp3"
  },
  {
   "id": 235,
   "nl": "de vriendin",
   "en": "the friend (f) / girlfriend",
-  "audio": "audio/0235.mp3"
+  "audio": "audio/0235.mp3",
+  "ex": "Mijn vriendin komt ook.",
+  "exEn": "My girlfriend is coming too.",
+  "exAudio": "audio/ex0235.mp3"
  },
  {
   "id": 236,
   "nl": "de mensen",
   "en": "the people",
-  "audio": "audio/0236.mp3"
+  "audio": "audio/0236.mp3",
+  "ex": "De mensen zijn aardig.",
+  "exEn": "The people are friendly.",
+  "exAudio": "audio/ex0236.mp3"
  },
  {
   "id": 237,
   "nl": "de schoonvader",
   "en": "the father-in-law",
-  "audio": "audio/0237.mp3"
+  "audio": "audio/0237.mp3",
+  "ex": "Mijn schoonvader woont in Nederland.",
+  "exEn": "My father-in-law lives in the Netherlands.",
+  "exAudio": "audio/ex0237.mp3"
  },
  {
   "id": 238,
   "nl": "de schoonmoeder",
   "en": "the mother-in-law",
-  "audio": "audio/0238.mp3"
+  "audio": "audio/0238.mp3",
+  "ex": "Mijn schoonmoeder kookt lekker.",
+  "exEn": "My mother-in-law cooks well.",
+  "exAudio": "audio/ex0238.mp3"
  },
  {
   "id": 239,
   "nl": "het huis",
   "en": "the house",
-  "audio": "audio/0239.mp3"
+  "audio": "audio/0239.mp3",
+  "ex": "Het huis heeft een tuin.",
+  "exEn": "The house has a garden.",
+  "exAudio": "audio/ex0239.mp3"
  },
  {
   "id": 240,
   "nl": "de kamer",
   "en": "the room",
-  "audio": "audio/0240.mp3"
+  "audio": "audio/0240.mp3",
+  "ex": "Mijn kamer is klein.",
+  "exEn": "My room is small.",
+  "exAudio": "audio/ex0240.mp3"
  },
  {
   "id": 241,
   "nl": "de keuken",
   "en": "the kitchen",
-  "audio": "audio/0241.mp3"
+  "audio": "audio/0241.mp3",
+  "ex": "De keuken is schoon.",
+  "exEn": "The kitchen is clean.",
+  "exAudio": "audio/ex0241.mp3"
  },
  {
   "id": 242,
   "nl": "de deur",
   "en": "the door",
-  "audio": "audio/0242.mp3"
+  "audio": "audio/0242.mp3",
+  "ex": "Doe de deur open.",
+  "exEn": "Open the door.",
+  "exAudio": "audio/ex0242.mp3"
  },
  {
   "id": 243,
   "nl": "het raam",
   "en": "the window",
-  "audio": "audio/0243.mp3"
+  "audio": "audio/0243.mp3",
+  "ex": "Het raam is open.",
+  "exEn": "The window is open.",
+  "exAudio": "audio/ex0243.mp3"
  },
  {
   "id": 244,
   "nl": "de tafel",
   "en": "the table",
-  "audio": "audio/0244.mp3"
+  "audio": "audio/0244.mp3",
+  "ex": "De tafel is groot.",
+  "exEn": "The table is big.",
+  "exAudio": "audio/ex0244.mp3"
  },
  {
   "id": 245,
   "nl": "de stoel",
   "en": "the chair",
-  "audio": "audio/0245.mp3"
+  "audio": "audio/0245.mp3",
+  "ex": "Pak een stoel.",
+  "exEn": "Grab a chair.",
+  "exAudio": "audio/ex0245.mp3"
  },
  {
   "id": 246,
   "nl": "het bed",
   "en": "the bed",
-  "audio": "audio/0246.mp3"
+  "audio": "audio/0246.mp3",
+  "ex": "Het bed is zacht.",
+  "exEn": "The bed is soft.",
+  "exAudio": "audio/ex0246.mp3"
  },
  {
   "id": 247,
   "nl": "de auto",
   "en": "the car",
-  "audio": "audio/0247.mp3"
+  "audio": "audio/0247.mp3",
+  "ex": "De auto is nieuw.",
+  "exEn": "The car is new.",
+  "exAudio": "audio/ex0247.mp3"
  },
  {
   "id": 248,
   "nl": "de fiets",
   "en": "the bicycle",
-  "audio": "audio/0248.mp3"
+  "audio": "audio/0248.mp3",
+  "ex": "Ik ga met de fiets.",
+  "exEn": "I'm going by bike.",
+  "exAudio": "audio/ex0248.mp3"
  },
  {
   "id": 249,
   "nl": "de trein",
   "en": "the train",
-  "audio": "audio/0249.mp3"
+  "audio": "audio/0249.mp3",
+  "ex": "De trein is te laat.",
+  "exEn": "The train is late.",
+  "exAudio": "audio/ex0249.mp3"
  },
  {
   "id": 250,
   "nl": "de bus",
   "en": "the bus",
-  "audio": "audio/0250.mp3"
+  "audio": "audio/0250.mp3",
+  "ex": "De bus komt zo.",
+  "exEn": "The bus is coming soon.",
+  "exAudio": "audio/ex0250.mp3"
  },
  {
   "id": 251,
   "nl": "het station",
   "en": "the station",
-  "audio": "audio/0251.mp3"
+  "audio": "audio/0251.mp3",
+  "ex": "Waar is het station?",
+  "exEn": "Where is the station?",
+  "exAudio": "audio/ex0251.mp3"
  },
  {
   "id": 252,
   "nl": "de straat",
   "en": "the street",
-  "audio": "audio/0252.mp3"
+  "audio": "audio/0252.mp3",
+  "ex": "De straat is lang.",
+  "exEn": "The street is long.",
+  "exAudio": "audio/ex0252.mp3"
  },
  {
   "id": 253,
   "nl": "de stad",
   "en": "the city / town",
-  "audio": "audio/0253.mp3"
+  "audio": "audio/0253.mp3",
+  "ex": "Utrecht is een mooie stad.",
+  "exEn": "Utrecht is a beautiful city.",
+  "exAudio": "audio/ex0253.mp3"
  },
  {
   "id": 254,
   "nl": "het dorp",
   "en": "the village",
-  "audio": "audio/0254.mp3"
+  "audio": "audio/0254.mp3",
+  "ex": "Het dorp is rustig.",
+  "exEn": "The village is quiet.",
+  "exAudio": "audio/ex0254.mp3"
  },
  {
   "id": 255,
   "nl": "het land",
   "en": "the country",
-  "audio": "audio/0255.mp3"
+  "audio": "audio/0255.mp3",
+  "ex": "Nederland is een klein land.",
+  "exEn": "The Netherlands is a small country.",
+  "exAudio": "audio/ex0255.mp3"
  },
  {
   "id": 256,
   "nl": "de winkel",
   "en": "the shop",
-  "audio": "audio/0256.mp3"
+  "audio": "audio/0256.mp3",
+  "ex": "De winkel is dicht.",
+  "exEn": "The shop is closed.",
+  "exAudio": "audio/ex0256.mp3"
  },
  {
   "id": 257,
   "nl": "de supermarkt",
   "en": "the supermarket",
-  "audio": "audio/0257.mp3"
+  "audio": "audio/0257.mp3",
+  "ex": "De supermarkt is om de hoek.",
+  "exEn": "The supermarket is around the corner.",
+  "exAudio": "audio/ex0257.mp3"
  },
  {
   "id": 258,
   "nl": "het restaurant",
   "en": "the restaurant",
-  "audio": "audio/0258.mp3"
+  "audio": "audio/0258.mp3",
+  "ex": "Het restaurant is vol.",
+  "exEn": "The restaurant is full.",
+  "exAudio": "audio/ex0258.mp3"
  },
  {
   "id": 259,
   "nl": "het café",
   "en": "the café / pub",
-  "audio": "audio/0259.mp3"
+  "audio": "audio/0259.mp3",
+  "ex": "We gaan naar het café.",
+  "exEn": "We're going to the café.",
+  "exAudio": "audio/ex0259.mp3"
  },
  {
   "id": 260,
   "nl": "het ziekenhuis",
   "en": "the hospital",
-  "audio": "audio/0260.mp3"
+  "audio": "audio/0260.mp3",
+  "ex": "Hij ligt in het ziekenhuis.",
+  "exEn": "He is in hospital.",
+  "exAudio": "audio/ex0260.mp3"
  },
  {
   "id": 261,
   "nl": "de school",
   "en": "the school",
-  "audio": "audio/0261.mp3"
+  "audio": "audio/0261.mp3",
+  "ex": "De school begint om half negen.",
+  "exEn": "School starts at half past eight.",
+  "exAudio": "audio/ex0261.mp3"
  },
  {
   "id": 262,
   "nl": "het werk",
   "en": "the work",
-  "audio": "audio/0262.mp3"
+  "audio": "audio/0262.mp3",
+  "ex": "Het werk is klaar.",
+  "exEn": "The work is done.",
+  "exAudio": "audio/ex0262.mp3"
  },
  {
   "id": 263,
   "nl": "het geld",
   "en": "the money",
-  "audio": "audio/0263.mp3"
+  "audio": "audio/0263.mp3",
+  "ex": "Ik heb geen geld.",
+  "exEn": "I have no money.",
+  "exAudio": "audio/ex0263.mp3"
  },
  {
   "id": 264,
   "nl": "de tijd",
   "en": "the time",
-  "audio": "audio/0264.mp3"
+  "audio": "audio/0264.mp3",
+  "ex": "Ik heb geen tijd.",
+  "exEn": "I don't have time.",
+  "exAudio": "audio/ex0264.mp3"
  },
  {
   "id": 265,
   "nl": "het uur",
   "en": "the hour",
-  "audio": "audio/0265.mp3"
+  "audio": "audio/0265.mp3",
+  "ex": "Het duurt een uur.",
+  "exEn": "It takes an hour.",
+  "exAudio": "audio/ex0265.mp3"
  },
  {
   "id": 266,
   "nl": "de minuut",
   "en": "the minute",
-  "audio": "audio/0266.mp3"
+  "audio": "audio/0266.mp3",
+  "ex": "Wacht een minuut.",
+  "exEn": "Wait a minute.",
+  "exAudio": "audio/ex0266.mp3"
  },
  {
   "id": 267,
   "nl": "de week",
   "en": "the week",
-  "audio": "audio/0267.mp3"
+  "audio": "audio/0267.mp3",
+  "ex": "Ik blijf een week.",
+  "exEn": "I'm staying a week.",
+  "exAudio": "audio/ex0267.mp3"
  },
  {
   "id": 268,
   "nl": "de maand",
   "en": "the month",
-  "audio": "audio/0268.mp3"
+  "audio": "audio/0268.mp3",
+  "ex": "Volgende maand ga ik op vakantie.",
+  "exEn": "Next month I'm going on holiday.",
+  "exAudio": "audio/ex0268.mp3"
  },
  {
   "id": 269,
   "nl": "het jaar",
   "en": "the year",
-  "audio": "audio/0269.mp3"
+  "audio": "audio/0269.mp3",
+  "ex": "Het jaar is bijna voorbij.",
+  "exEn": "The year is almost over.",
+  "exAudio": "audio/ex0269.mp3"
  },
  {
   "id": 270,
   "nl": "de ochtend",
   "en": "the morning",
-  "audio": "audio/0270.mp3"
+  "audio": "audio/0270.mp3",
+  "ex": "In de ochtend drink ik koffie.",
+  "exEn": "In the morning I drink coffee.",
+  "exAudio": "audio/ex0270.mp3"
  },
  {
   "id": 271,
   "nl": "de middag",
   "en": "the afternoon",
-  "audio": "audio/0271.mp3"
+  "audio": "audio/0271.mp3",
+  "ex": "Vanmiddag ga ik wandelen.",
+  "exEn": "This afternoon I'm going for a walk.",
+  "exAudio": "audio/ex0271.mp3"
  },
  {
   "id": 272,
   "nl": "de avond",
   "en": "the evening",
-  "audio": "audio/0272.mp3"
+  "audio": "audio/0272.mp3",
+  "ex": "Wat doe je vanavond?",
+  "exEn": "What are you doing this evening?",
+  "exAudio": "audio/ex0272.mp3"
  },
  {
   "id": 273,
   "nl": "de nacht",
   "en": "the night",
-  "audio": "audio/0273.mp3"
+  "audio": "audio/0273.mp3",
+  "ex": "De nacht is koud.",
+  "exEn": "The night is cold.",
+  "exAudio": "audio/ex0273.mp3"
  },
  {
   "id": 274,
   "nl": "het weer",
   "en": "the weather",
-  "audio": "audio/0274.mp3"
+  "audio": "audio/0274.mp3",
+  "ex": "Het weer is mooi vandaag.",
+  "exEn": "The weather is nice today.",
+  "exAudio": "audio/ex0274.mp3"
  },
  {
   "id": 275,
   "nl": "de zon",
   "en": "the sun",
-  "audio": "audio/0275.mp3"
+  "audio": "audio/0275.mp3",
+  "ex": "De zon schijnt.",
+  "exEn": "The sun is shining.",
+  "exAudio": "audio/ex0275.mp3"
  },
  {
   "id": 276,
   "nl": "de regen",
   "en": "the rain",
-  "audio": "audio/0276.mp3"
+  "audio": "audio/0276.mp3",
+  "ex": "Er komt regen.",
+  "exEn": "Rain is coming.",
+  "exAudio": "audio/ex0276.mp3"
  },
  {
   "id": 277,
   "nl": "de wind",
   "en": "the wind",
-  "audio": "audio/0277.mp3"
+  "audio": "audio/0277.mp3",
+  "ex": "De wind is sterk.",
+  "exEn": "The wind is strong.",
+  "exAudio": "audio/ex0277.mp3"
  },
  {
   "id": 278,
   "nl": "het water",
   "en": "the water",
-  "audio": "audio/0278.mp3"
+  "audio": "audio/0278.mp3",
+  "ex": "Mag ik een glas water?",
+  "exEn": "May I have a glass of water?",
+  "exAudio": "audio/ex0278.mp3"
  },
  {
   "id": 279,
   "nl": "de koffie",
   "en": "the coffee",
-  "audio": "audio/0279.mp3"
+  "audio": "audio/0279.mp3",
+  "ex": "De koffie is heet.",
+  "exEn": "The coffee is hot.",
+  "exAudio": "audio/ex0279.mp3"
  },
  {
   "id": 280,
   "nl": "de thee",
   "en": "the tea",
-  "audio": "audio/0280.mp3"
+  "audio": "audio/0280.mp3",
+  "ex": "Wil je thee?",
+  "exEn": "Would you like tea?",
+  "exAudio": "audio/ex0280.mp3"
  },
  {
   "id": 281,
   "nl": "het bier",
   "en": "the beer",
-  "audio": "audio/0281.mp3"
+  "audio": "audio/0281.mp3",
+  "ex": "Het bier is koud.",
+  "exEn": "The beer is cold.",
+  "exAudio": "audio/ex0281.mp3"
  },
  {
   "id": 282,
   "nl": "de wijn",
   "en": "the wine",
-  "audio": "audio/0282.mp3"
+  "audio": "audio/0282.mp3",
+  "ex": "Rode of witte wijn?",
+  "exEn": "Red or white wine?",
+  "exAudio": "audio/ex0282.mp3"
  },
  {
   "id": 283,
   "nl": "de melk",
   "en": "the milk",
-  "audio": "audio/0283.mp3"
+  "audio": "audio/0283.mp3",
+  "ex": "De melk is op.",
+  "exEn": "The milk has run out.",
+  "exAudio": "audio/ex0283.mp3"
  },
  {
   "id": 284,
   "nl": "het brood",
   "en": "the bread",
-  "audio": "audio/0284.mp3"
+  "audio": "audio/0284.mp3",
+  "ex": "Het brood is vers.",
+  "exEn": "The bread is fresh.",
+  "exAudio": "audio/ex0284.mp3"
  },
  {
   "id": 285,
   "nl": "de kaas",
   "en": "the cheese",
-  "audio": "audio/0285.mp3"
+  "audio": "audio/0285.mp3",
+  "ex": "Nederlandse kaas is lekker.",
+  "exEn": "Dutch cheese is tasty.",
+  "exAudio": "audio/ex0285.mp3"
  },
  {
   "id": 286,
   "nl": "het vlees",
   "en": "the meat",
-  "audio": "audio/0286.mp3"
+  "audio": "audio/0286.mp3",
+  "ex": "Ik eet geen vlees.",
+  "exEn": "I don't eat meat.",
+  "exAudio": "audio/ex0286.mp3"
  },
  {
   "id": 287,
   "nl": "de vis",
   "en": "the fish",
-  "audio": "audio/0287.mp3"
+  "audio": "audio/0287.mp3",
+  "ex": "De vis is vers.",
+  "exEn": "The fish is fresh.",
+  "exAudio": "audio/ex0287.mp3"
  },
  {
   "id": 288,
   "nl": "de groente",
   "en": "the vegetables",
-  "audio": "audio/0288.mp3"
+  "audio": "audio/0288.mp3",
+  "ex": "Eet je groente!",
+  "exEn": "Eat your vegetables!",
+  "exAudio": "audio/ex0288.mp3"
  },
  {
   "id": 289,
   "nl": "het fruit",
   "en": "the fruit",
-  "audio": "audio/0289.mp3"
+  "audio": "audio/0289.mp3",
+  "ex": "Fruit is gezond.",
+  "exEn": "Fruit is healthy.",
+  "exAudio": "audio/ex0289.mp3"
  },
  {
   "id": 290,
   "nl": "de appel",
   "en": "the apple",
-  "audio": "audio/0290.mp3"
+  "audio": "audio/0290.mp3",
+  "ex": "Ik eet een appel.",
+  "exEn": "I'm eating an apple.",
+  "exAudio": "audio/ex0290.mp3"
  },
  {
   "id": 291,
   "nl": "het ei",
   "en": "the egg",
-  "audio": "audio/0291.mp3"
+  "audio": "audio/0291.mp3",
+  "ex": "Ik wil een gekookt ei.",
+  "exEn": "I'd like a boiled egg.",
+  "exAudio": "audio/ex0291.mp3"
  },
  {
   "id": 292,
   "nl": "de soep",
   "en": "the soup",
-  "audio": "audio/0292.mp3"
+  "audio": "audio/0292.mp3",
+  "ex": "De soep is warm.",
+  "exEn": "The soup is warm.",
+  "exAudio": "audio/ex0292.mp3"
  },
  {
   "id": 293,
   "nl": "het ontbijt",
   "en": "the breakfast",
-  "audio": "audio/0293.mp3"
+  "audio": "audio/0293.mp3",
+  "ex": "Het ontbijt is klaar.",
+  "exEn": "Breakfast is ready.",
+  "exAudio": "audio/ex0293.mp3"
  },
  {
   "id": 294,
   "nl": "de lunch",
   "en": "the lunch",
-  "audio": "audio/0294.mp3"
+  "audio": "audio/0294.mp3",
+  "ex": "Wat eten we voor de lunch?",
+  "exEn": "What are we having for lunch?",
+  "exAudio": "audio/ex0294.mp3"
  },
  {
   "id": 295,
   "nl": "het eten",
   "en": "the food / meal",
-  "audio": "audio/0295.mp3"
+  "audio": "audio/0295.mp3",
+  "ex": "Het eten is klaar.",
+  "exEn": "Dinner is ready.",
+  "exAudio": "audio/ex0295.mp3"
  },
  {
   "id": 296,
   "nl": "de hond",
   "en": "the dog",
-  "audio": "audio/0296.mp3"
+  "audio": "audio/0296.mp3",
+  "ex": "De hond blaft.",
+  "exEn": "The dog is barking.",
+  "exAudio": "audio/ex0296.mp3"
  },
  {
   "id": 297,
   "nl": "de kat",
   "en": "the cat",
-  "audio": "audio/0297.mp3"
+  "audio": "audio/0297.mp3",
+  "ex": "De kat drinkt melk.",
+  "exEn": "The cat is drinking milk.",
+  "exAudio": "audio/ex0297.mp3"
  },
  {
   "id": 298,
   "nl": "het boek",
   "en": "the book",
-  "audio": "audio/0298.mp3"
+  "audio": "audio/0298.mp3",
+  "ex": "Het boek is spannend.",
+  "exEn": "The book is exciting.",
+  "exAudio": "audio/ex0298.mp3"
  },
  {
   "id": 299,
   "nl": "de telefoon",
   "en": "the phone",
-  "audio": "audio/0299.mp3"
+  "audio": "audio/0299.mp3",
+  "ex": "Mijn telefoon is leeg.",
+  "exEn": "My phone battery is dead.",
+  "exAudio": "audio/ex0299.mp3"
  },
  {
   "id": 300,
   "nl": "de computer",
   "en": "the computer",
-  "audio": "audio/0300.mp3"
+  "audio": "audio/0300.mp3",
+  "ex": "De computer is kapot.",
+  "exEn": "The computer is broken.",
+  "exAudio": "audio/ex0300.mp3"
  },
  {
   "id": 301,
   "nl": "de taal",
   "en": "the language",
-  "audio": "audio/0301.mp3"
+  "audio": "audio/0301.mp3",
+  "ex": "Nederlands is een mooie taal.",
+  "exEn": "Dutch is a beautiful language.",
+  "exAudio": "audio/ex0301.mp3"
  },
  {
   "id": 302,
   "nl": "het woord",
   "en": "the word",
-  "audio": "audio/0302.mp3"
+  "audio": "audio/0302.mp3",
+  "ex": "Wat betekent dit woord?",
+  "exEn": "What does this word mean?",
+  "exAudio": "audio/ex0302.mp3"
  },
  {
   "id": 303,
   "nl": "de vraag",
   "en": "the question",
-  "audio": "audio/0303.mp3"
+  "audio": "audio/0303.mp3",
+  "ex": "Mag ik een vraag stellen?",
+  "exEn": "May I ask a question?",
+  "exAudio": "audio/ex0303.mp3"
  },
  {
   "id": 304,
   "nl": "het antwoord",
   "en": "the answer",
-  "audio": "audio/0304.mp3"
+  "audio": "audio/0304.mp3",
+  "ex": "Ik weet het antwoord niet.",
+  "exEn": "I don't know the answer.",
+  "exAudio": "audio/ex0304.mp3"
  },
  {
   "id": 305,
   "nl": "de naam",
   "en": "the name",
-  "audio": "audio/0305.mp3"
+  "audio": "audio/0305.mp3",
+  "ex": "Wat is je naam?",
+  "exEn": "What is your name?",
+  "exAudio": "audio/ex0305.mp3"
  },
  {
   "id": 306,
   "nl": "het hoofd",
   "en": "the head",
-  "audio": "audio/0306.mp3"
+  "audio": "audio/0306.mp3",
+  "ex": "Ik heb pijn in mijn hoofd.",
+  "exEn": "I have a headache.",
+  "exAudio": "audio/ex0306.mp3"
  },
  {
   "id": 307,
   "nl": "de hand",
   "en": "the hand",
-  "audio": "audio/0307.mp3"
+  "audio": "audio/0307.mp3",
+  "ex": "Was je handen.",
+  "exEn": "Wash your hands.",
+  "exAudio": "audio/ex0307.mp3"
  },
  {
   "id": 308,
   "nl": "het hart",
   "en": "the heart",
-  "audio": "audio/0308.mp3"
+  "audio": "audio/0308.mp3",
+  "ex": "Je hebt een goed hart.",
+  "exEn": "You have a good heart.",
+  "exAudio": "audio/ex0308.mp3"
  },
  {
   "id": 309,
   "nl": "het oog",
   "en": "the eye",
-  "audio": "audio/0309.mp3"
+  "audio": "audio/0309.mp3",
+  "ex": "Ze heeft blauwe ogen.",
+  "exEn": "She has blue eyes.",
+  "exAudio": "audio/ex0309.mp3"
  },
  {
   "id": 310,
   "nl": "de dokter",
   "en": "the doctor",
-  "audio": "audio/0310.mp3"
+  "audio": "audio/0310.mp3",
+  "ex": "Ik moet naar de dokter.",
+  "exEn": "I have to go to the doctor.",
+  "exAudio": "audio/ex0310.mp3"
  },
  {
   "id": 311,
   "nl": "het probleem",
   "en": "the problem",
-  "audio": "audio/0311.mp3"
+  "audio": "audio/0311.mp3",
+  "ex": "Geen probleem!",
+  "exEn": "No problem!",
+  "exAudio": "audio/ex0311.mp3"
  },
  {
   "id": 312,
   "nl": "het leven",
   "en": "the life",
-  "audio": "audio/0312.mp3"
+  "audio": "audio/0312.mp3",
+  "ex": "Het leven is mooi.",
+  "exEn": "Life is beautiful.",
+  "exAudio": "audio/ex0312.mp3"
  },
  {
   "id": 313,
   "nl": "de dood",
   "en": "the death",
-  "audio": "audio/0313.mp3"
+  "audio": "audio/0313.mp3",
+  "ex": "Na de dood van mijn schoonvader zijn we in Nederland.",
+  "exEn": "After my father-in-law's death we are in the Netherlands.",
+  "exAudio": "audio/ex0313.mp3"
  },
  {
   "id": 314,
   "nl": "de begrafenis",
   "en": "the funeral",
-  "audio": "audio/0314.mp3"
+  "audio": "audio/0314.mp3",
+  "ex": "De begrafenis is op vrijdag.",
+  "exEn": "The funeral is on Friday.",
+  "exAudio": "audio/ex0314.mp3"
  },
  {
   "id": 315,
   "nl": "de liefde",
   "en": "the love",
-  "audio": "audio/0315.mp3"
+  "audio": "audio/0315.mp3",
+  "ex": "Liefde is belangrijk.",
+  "exEn": "Love is important.",
+  "exAudio": "audio/ex0315.mp3"
  },
  {
   "id": 316,
   "nl": "het idee",
   "en": "the idea",
-  "audio": "audio/0316.mp3"
+  "audio": "audio/0316.mp3",
+  "ex": "Dat is een goed idee.",
+  "exEn": "That's a good idea.",
+  "exAudio": "audio/ex0316.mp3"
  },
  {
   "id": 317,
   "nl": "de weg",
   "en": "the road / way",
-  "audio": "audio/0317.mp3"
+  "audio": "audio/0317.mp3",
+  "ex": "Ik weet de weg niet.",
+  "exEn": "I don't know the way.",
+  "exAudio": "audio/ex0317.mp3"
  },
  {
   "id": 318,
   "nl": "links",
   "en": "left",
-  "audio": "audio/0318.mp3"
+  "audio": "audio/0318.mp3",
+  "ex": "Ga hier naar links.",
+  "exEn": "Turn left here.",
+  "exAudio": "audio/ex0318.mp3"
  },
  {
   "id": 319,
   "nl": "rechts",
   "en": "right",
-  "audio": "audio/0319.mp3"
+  "audio": "audio/0319.mp3",
+  "ex": "De winkel is rechts.",
+  "exEn": "The shop is on the right.",
+  "exAudio": "audio/ex0319.mp3"
  },
  {
   "id": 320,
   "nl": "rechtdoor",
   "en": "straight ahead",
-  "audio": "audio/0320.mp3"
+  "audio": "audio/0320.mp3",
+  "ex": "Ga rechtdoor.",
+  "exEn": "Go straight ahead.",
+  "exAudio": "audio/ex0320.mp3"
  },
  {
   "id": 321,
   "nl": "dichtbij",
   "en": "nearby",
-  "audio": "audio/0321.mp3"
+  "audio": "audio/0321.mp3",
+  "ex": "Het station is dichtbij.",
+  "exEn": "The station is nearby.",
+  "exAudio": "audio/ex0321.mp3"
  },
  {
   "id": 322,
   "nl": "ver",
   "en": "far",
-  "audio": "audio/0322.mp3"
+  "audio": "audio/0322.mp3",
+  "ex": "Is het ver?",
+  "exEn": "Is it far?",
+  "exAudio": "audio/ex0322.mp3"
  }
 ]

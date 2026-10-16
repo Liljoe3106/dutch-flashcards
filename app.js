@@ -11,12 +11,12 @@ function fresh(){return deck.filter(c=>!st.cards[c.id]);}
 function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(NEW_PER_DAY-st.newCount,fresh().length));
 $('sLearned').textContent=Object.values(st.cards).filter(s=>s.reps>0&&s.ivl>=1).length;$('sStreak').textContent=st.streak;}
 function next(){const d=due().sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
-cur=d[0]||(st.newCount<NEW_PER_DAY?fresh()[0]:null);shown=false;$('back').hidden=true;$('btns').hidden=true;
+cur=d[0]||(st.newCount<NEW_PER_DAY?fresh()[0]:null);shown=false;$('back').hidden=true;$('exbox').hidden=true;$('btns').hidden=true;
 if(!cur||left<=0){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 All done for today!';$('hint').textContent='Come back tomorrow';stats();return;}
 $('front').textContent=st.rev?cur.en:cur.nl;$('back').textContent=st.rev?cur.nl:cur.en;$('hint').textContent='Tap to reveal';stats();labels();
 if(st.show||!st.cards[cur.id]){reveal(true);}
 if(!st.rev)speak();}
-function reveal(auto){if(!cur||shown)return;shown=true;$('back').hidden=false;$('btns').hidden=false;$('hint').textContent='';if(st.rev&&auto!==true)speak();}
+function reveal(auto){if(!cur||shown)return;shown=true;$('back').hidden=false;$('btns').hidden=false;$('hint').textContent='';$('exbox').hidden=!cur.ex;$('ex').textContent=cur.ex||'';$('exEn').textContent=cur.exEn||'';if(st.rev&&auto!==true)speak();}
 function sched(q,o){const s=Object.assign({ef:2.5,ivl:0,reps:0,due:0},o||{});
 if(q<3){s.reps=0;s.ivl=0;s.due=Date.now()+60e3;}else{
 s.reps++;s.ivl=Math.max(1,s.reps==1?(q==5?4:1):s.reps==2?(q==3?3:6):Math.round(s.ivl*s.ef*(q==3?.8:q==5?1.3:1)));
@@ -24,13 +24,24 @@ s.ef=Math.max(1.3,s.ef+0.1-(5-q)*(0.08+(5-q)*0.02));s.due=Date.now()+s.ivl*DAY;}
 const fmt=s=>s.ivl==0?'1 min':s.ivl==1?'1 day':s.ivl<31?s.ivl+' days':s.ivl<365?Math.round(s.ivl/30)+' mo':(s.ivl/365).toFixed(1)+' yr';
 function labels(){[0,3,4,5].forEach(q=>$('n'+q).textContent=fmt(sched(q,st.cards[cur.id])));}
 function grade(q){if(!st.cards[cur.id])st.newCount++;const s=sched(q,st.cards[cur.id]);
-st.cards[cur.id]=s;
+s.t=Date.now();st.cards[cur.id]=s;
 if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}
 save();next();}
 function tts(){const u=new SpeechSynthesisUtterance(cur.nl);u.lang='nl-NL';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith('nl'));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u);}
 function speak(){if(!cur)return;const a=$('aud');if(cur.audio){a.src=cur.audio;a.onerror=tts;a.play().catch(()=>{});}else tts();}
 $('card').onclick=reveal;document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
-$('say').onclick=speak;const setDir=()=>$('dir').textContent='Direction: '+(st.rev?'EN → NL':'NL → EN');
+$('say').onclick=speak;
+$('exsay').onclick=e=>{e.stopPropagation();if(!cur)return;const a=$('aud');a.src=cur.exAudio;a.onerror=()=>{const u=new SpeechSynthesisUtterance(cur.ex);u.lang='nl-NL';speechSynthesis.speak(u);};a.play().catch(()=>{});};
+$('exp').onclick=async()=>{const code='DFC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(st))));
+try{await navigator.clipboard.writeText(code);}catch(e){}
+const b=new Blob([code],{type:'text/plain'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='dutch-progress-'+today()+'.txt';l.click();
+alert('Progress code copied to clipboard and downloaded as a file. On your other device, tap Import and paste the code (or pick the file).');};
+function merge(txt){try{txt=txt.trim();const o=JSON.parse(decodeURIComponent(escape(atob(txt.replace(/^DFC1:/,'')))));let n=0;
+for(const[id,c]of Object.entries(o.cards||{})){const m=st.cards[id];if(!m||(c.t||0)>(m.t||0)){st.cards[id]=c;n++;}}
+if((o.last||'')>(st.last||'')){st.last=o.last;st.streak=o.streak;}else if(o.last===st.last)st.streak=Math.max(st.streak,o.streak);
+if(o.newDay===st.newDay)st.newCount=Math.max(st.newCount,o.newCount);save();alert('Imported: '+n+' cards updated.');next();}catch(e){alert('That code did not work. Copy the whole code starting with DFC1:');}}
+$('imp').onclick=()=>{const t=prompt('Paste your progress code (or press Cancel to choose a file):');if(t)merge(t);else $('impf').click();};
+$('impf').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(merge);};const setDir=()=>$('dir').textContent='Direction: '+(st.rev?'EN → NL':'NL → EN');
 const setShow=()=>$('show').textContent='Always show translation: '+(st.show?'ON':'OFF');setShow();
 $('show').onclick=()=>{st.show=!st.show;save();setShow();next();};
 $('dir').onclick=()=>{st.rev=!st.rev;save();setDir();next();};setDir();
