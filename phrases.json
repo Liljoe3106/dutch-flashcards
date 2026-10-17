@@ -106,12 +106,12 @@
  {
   "id": "q05",
   "deck": "phr",
-  "nl": "Ik ben Joe, de man van ...",
-  "en": "I'm Joe, ...'s husband.",
-  "audio": "audio/q05.mp3",
-  "ex": "Hallo, ik ben Joe, de man van zijn dochter.",
-  "exEn": "Hello, I'm Joe, his daughter's husband.",
-  "exAudio": "audio/exq05.mp3",
+  "nl": "Ik ben Joe, de man van Marah.",
+  "en": "I'm Joe, Marah's husband.",
+  "audio": "audio/q05b.mp3",
+  "ex": "Hallo, ik ben Joe, de man van Marah. Gecondoleerd.",
+  "exEn": "Hello, I'm Joe, Marah's husband. My condolences.",
+  "exAudio": "audio/exq05b.mp3",
   "grp": [
    "intro"
   ]
