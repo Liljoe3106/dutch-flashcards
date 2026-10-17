@@ -1,29 +1,120 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dutch Flashcards</title><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#ae1c28"><meta name="apple-mobile-web-app-title" content="Dutch"><style>
-body{font-family:system-ui,sans-serif;margin:0;background:#f4f1ea;color:#222;display:flex;flex-direction:column;min-height:100vh}
-header{background:#ae1c28;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-header h1{font-size:1.1em;margin:0}#timer{font-variant-numeric:tabular-nums;font-weight:bold}
-#stats{display:flex;justify-content:space-around;padding:8px;background:#21468b;color:#fff;font-size:.9em}
-main{flex:1;display:flex;flex-direction:column;align-items:center;padding:16px}
-#card{background:#fff;border-radius:16px;box-shadow:0 2px 10px #0002;width:100%;max-width:480px;min-height:240px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;box-sizing:border-box;}
-#front{font-size:2em;font-weight:600}#back{font-size:1.1em;color:#666;margin-top:10px}
-.hint{color:#999;font-size:.85em;margin-top:14px}
-#btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:480px;margin-top:16px}
-button{font-size:1em;padding:10px 4px;line-height:1.2;border:0;border-radius:10px;color:#fff;cursor:pointer}
-.again{background:#c0392b}.hard{background:#e67e22}.good{background:#27ae60}.easy{background:#2980b9}
-#tools{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;justify-content:center}#tools button{background:#555}
-button small{display:block;font-size:.7em;opacity:.9;margin-top:2px}.opt{display:block;width:100%;margin-top:8px;background:#eef;color:#222;border:2px solid #ccd;font-size:1.05em}.opt.right{background:#d4f5dd;border-color:#27ae60}.opt.wrong{background:#fadbd8;border-color:#c0392b}#mc{width:100%}#say{background:#ff7f00!important}mark{background:#ffe08a;padding:0 2px;border-radius:3px}</style></head><body>
-<header><h1>🇳🇱 Dutch Flashcards</h1><span id="timer">15:00</span></header>
-<div id="stats"><span>Due: <b id="sDue">0</b></span><span>New left: <b id="sNew">0</b></span><span>Learned: <b id="sLearned">0</b></span><span>Streak: <b id="sStreak">0</b>🔥</span></div>
-<main><div id="decks" style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;justify-content:center"><button data-d="phr" style="background:#888">📌 Phrases this week</button><button data-d="top" style="background:#888">📚 Top words</button><button data-d="both" style="background:#888">Both</button></div><div id="card"><div id="front">Loading…</div><div id="back" hidden></div>
-<div id="mc"></div>
-<div id="typebox" hidden style="margin-top:14px;width:100%"><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the Dutch (optional)" style="width:100%;box-sizing:border-box;font-size:1.1em;padding:10px;border:1px solid #ccc;border-radius:8px"><div id="check" style="margin-top:6px;font-weight:600"></div></div>
-<div id="lisbox" hidden style="margin-top:14px;width:100%"><button id="replay" style="background:#ff7f00">🔁 Replay</button> <button id="showtxt" style="background:#888">Show Dutch text</button><div id="listxt" hidden style="margin-top:10px;font-size:1.1em"></div></div><div id="exbox" hidden style="margin-top:14px;border-top:1px solid #eee;padding-top:10px;font-size:.95em"><span id="ex"></span> <button id="exsay" style="background:#ff7f00;padding:4px 8px;font-size:.8em">🔊</button><div id="exEn" style="color:#888;font-size:.85em;margin-top:4px"></div></div>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dutch Flashcards</title><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#14161b" media="(prefers-color-scheme: dark)"><meta name="apple-mobile-web-app-title" content="Dutch"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#f5f3ee;--card:#fff;--text:#1d1f24;--muted:#6b7080;--line:#e7e4dc;--soft:#f0eee8;--accent:#21468b;--red:#ae1c28;--orange:#ff7f00;
+--again:#d64545;--hard:#e8892b;--good:#2e9d5b;--easy:#3279c8;--shadow:0 1px 2px rgba(20,20,30,.06),0 8px 28px rgba(20,20,30,.08);--mark:#ffe08a;--markText:#1d1f24;
+--ok:#e3f6ea;--okb:#2e9d5b;--bad:#fbe5e5;--badb:#d64545}
+@media (prefers-color-scheme:dark){:root{--bg:#14161b;--card:#1f2229;--text:#eceef2;--muted:#9aa0ad;--line:#2e323b;--soft:#272b33;--accent:#6f9cf0;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+--mark:#6b5a1e;--markText:#fff3c4;--ok:#1d3b2a;--bad:#43222a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}[hidden]{display:none!important}
+html,body{height:100%}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+display:flex;flex-direction:column;height:100dvh;overflow:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation}
+.wrap{width:100%;max-width:520px;margin:0 auto;padding:0 16px}
+/* top bar */
+#top{flex:none}#top .wrap{display:flex;align-items:center;gap:12px;height:52px}
+.streak{font-weight:700;font-size:.95rem;min-width:48px;font-variant-numeric:tabular-nums}
+.prog{flex:1;display:flex;flex-direction:column;gap:4px}.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--good),#5cc27f);border-radius:99px;transition:width .4s ease}
+.prog small{font-size:.72rem;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+#timer{font-variant-numeric:tabular-nums;font-weight:600;font-size:.9rem;color:var(--muted);min-width:44px;text-align:right}
+.icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;color:var(--muted)}.icon:active{background:var(--soft)}
+/* segmented */
+.seg{display:flex;background:var(--soft);border-radius:12px;padding:3px;gap:2px}
+.seg button{flex:1;white-space:nowrap;padding:8px 6px;border-radius:9px;font-size:.85rem;font-weight:600;color:var(--muted);transition:background .2s,color .2s}
+.seg button.on{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#decks{margin:2px 0 10px}
+/* stage */
+main{flex:1;min-height:0;overflow-y:auto;display:flex}main .wrap{display:flex;flex-direction:column;padding-bottom:8px}#card{margin:auto 0}
+#card{position:relative;background:var(--card);border-radius:24px;box-shadow:var(--shadow);min-height:min(46vh,360px);padding:44px 22px 22px;
+display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#card.in{animation:in .28s cubic-bezier(.2,.8,.2,1)}@keyframes in{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+#tag{position:absolute;top:16px;left:18px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#say{position:absolute;top:10px;right:10px;width:46px;height:46px;border-radius:50%;background:var(--soft);font-size:1.25rem;display:grid;place-items:center}
+#say:active,#exsay:active,#replay:active{transform:scale(.94)}
+#front{font-size:clamp(1.9rem,8vw,2.6rem);font-weight:700;letter-spacing:-.01em;line-height:1.15;word-break:break-word}
+#back{font-size:1.2rem;color:var(--muted);margin-top:10px}
+.hint{color:var(--muted);font-size:.9rem;margin-top:14px;min-height:1.3em}
+#typebox{margin-top:16px;width:100%}#typed{width:100%;font:inherit;font-size:1.1rem;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--soft);color:var(--text);outline:none}
+#typed:focus{border-color:var(--accent)}#check{margin-top:6px;font-weight:600;min-height:1.2em}
+#lisbox{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
+#lisbox .row{display:flex;gap:10px}.pill{padding:10px 16px;border-radius:99px;background:var(--soft);font-weight:600;font-size:.95rem}
+#replay{background:var(--orange);color:#fff}#listxt{font-size:1.15rem}
+#exbox{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);width:100%;font-size:1.02rem}
+#exbox .exl{display:flex;align-items:flex-start;justify-content:center;gap:8px}
+#exsay{flex:none;width:32px;height:32px;border-radius:50%;background:var(--soft);font-size:.9rem;display:grid;place-items:center}
+#exEn{color:var(--muted);font-size:.9rem;margin-top:4px}
+mark{background:var(--mark);color:var(--markText);padding:0 3px;border-radius:4px}
+#donebox{margin-top:16px;display:flex;gap:10px;justify-content:center}
+.stat{background:var(--soft);border-radius:14px;padding:10px 12px;min-width:84px}.stat b{display:block;font-size:1.3rem}.stat span{font-size:.75rem;color:var(--muted)}
+/* dock */
+#dock{flex:none;padding:10px 0 calc(12px + env(safe-area-inset-bottom))}#dock .wrap{min-height:196px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.big{width:100%;min-height:56px;border-radius:16px;font-weight:700;font-size:1.05rem;color:#fff;background:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.big:active,.opt:active,#btns button:active{transform:scale(.98)}
+#cont{background:var(--good)}
+#mc{display:flex;flex-direction:column;gap:10px}#mc:empty{display:none}
+.opt{width:100%;min-height:56px;padding:12px 16px;border-radius:16px;background:var(--card);border:2px solid var(--line);font-size:1.05rem;font-weight:600;text-align:left;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:background .2s,border-color .2s}
+.opt.right{background:var(--ok);border-color:var(--okb)}.opt.wrong{background:var(--bad);border-color:var(--badb)}.opt:disabled{cursor:default}
+#btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+#btns button{min-height:64px;border-radius:16px;color:#fff;font-weight:700;font-size:1rem;line-height:1.15;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+#btns small{display:block;font-size:.72rem;font-weight:500;opacity:.9;margin-top:3px}
+.again{background:var(--again)}.hard{background:var(--hard)}.good{background:var(--good)}.easy{background:var(--easy)}
+#more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}
+/* settings sheet */
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}
+#sheet{position:fixed;left:0;right:0;bottom:0;max-height:88dvh;overflow-y:auto;background:var(--bg);border-radius:24px 24px 0 0;z-index:11;
+transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);padding:8px 0 calc(24px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px rgba(0,0,0,.2)}
+body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
+#sheet .grab{width:40px;height:5px;border-radius:99px;background:var(--line);margin:4px auto 8px}
+#sheet header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}#sheet h2{margin:0;font-size:1.3rem}
+.group{background:var(--card);border-radius:16px;box-shadow:var(--shadow);margin:14px 0;overflow:hidden}
+.group h3{margin:0;padding:12px 16px 4px;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rowi{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;min-height:52px;border-top:1px solid var(--line)}.group h3+.rowi{border-top:0}
+.rowi label{flex:1}.rowi small{display:block;color:var(--muted);font-size:.8rem}
+.sw{appearance:none;-webkit-appearance:none;width:50px;height:30px;border-radius:99px;background:var(--line);position:relative;transition:background .2s;flex:none;cursor:pointer;margin:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.sw:checked{background:var(--good)}.sw:checked::after{transform:translateX(20px)}
+.step{display:flex;align-items:center;gap:6px}.step button{width:36px;height:36px;border-radius:10px;background:var(--soft);font-size:1.2rem;font-weight:700}.step b{min-width:30px;text-align:center;font-variant-numeric:tabular-nums}
+.rowi .seg{flex:1;max-width:260px}
+.btnrow{display:flex;gap:10px;padding:12px 16px}.btnrow button{flex:1;min-height:48px;border-radius:12px;background:var(--soft);font-weight:600}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 16px 16px}.sgrid .stat{text-align:center}
+@media (min-width:700px){#sheet{left:50%;right:auto;width:520px;margin-left:-260px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="top"><div class="wrap"><span class="streak">🔥 <span id="sStreak">0</span></span>
+<div class="prog"><div class="bar"><i id="pbar"></i></div><small id="ptext">Today</small></div>
+<span id="timer">15:00</span><button class="icon" id="gear" aria-label="Settings">⚙︎</button></div></div>
+<main><div class="wrap">
+<div class="seg" id="decks"><button data-d="phr">📌 Phrases</button><button data-d="top">📚 Top words</button><button data-d="both">Both</button></div>
+<div id="card"><div id="tag"></div><button id="say" aria-label="Play audio">🔊</button>
+<div id="front">Loading…</div><div id="back" hidden></div>
+<div id="typebox" hidden><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the Dutch (optional)"><div id="check"></div></div>
+<div id="lisbox" hidden><div class="row"><button id="replay" class="pill">🔁 Replay</button><button id="showtxt" class="pill">Show Dutch text</button></div><div id="listxt" hidden></div></div>
+<div id="exbox" hidden><div class="exl"><span id="ex"></span><button id="exsay" aria-label="Play sentence">🔊</button></div><div id="exEn"></div></div>
+<div id="donebox" hidden></div>
 <div class="hint" id="hint"></div></div>
-<button id="showbtn" hidden style="background:#21468b;width:100%;max-width:480px;margin-top:16px">Show answer</button>
-<button id="cont" hidden style="background:#27ae60;width:100%;max-width:480px;margin-top:16px">Continue →</button>
-<div id="more" style="display:none;gap:8px;margin-top:16px;flex-wrap:wrap;justify-content:center"><button id="more10" style="background:#27ae60">➕ Learn 10 more new cards</button><button id="ahead" style="background:#2980b9">⏩ Review ahead</button></div>
+</div></main>
+<div id="dock"><div class="wrap">
+<div id="mc"></div>
+<button id="showbtn" class="big" hidden>Show answer</button>
+<button id="cont" class="big" hidden>Continue</button>
+<div id="more"><button id="more10" class="big">Learn 10 more</button><button id="ahead" class="big">Review ahead</button></div>
 <div id="btns" hidden><button class="again" data-q="0">Again<small id="n0"></small></button><button class="hard" data-q="3">Hard<small id="n3"></small></button><button class="good" data-q="4">Good<small id="n4"></small></button><button class="easy" data-q="5">Easy<small id="n5"></small></button></div>
-<div id="tools"><button id="say">🔊 Hear it</button><button id="show">Show answers immediately (easy mode): OFF</button><button id="dir">Direction: Mixed</button><button id="lis">Listening cards: ON</button></div>
-<div id="tools2" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;justify-content:center"><button id="exp" style="background:#21468b">⬆ Export progress</button><button id="imp" style="background:#21468b">⬇ Import progress</button><input type="file" id="impf" accept=".json,.txt" hidden></div></main>
+</div></div>
+<div id="scrim"></div>
+<div id="sheet" role="dialog" aria-label="Settings"><div class="wrap"><div class="grab"></div>
+<header><h2>Settings</h2><button class="icon" id="close" aria-label="Close">✕</button></header>
+<div class="group"><h3>Study</h3>
+<div class="rowi"><label>Review direction</label><div class="seg" id="dir"><button data-v="nl">NL→EN</button><button data-v="mix">Mixed</button><button data-v="en">EN→NL</button></div></div>
+<div class="rowi"><label for="lis">Listening cards<small>Hear the sentence, then recall</small></label><input type="checkbox" class="sw" id="lis"></div>
+<div class="rowi"><label for="show">Easy mode<small>Show answers immediately</small></label><input type="checkbox" class="sw" id="show"></div>
+<div class="rowi"><label>New cards per day</label><div class="step"><button id="npdm" aria-label="Fewer">−</button><b id="npd">15</b><button id="npdp" aria-label="More">+</button></div></div></div>
+<div class="group"><h3>Stats</h3><div class="sgrid" id="sgrid">
+<div class="stat"><b id="sDue">0</b><span>Due now</span></div><div class="stat"><b id="sNew">0</b><span>New left today</span></div><div class="stat"><b id="sLearned">0</b><span>Learned</span></div>
+<div class="stat"><b id="sToday">0</b><span>Answered today</span></div><div class="stat"><b id="sPhr">0</b><span>Phrases learned</span></div><div class="stat"><b id="sTop">0</b><span>Top words learned</span></div>
+<div class="stat"><b id="sMature">0</b><span>Strong (21d+)</span></div><div class="stat"><b id="sSeen">0</b><span>Cards seen</span></div><div class="stat"><b id="sTotal">0</b><span>Total cards</span></div></div></div>
+<div class="group"><h3>Sync between devices</h3><div class="btnrow"><button id="exp">⬆ Export progress</button><button id="imp">⬇ Import progress</button></div><input type="file" id="impf" accept=".json,.txt" hidden></div>
+</div></div>
 <audio id="aud" preload="none"></audio><script src="app.js"></script></body></html>

@@ -6,11 +6,11 @@ if(!st.deckSel)st.deckSel='both';
 if(st.listen===undefined)st.listen=true;const LISTEN_P=.25;let lis=false;
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
-if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;}
+if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;st.doneToday=0;}
 save();
 let all=[],deck=[],cur=null,mode=null,rev=false,shown=false,left=SESSION,ahead=false,lastId=null;
 const $=id=>document.getElementById(id);
-const lim=()=>NEW_PER_DAY+(st.extra||0);
+const lim=()=>(st.npd??NEW_PER_DAY)+(st.extra||0);
 const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
 const due=()=>{const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);};
 let CAL=new Set();
@@ -19,10 +19,15 @@ function fresh(){const f=deck.filter(c=>!st.cards[c.id]);if(st.deckSel!=='both')
 const dy=f.filter(c=>c.mcg==='day'),ph=f.filter(c=>c.deck==='phr'),ca=f.filter(c=>CAL.has(c.id)),o=[...dy];
 for(let i=0;i<Math.max(ph.length,ca.length);i++){if(ph[i])o.push(ph[i]);if(ca[i])o.push(ca[i]);}
 return o.concat(f.filter(c=>c.mcg!=='day'&&c.deck!=='phr'&&!CAL.has(c.id)));}
-function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(lim()-st.newCount,fresh().length));
-$('sLearned').textContent=deck.filter(c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1).length;$('sStreak').textContent=st.streak;}
+function stats(){const du=due().length,nl=Math.max(0,Math.min(lim()-st.newCount,fresh().length)),lr=c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1;
+const intro=deck.filter(c=>stage(c)==='intro').length,done=st.doneToday||0,tot=done+du+nl+intro;
+$('sDue').textContent=du;$('sNew').textContent=nl;$('sLearned').textContent=deck.filter(lr).length;$('sStreak').textContent=st.streak;$('sToday').textContent=done;
+$('sPhr').textContent=all.filter(c=>c.deck==='phr'&&lr(c)).length;$('sTop').textContent=all.filter(c=>c.deck!=='phr'&&lr(c)).length;
+$('sMature').textContent=all.filter(c=>lr(c)&&st.cards[c.id].ivl>=21).length;$('sSeen').textContent=all.filter(c=>st.cards[c.id]).length;$('sTotal').textContent=all.length;
+$('pbar').style.width=(tot?Math.round(done/tot*100):100)+'%';$('ptext').textContent=tot&&done<tot?done+' / '+tot+' today':done?'All done today ✓':'Today';}
+function anim(){const c=$('card');c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){['back','typebox','exbox','showbtn','cont','btns','lisbox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
+function hideAll(){$('say').hidden=false;$('tag').textContent='';['back','typebox','exbox','showbtn','cont','btns','lisbox','donebox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 if(d.length)return d[0];
 if(st.newCount<lim()&&fresh().length)return fresh()[0];
@@ -30,8 +35,9 @@ const intro=deck.filter(c=>stage(c)==='intro').sort((a,b)=>st.cards[a.id].due-st
 const i2=intro.filter(c=>c.id!==lastId);if(i2.length)return i2[0];if(intro.length)return intro[0];
 if(ahead){return deck.filter(c=>stage(c)==='rev').sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due)[0]||null;}
 return null;}
-function next(){hideAll();cur=left>0?pick():null;stats();
-if(!cur){$('front').textContent=left<=0?'⏰ 15 minutes done!':'🎉 Done for today!';$('hint').textContent=left<=0?'Come back tomorrow, or keep going:':'Want to keep going?';
+function next(){hideAll();cur=left>0?pick():null;stats();anim();
+if(!cur){mode='done';$('say').hidden=true;$('front').textContent=left<=0?'⏰ 15 minutes done':'🎉 Done for today';$('hint').textContent=left<=0?'Nice work. Come back tomorrow, or keep going.':'Everything due is done. Want to keep going?';
+$('donebox').hidden=false;$('donebox').innerHTML='<div class="stat"><b>'+(st.doneToday||0)+'</b><span>Answered</span></div><div class="stat"><b>'+$('sLearned').textContent+'</b><span>Learned</span></div><div class="stat"><b>'+st.streak+'🔥</b><span>Streak</span></div>';
 $('more').style.display='flex';$('ahead').hidden=!deck.some(c=>stage(c)==='rev');return;}
 lastId=cur.id;
 if(stage(cur)==='new'){st.cards[cur.id]={stage:'intro',mc:0,ef:2.5,ivl:0,reps:0,due:Date.now(),t:Date.now()};st.newCount++;save();}
@@ -40,7 +46,7 @@ function typeOf(c){return c.en.startsWith('the ')?'n':c.en.startsWith('to ')?'v'
 const STOP=new Set('the a an to you your i im it its is of for with that this me my be do does can could would some one up on in at and or so not are was what how be there here out please informal polite casual words'.split(' '));
 const toks=c=>new Set(c.en.toLowerCase().replace(/[’']/g,'').split(/[^a-z]+/).filter(w=>w.length>2&&!STOP.has(w)).map(w=>w.replace(/(ing|s)$/,'')));
 function overlap(a,b){if((a.grp||[]).some(g=>(b.grp||[]).includes(g)))return true;const ta=toks(a);for(const t of toks(b))if(ta.has(t))return true;return false;}
-function showMC(){mode='mc';$('front').textContent=cur.nl;$('hint').textContent='Which is the meaning?';speak();
+function showMC(){mode='mc';$('tag').textContent='New · '+(cur.deck==='phr'?'phrase':'word');$('front').textContent=cur.nl;$('hint').textContent='Which is the meaning?';speak();
 const t=typeOf(cur),same=cur.mcg?all.filter(c=>c.mcg===cur.mcg&&c.id!==cur.id&&c.en!==cur.en):all.filter(c=>(c.deck||'top')===(cur.deck||'top')&&c.id!==cur.id&&c.en!==cur.en);let pool=cur.deck==='phr'||cur.mcg?same:same.filter(c=>typeOf(c)===t);if(pool.length<2)pool=same;
 pool=pool.sort(()=>Math.random()-.5);const ch=[];for(const c of pool){if(ch.length>=2)break;if(cur.mcg||[cur,...ch].every(o=>!overlap(o,c)))ch.push(c);}for(const c of pool){if(ch.length>=2)break;if(!ch.includes(c)&&!overlap(cur,c))ch.push(c);}pool=ch;const opts=[cur,...pool].sort(()=>Math.random()-.5);
 opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o.en;b.onclick=()=>answerMC(b,o.id===cur.id);$('mc').appendChild(b);});}
@@ -49,7 +55,7 @@ function answerMC(btn,ok){if(mode!=='mc')return;mode='mcdone';const s=st.cards[c
 if(ok){s.mc++;$('hint').textContent=s.mc>=MC_NEED?'✅ Correct! Moving to recall practice.':'✅ Correct!';
 if(s.mc>=MC_NEED){s.stage='rev';s.reps=1;s.ivl=1;s.due=Date.now()+DAY;}else s.due=Date.now()+90e3;}
 else{btn.classList.add('wrong');$('hint').textContent='❌ Not quite. You will see this one again soon.';s.due=Date.now()+45e3;}
-s.t=Date.now();bumpStreak();save();showEx();$('cont').hidden=false;playEx();}
+s.t=Date.now();st.doneToday=(st.doneToday||0)+1;bumpStreak();save();stats();showEx();$('cont').hidden=false;playEx();}
 function showEx(){if(!cur.ex)return;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';}
 function hl(c){const esc=t=>t.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]),ex=c.ex||'';
 let t=c.nl.replace(/\.\.\./g,'').replace(/[.!?,]+$/,'').replace(/^(de|het|een)\s+/i,'').trim();if(c.deck!=='phr')t=t.split(/\s*[\/(]/)[0].trim();if(c.hl)t=c.hl;
@@ -57,10 +63,10 @@ const re=s=>new RegExp('(^|[^\\p{L}])('+s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+
 let m=t&&ex.match(re(t));if(!m&&t&&!t.includes(' ')&&t.length>3)m=ex.match(new RegExp('(^|[^\\p{L}])('+t.slice(0,Math.max(3,t.length-2)).replace(/[.*+?^${}()|[\]\\]/g,'')+'\\p{L}*)','iu'));
 if(!m&&t.includes(' ')){const ws=new Set(t.toLowerCase().split(/[^\p{L}]+/u).filter(w=>w.length>1));if(ws.size)return ex.split(/([^\p{L}]+)/u).map(p=>ws.has(p.toLowerCase())?'<mark>'+esc(p)+'</mark>':esc(p)).join('');}
 if(!m)return esc(ex);const i=m.index+m[1].length,L=m[2].length;return esc(ex.slice(0,i))+'<mark>'+esc(ex.slice(i,i+L))+'</mark>'+esc(ex.slice(i+L));}
-function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').textContent='🎧 Listen';$('hint').textContent='What does the sentence mean?';
+function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').textContent='🎧 Listen';$('tag').textContent='Listen';$('hint').textContent='What does the sentence mean?';
 $('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playEx();}
 function showRecall(){lis=false;if(st.listen&&cur.ex&&Math.random()<LISTEN_P)return showListen();mode='recall';shown=false;rev=st.dir==='en'||(st.dir==='mix'&&Math.random()<.5);
-$('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;
+$('tag').textContent='Review · '+(cur.deck==='phr'?'phrase':'word');$('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;
 if(rev){$('typebox').hidden=false;$('hint').textContent='Say or type the Dutch';}else{$('hint').textContent='What does it mean?';speak();}
 labels();if(st.show)reveal();else $('showbtn').hidden=false;}
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/^\s*(de|het|een)\s+/,'').replace(/\s+/g,' ').trim();
@@ -77,7 +83,7 @@ s.reps++;s.ivl=Math.max(1,s.reps==1?(q==5?4:1):s.reps==2?(q==3?3:6):Math.round(s
 s.ef=Math.max(1.3,s.ef+0.1-(5-q)*(0.08+(5-q)*0.02));s.due=Date.now()+s.ivl*DAY;}return s;}
 const fmt=s=>s.ivl==0?'1 min':s.ivl==1?'1 day':s.ivl<31?s.ivl+' days':s.ivl<365?Math.round(s.ivl/30)+' mo':(s.ivl/365).toFixed(1)+' yr';
 function labels(){[0,3,4,5].forEach(q=>$('n'+q).textContent=fmt(sched(q,st.cards[cur.id])));}
-function grade(q){const s=sched(q,st.cards[cur.id]);s.stage='rev';s.t=Date.now();st.cards[cur.id]=s;bumpStreak();save();next();}
+function grade(q){const s=sched(q,st.cards[cur.id]);s.stage='rev';s.t=Date.now();st.cards[cur.id]=s;st.doneToday=(st.doneToday||0)+1;bumpStreak();save();next();}
 function tts(t){const u=new SpeechSynthesisUtterance(t);u.lang='nl-NL';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith('nl'));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u);}
 function play(src,text){const a=$('aud');if(src){a.onerror=()=>tts(text);a.src=src;a.play().catch(()=>{});}else tts(text);}
 function speak(){if(cur)play(cur.audio,cur.nl);}
@@ -86,13 +92,16 @@ $('showbtn').onclick=reveal;$('cont').onclick=next;
 $('typed').onkeydown=e=>{if(e.key==='Enter')reveal();};
 document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
 $('say').onclick=()=>lis&&!shown?playEx():speak();$('replay').onclick=playEx;$('showtxt').onclick=()=>$('listxt').hidden=false;
-const setLis=()=>$('lis').textContent='Listening cards: '+(st.listen?'ON':'OFF');setLis();$('lis').onclick=()=>{st.listen=!st.listen;save();setLis();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
+$('lis').checked=!!st.listen;$('lis').onchange=()=>{st.listen=$('lis').checked;save();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
 $('more10').onclick=()=>{st.extra=(st.extra||0)+10;save();if(left<=0)left=SESSION;next();};
 $('ahead').onclick=()=>{ahead=true;if(left<=0)left=SESSION;next();};
-const setShow=()=>$('show').textContent='Show answers immediately (easy mode): '+(st.show?'ON':'OFF');setShow();
-$('show').onclick=()=>{st.show=!st.show;save();setShow();if(mode==='recall'&&st.show)reveal();};
-const DIRS={mix:'Mixed',nl:'NL → EN',en:'EN → NL'};const setDir=()=>$('dir').textContent='Direction (reviews): '+DIRS[st.dir];setDir();
-$('dir').onclick=()=>{st.dir=st.dir==='mix'?'nl':st.dir==='nl'?'en':'mix';save();setDir();};
+$('show').checked=!!st.show;$('show').onchange=()=>{st.show=$('show').checked;save();if(mode==='recall'&&st.show)reveal();};
+const setDir=()=>document.querySelectorAll('#dir button').forEach(b=>b.classList.toggle('on',b.dataset.v===st.dir));setDir();
+document.querySelectorAll('#dir button').forEach(b=>b.onclick=()=>{st.dir=b.dataset.v;save();setDir();});
+const setNpd=()=>$('npd').textContent=(st.npd??NEW_PER_DAY);setNpd();
+const npd=d=>{st.npd=Math.max(5,Math.min(50,(st.npd??NEW_PER_DAY)+d));save();setNpd();if(mode==='done')next();else stats();};$('npdm').onclick=()=>npd(-5);$('npdp').onclick=()=>npd(5);
+const openSet=o=>{document.body.classList.toggle('set',o);if(o)stats();};$('gear').onclick=()=>openSet(true);$('close').onclick=$('scrim').onclick=()=>openSet(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')openSet(false);});
 $('exp').onclick=async()=>{const code='DFC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(st))));
 try{await navigator.clipboard.writeText(code);}catch(e){}
 const b=new Blob([code],{type:'text/plain'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='dutch-progress-'+today()+'.txt';l.click();
@@ -106,7 +115,7 @@ $('impf').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(merge);};
 setInterval(()=>{if(document.hidden||left<=0)return;left--;$('timer').textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left==0&&mode!=='mcdone')next();},1000);
 const DECKS={both:'Both (phrases first)',phr:'📌 Phrases this week',top:'📚 Top words'};
 function setDeck(k){st.deckSel=k;save();deck=k==='both'?all:all.filter(c=>(c.deck||'top')===k);
-document.querySelectorAll('#decks button').forEach(b=>b.style.background=b.dataset.d===k?'#ae1c28':'#888');ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
+document.querySelectorAll('#decks button').forEach(b=>b.classList.toggle('on',b.dataset.d===k));ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
 document.querySelectorAll('#decks button').forEach(b=>b.onclick=()=>setDeck(b.dataset.d));
 Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{d=d.map(c=>Object.assign({deck:'top'},c));
 // New-card order: days first, then months + time words; in Both mode days lead, then phrases alternate with months/time words.
