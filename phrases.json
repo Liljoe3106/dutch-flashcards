@@ -1,0 +1,322 @@
+[
+ {
+  "id": "p01",
+  "deck": "phr",
+  "nl": "Gecondoleerd.",
+  "en": "My condolences.",
+  "audio": "audio/p01.mp3",
+  "ex": "Gecondoleerd met het verlies van je vader.",
+  "exEn": "My condolences on the loss of your father.",
+  "exAudio": "audio/exp01.mp3"
+ },
+ {
+  "id": "p02",
+  "deck": "phr",
+  "nl": "Gecondoleerd met je verlies.",
+  "en": "Sorry for your loss.",
+  "audio": "audio/p02.mp3",
+  "ex": "Gecondoleerd met je verlies, hij was een lieve man.",
+  "exEn": "Sorry for your loss, he was a kind man.",
+  "exAudio": "audio/exp02.mp3"
+ },
+ {
+  "id": "p03",
+  "deck": "phr",
+  "nl": "Sterkte.",
+  "en": "Stay strong / thinking of you.",
+  "audio": "audio/p03.mp3",
+  "ex": "Heel veel sterkte deze week.",
+  "exEn": "Lots of strength to you this week.",
+  "exAudio": "audio/exp03.mp3"
+ },
+ {
+  "id": "p04",
+  "deck": "phr",
+  "nl": "Hoe gaat het met je?",
+  "en": "How are you (doing)?",
+  "audio": "audio/p04.mp3",
+  "ex": "Hoe gaat het met je vandaag?",
+  "exEn": "How are you doing today?",
+  "exAudio": "audio/exp04.mp3"
+ },
+ {
+  "id": "p05",
+  "deck": "phr",
+  "nl": "Ik denk aan je.",
+  "en": "I'm thinking of you.",
+  "audio": "audio/p05.mp3",
+  "ex": "Ik denk aan je en je familie.",
+  "exEn": "I'm thinking of you and your family.",
+  "exAudio": "audio/exp05.mp3"
+ },
+ {
+  "id": "p06",
+  "deck": "phr",
+  "nl": "Kan ik iets voor je doen?",
+  "en": "Can I do anything for you?",
+  "audio": "audio/p06.mp3",
+  "ex": "Kan ik iets voor je doen, of iets halen?",
+  "exEn": "Can I do anything for you, or fetch something?",
+  "exAudio": "audio/exp06.mp3"
+ },
+ {
+  "id": "p07",
+  "deck": "phr",
+  "nl": "Goedemorgen!",
+  "en": "Good morning!",
+  "audio": "audio/p07.mp3",
+  "ex": "Goedemorgen, heb je goed geslapen?",
+  "exEn": "Good morning, did you sleep well?",
+  "exAudio": "audio/exp07.mp3"
+ },
+ {
+  "id": "p08",
+  "deck": "phr",
+  "nl": "Goedenavond.",
+  "en": "Good evening.",
+  "audio": "audio/p08.mp3",
+  "ex": "Goedenavond, mag ik binnenkomen?",
+  "exEn": "Good evening, may I come in?",
+  "exAudio": "audio/exp08.mp3"
+ },
+ {
+  "id": "p09",
+  "deck": "phr",
+  "nl": "Dank je wel.",
+  "en": "Thank you (informal).",
+  "audio": "audio/p09.mp3",
+  "ex": "Dank je wel voor het lekkere eten.",
+  "exEn": "Thank you for the lovely food.",
+  "exAudio": "audio/exp09.mp3"
+ },
+ {
+  "id": "p10",
+  "deck": "phr",
+  "nl": "Dank u wel.",
+  "en": "Thank you (polite).",
+  "audio": "audio/p10.mp3",
+  "ex": "Dank u wel voor uw hulp.",
+  "exEn": "Thank you for your help.",
+  "exAudio": "audio/exp10.mp3"
+ },
+ {
+  "id": "p11",
+  "deck": "phr",
+  "nl": "Graag gedaan.",
+  "en": "You're welcome.",
+  "audio": "audio/p11.mp3",
+  "ex": "Graag gedaan, het was geen moeite.",
+  "exEn": "You're welcome, it was no trouble.",
+  "exAudio": "audio/exp11.mp3"
+ },
+ {
+  "id": "p12",
+  "deck": "phr",
+  "nl": "Sorry, ik spreek een beetje Nederlands.",
+  "en": "Sorry, I speak a little Dutch.",
+  "audio": "audio/p12.mp3",
+  "ex": "Sorry, ik spreek een beetje Nederlands, maar ik leer het.",
+  "exEn": "Sorry, I speak a little Dutch, but I'm learning.",
+  "exAudio": "audio/exp12.mp3"
+ },
+ {
+  "id": "p13",
+  "deck": "phr",
+  "nl": "Kunt u dat herhalen?",
+  "en": "Could you repeat that?",
+  "audio": "audio/p13.mp3",
+  "ex": "Kunt u dat herhalen, alstublieft?",
+  "exEn": "Could you repeat that, please?",
+  "exAudio": "audio/exp13.mp3"
+ },
+ {
+  "id": "p14",
+  "deck": "phr",
+  "nl": "Kun je langzamer praten?",
+  "en": "Can you speak more slowly?",
+  "audio": "audio/p14.mp3",
+  "ex": "Kun je iets langzamer praten? Dan begrijp ik het beter.",
+  "exEn": "Can you speak a bit more slowly? Then I understand better.",
+  "exAudio": "audio/exp14.mp3"
+ },
+ {
+  "id": "p15",
+  "deck": "phr",
+  "nl": "Wat betekent dat?",
+  "en": "What does that mean?",
+  "audio": "audio/p15.mp3",
+  "ex": "Wat betekent dat woord?",
+  "exEn": "What does that word mean?",
+  "exAudio": "audio/exp15.mp3"
+ },
+ {
+  "id": "p16",
+  "deck": "phr",
+  "nl": "Ik begrijp het niet.",
+  "en": "I don't understand.",
+  "audio": "audio/p16.mp3",
+  "ex": "Sorry, ik begrijp het niet helemaal.",
+  "exEn": "Sorry, I don't quite understand.",
+  "exAudio": "audio/exp16.mp3"
+ },
+ {
+  "id": "p17",
+  "deck": "phr",
+  "nl": "Wil je koffie?",
+  "en": "Would you like coffee?",
+  "audio": "audio/p17.mp3",
+  "ex": "Wil je koffie of thee?",
+  "exEn": "Would you like coffee or tea?",
+  "exAudio": "audio/exp17.mp3"
+ },
+ {
+  "id": "p18",
+  "deck": "phr",
+  "nl": "Graag, met melk.",
+  "en": "Yes please, with milk.",
+  "audio": "audio/p18.mp3",
+  "ex": "Graag, met melk en zonder suiker.",
+  "exEn": "Yes please, with milk and no sugar.",
+  "exAudio": "audio/exp18.mp3"
+ },
+ {
+  "id": "p19",
+  "deck": "phr",
+  "nl": "Het is heerlijk.",
+  "en": "It's delicious.",
+  "audio": "audio/p19.mp3",
+  "ex": "Het is heerlijk, mag ik nog een beetje?",
+  "exEn": "It's delicious, may I have a little more?",
+  "exAudio": "audio/exp19.mp3"
+ },
+ {
+  "id": "p20",
+  "deck": "phr",
+  "nl": "Eet smakelijk!",
+  "en": "Enjoy your meal!",
+  "audio": "audio/p20.mp3",
+  "ex": "Het eten is klaar, eet smakelijk!",
+  "exEn": "Dinner is ready, enjoy your meal!",
+  "exAudio": "audio/exp20.mp3"
+ },
+ {
+  "id": "p21",
+  "deck": "phr",
+  "nl": "Kan ik helpen?",
+  "en": "Can I help?",
+  "audio": "audio/p21.mp3",
+  "ex": "Kan ik helpen met afwassen?",
+  "exEn": "Can I help with the washing up?",
+  "exAudio": "audio/exp21.mp3"
+ },
+ {
+  "id": "p22",
+  "deck": "phr",
+  "nl": "Een koffie, alstublieft.",
+  "en": "A coffee, please.",
+  "audio": "audio/p22.mp3",
+  "ex": "Een koffie en een appeltaart, alstublieft.",
+  "exEn": "A coffee and an apple pie, please.",
+  "exAudio": "audio/exp22.mp3"
+ },
+ {
+  "id": "p23",
+  "deck": "phr",
+  "nl": "Mag ik pinnen?",
+  "en": "Can I pay by card?",
+  "audio": "audio/p23.mp3",
+  "ex": "Mag ik pinnen, of alleen contant?",
+  "exEn": "Can I pay by card, or cash only?",
+  "exAudio": "audio/exp23.mp3"
+ },
+ {
+  "id": "p24",
+  "deck": "phr",
+  "nl": "Hoeveel kost het?",
+  "en": "How much does it cost?",
+  "audio": "audio/p24.mp3",
+  "ex": "Hoeveel kost het brood?",
+  "exEn": "How much is the bread?",
+  "exAudio": "audio/exp24.mp3"
+ },
+ {
+  "id": "p25",
+  "deck": "phr",
+  "nl": "Waar is het toilet?",
+  "en": "Where is the toilet?",
+  "audio": "audio/p25.mp3",
+  "ex": "Pardon, waar is het toilet?",
+  "exEn": "Excuse me, where is the toilet?",
+  "exAudio": "audio/exp25.mp3"
+ },
+ {
+  "id": "p26",
+  "deck": "phr",
+  "nl": "Kom maar, Grace!",
+  "en": "Come on, Grace!",
+  "audio": "audio/p26.mp3",
+  "ex": "Kom maar, Grace, we gaan spelen.",
+  "exEn": "Come on, Grace, let's go and play.",
+  "exAudio": "audio/exp26.mp3"
+ },
+ {
+  "id": "p27",
+  "deck": "phr",
+  "nl": "Goed zo!",
+  "en": "Well done!",
+  "audio": "audio/p27.mp3",
+  "ex": "Goed zo, wat knap van jou!",
+  "exEn": "Well done, how clever of you!",
+  "exAudio": "audio/exp27.mp3"
+ },
+ {
+  "id": "p28",
+  "deck": "phr",
+  "nl": "Kiekeboe!",
+  "en": "Peekaboo!",
+  "audio": "audio/p28.mp3",
+  "ex": "Waar is Grace? Kiekeboe!",
+  "exEn": "Where's Grace? Peekaboo!",
+  "exAudio": "audio/exp28.mp3"
+ },
+ {
+  "id": "p29",
+  "deck": "phr",
+  "nl": "Tijd om te slapen.",
+  "en": "Time to sleep.",
+  "audio": "audio/p29.mp3",
+  "ex": "Tijd om te slapen, lieverd.",
+  "exEn": "Time to sleep, sweetheart.",
+  "exAudio": "audio/exp29.mp3"
+ },
+ {
+  "id": "p30",
+  "deck": "phr",
+  "nl": "Tot morgen!",
+  "en": "See you tomorrow!",
+  "audio": "audio/p30.mp3",
+  "ex": "Slaap lekker en tot morgen!",
+  "exEn": "Sleep well and see you tomorrow!",
+  "exAudio": "audio/exp30.mp3"
+ },
+ {
+  "id": "p31",
+  "deck": "phr",
+  "nl": "Tot ziens.",
+  "en": "Goodbye.",
+  "audio": "audio/p31.mp3",
+  "ex": "Bedankt voor alles, tot ziens.",
+  "exEn": "Thanks for everything, goodbye.",
+  "exAudio": "audio/exp31.mp3"
+ },
+ {
+  "id": "p32",
+  "deck": "phr",
+  "nl": "Doei!",
+  "en": "Bye! (casual)",
+  "audio": "audio/p32.mp3",
+  "ex": "Doei, tot snel!",
+  "exEn": "Bye, see you soon!",
+  "exAudio": "audio/exp32.mp3"
+ }
+]

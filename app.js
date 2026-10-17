@@ -2,11 +2,12 @@ const NEW_PER_DAY=15,SESSION=15*60,K='dfc_v1',DAY=864e5,MC_NEED=2;
 const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"streak":0,"last":null,"newDay":null,"newCount":0}');
 if(!st.migr2){st.show=false;st.migr2=1;}
 if(!st.dir)st.dir=st.rev?'en':'mix';
+if(!st.deckSel)st.deckSel='both';
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
 if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;}
 save();
-let deck=[],cur=null,mode=null,rev=false,shown=false,left=SESSION,ahead=false,lastId=null;
+let all=[],deck=[],cur=null,mode=null,rev=false,shown=false,left=SESSION,ahead=false,lastId=null;
 const $=id=>document.getElementById(id);
 const lim=()=>NEW_PER_DAY+(st.extra||0);
 const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
@@ -31,7 +32,7 @@ if(stage(cur)==='new'){st.cards[cur.id]={stage:'intro',mc:0,ef:2.5,ivl:0,reps:0,
 if(stage(cur)==='intro')showMC();else showRecall();}
 function typeOf(c){return c.en.startsWith('the ')?'n':c.en.startsWith('to ')?'v':'o';}
 function showMC(){mode='mc';$('front').textContent=cur.nl;$('hint').textContent='Which is the meaning?';speak();
-const t=typeOf(cur);let pool=deck.filter(c=>c.id!==cur.id&&c.en!==cur.en&&typeOf(c)===t);if(pool.length<2)pool=deck.filter(c=>c.id!==cur.id&&c.en!==cur.en);
+const t=typeOf(cur),same=all.filter(c=>(c.deck||'top')===(cur.deck||'top')&&c.id!==cur.id&&c.en!==cur.en);let pool=cur.deck==='phr'?same:same.filter(c=>typeOf(c)===t);if(pool.length<2)pool=same;
 pool=pool.sort(()=>Math.random()-.5).slice(0,2);const opts=[cur,...pool].sort(()=>Math.random()-.5);
 opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o.en;b.onclick=()=>answerMC(b,o.id===cur.id);$('mc').appendChild(b);});}
 function answerMC(btn,ok){if(mode!=='mc')return;mode='mcdone';const s=st.cards[cur.id];
@@ -83,4 +84,8 @@ if(o.newDay===st.newDay)st.newCount=Math.max(st.newCount,o.newCount);save();aler
 $('imp').onclick=()=>{const t=prompt('Paste your progress code (or press Cancel to choose a file):');if(t)merge(t);else $('impf').click();};
 $('impf').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(merge);};
 setInterval(()=>{if(document.hidden||left<=0)return;left--;$('timer').textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left==0&&mode!=='mcdone')next();},1000);
-fetch('deck.json').then(r=>r.json()).then(d=>{deck=d;next();});
+const DECKS={both:'Both (phrases first)',phr:'📌 Phrases this week',top:'📚 Top words'};
+function setDeck(k){st.deckSel=k;save();deck=k==='both'?all:all.filter(c=>(c.deck||'top')===k);
+document.querySelectorAll('#decks button').forEach(b=>b.style.background=b.dataset.d===k?'#ae1c28':'#888');ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
+document.querySelectorAll('#decks button').forEach(b=>b.onclick=()=>setDeck(b.dataset.d));
+Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{all=[...p,...d.map(c=>Object.assign({deck:'top'},c))];setDeck(DECKS[st.deckSel]?st.deckSel:'both');});
