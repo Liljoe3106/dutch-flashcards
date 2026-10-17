@@ -7,7 +7,10 @@
   "audio": "audio/p01.mp3",
   "ex": "Gecondoleerd met het verlies van je vader.",
   "exEn": "My condolences on the loss of your father.",
-  "exAudio": "audio/exp01.mp3"
+  "exAudio": "audio/exp01.mp3",
+  "grp": [
+   "condol"
+  ]
  },
  {
   "id": "p02",
@@ -17,7 +20,10 @@
   "audio": "audio/p02.mp3",
   "ex": "Gecondoleerd met je verlies, hij was een lieve man.",
   "exEn": "Sorry for your loss, he was a kind man.",
-  "exAudio": "audio/exp02.mp3"
+  "exAudio": "audio/exp02.mp3",
+  "grp": [
+   "condol"
+  ]
  },
  {
   "id": "p03",
@@ -27,7 +33,10 @@
   "audio": "audio/p03.mp3",
   "ex": "Heel veel sterkte deze week.",
   "exEn": "Lots of strength to you this week.",
-  "exAudio": "audio/exp03.mp3"
+  "exAudio": "audio/exp03.mp3",
+  "grp": [
+   "condol"
+  ]
  },
  {
   "id": "p04",
@@ -47,7 +56,10 @@
   "audio": "audio/p05.mp3",
   "ex": "Ik denk aan je en je familie.",
   "exEn": "I'm thinking of you and your family.",
-  "exAudio": "audio/exp05.mp3"
+  "exAudio": "audio/exp05.mp3",
+  "grp": [
+   "condol"
+  ]
  },
  {
   "id": "p06",
@@ -57,7 +69,11 @@
   "audio": "audio/p06.mp3",
   "ex": "Kan ik iets voor je doen, of iets halen?",
   "exEn": "Can I do anything for you, or fetch something?",
-  "exAudio": "audio/exp06.mp3"
+  "exAudio": "audio/exp06.mp3",
+  "grp": [
+   "condol",
+   "help"
+  ]
  },
  {
   "id": "p07",
@@ -67,7 +83,10 @@
   "audio": "audio/p07.mp3",
   "ex": "Goedemorgen, heb je goed geslapen?",
   "exEn": "Good morning, did you sleep well?",
-  "exAudio": "audio/exp07.mp3"
+  "exAudio": "audio/exp07.mp3",
+  "grp": [
+   "greet"
+  ]
  },
  {
   "id": "p08",
@@ -77,7 +96,10 @@
   "audio": "audio/p08.mp3",
   "ex": "Goedenavond, mag ik binnenkomen?",
   "exEn": "Good evening, may I come in?",
-  "exAudio": "audio/exp08.mp3"
+  "exAudio": "audio/exp08.mp3",
+  "grp": [
+   "greet"
+  ]
  },
  {
   "id": "p09",
@@ -87,7 +109,10 @@
   "audio": "audio/p09.mp3",
   "ex": "Dank je wel voor het lekkere eten.",
   "exEn": "Thank you for the lovely food.",
-  "exAudio": "audio/exp09.mp3"
+  "exAudio": "audio/exp09.mp3",
+  "grp": [
+   "thanks"
+  ]
  },
  {
   "id": "p10",
@@ -97,7 +122,10 @@
   "audio": "audio/p10.mp3",
   "ex": "Dank u wel voor uw hulp.",
   "exEn": "Thank you for your help.",
-  "exAudio": "audio/exp10.mp3"
+  "exAudio": "audio/exp10.mp3",
+  "grp": [
+   "thanks"
+  ]
  },
  {
   "id": "p11",
@@ -107,7 +135,10 @@
   "audio": "audio/p11.mp3",
   "ex": "Graag gedaan, het was geen moeite.",
   "exEn": "You're welcome, it was no trouble.",
-  "exAudio": "audio/exp11.mp3"
+  "exAudio": "audio/exp11.mp3",
+  "grp": [
+   "thanks"
+  ]
  },
  {
   "id": "p12",
@@ -117,7 +148,10 @@
   "audio": "audio/p12.mp3",
   "ex": "Sorry, ik spreek een beetje Nederlands, maar ik leer het.",
   "exEn": "Sorry, I speak a little Dutch, but I'm learning.",
-  "exAudio": "audio/exp12.mp3"
+  "exAudio": "audio/exp12.mp3",
+  "grp": [
+   "notget"
+  ]
  },
  {
   "id": "p13",
@@ -127,7 +161,10 @@
   "audio": "audio/p13.mp3",
   "ex": "Kunt u dat herhalen, alstublieft?",
   "exEn": "Could you repeat that, please?",
-  "exAudio": "audio/exp13.mp3"
+  "exAudio": "audio/exp13.mp3",
+  "grp": [
+   "notget"
+  ]
  },
  {
   "id": "p14",
@@ -137,7 +174,10 @@
   "audio": "audio/p14.mp3",
   "ex": "Kun je iets langzamer praten? Dan begrijp ik het beter.",
   "exEn": "Can you speak a bit more slowly? Then I understand better.",
-  "exAudio": "audio/exp14.mp3"
+  "exAudio": "audio/exp14.mp3",
+  "grp": [
+   "notget"
+  ]
  },
  {
   "id": "p15",
@@ -147,7 +187,10 @@
   "audio": "audio/p15.mp3",
   "ex": "Wat betekent dat woord?",
   "exEn": "What does that word mean?",
-  "exAudio": "audio/exp15.mp3"
+  "exAudio": "audio/exp15.mp3",
+  "grp": [
+   "notget"
+  ]
  },
  {
   "id": "p16",
@@ -157,7 +200,10 @@
   "audio": "audio/p16.mp3",
   "ex": "Sorry, ik begrijp het niet helemaal.",
   "exEn": "Sorry, I don't quite understand.",
-  "exAudio": "audio/exp16.mp3"
+  "exAudio": "audio/exp16.mp3",
+  "grp": [
+   "notget"
+  ]
  },
  {
   "id": "p17",
@@ -187,7 +233,10 @@
   "audio": "audio/p19.mp3",
   "ex": "Het is heerlijk, mag ik nog een beetje?",
   "exEn": "It's delicious, may I have a little more?",
-  "exAudio": "audio/exp19.mp3"
+  "exAudio": "audio/exp19.mp3",
+  "grp": [
+   "praise"
+  ]
  },
  {
   "id": "p20",
@@ -207,7 +256,10 @@
   "audio": "audio/p21.mp3",
   "ex": "Kan ik helpen met afwassen?",
   "exEn": "Can I help with the washing up?",
-  "exAudio": "audio/exp21.mp3"
+  "exAudio": "audio/exp21.mp3",
+  "grp": [
+   "help"
+  ]
  },
  {
   "id": "p22",
@@ -267,7 +319,10 @@
   "audio": "audio/p27.mp3",
   "ex": "Goed zo, wat knap van jou!",
   "exEn": "Well done, how clever of you!",
-  "exAudio": "audio/exp27.mp3"
+  "exAudio": "audio/exp27.mp3",
+  "grp": [
+   "praise"
+  ]
  },
  {
   "id": "p28",
@@ -287,7 +342,10 @@
   "audio": "audio/p29.mp3",
   "ex": "Tijd om te slapen, lieverd.",
   "exEn": "Time to sleep, sweetheart.",
-  "exAudio": "audio/exp29.mp3"
+  "exAudio": "audio/exp29.mp3",
+  "grp": [
+   "bye"
+  ]
  },
  {
   "id": "p30",
@@ -297,7 +355,10 @@
   "audio": "audio/p30.mp3",
   "ex": "Slaap lekker en tot morgen!",
   "exEn": "Sleep well and see you tomorrow!",
-  "exAudio": "audio/exp30.mp3"
+  "exAudio": "audio/exp30.mp3",
+  "grp": [
+   "bye"
+  ]
  },
  {
   "id": "p31",
@@ -307,7 +368,10 @@
   "audio": "audio/p31.mp3",
   "ex": "Bedankt voor alles, tot ziens.",
   "exEn": "Thanks for everything, goodbye.",
-  "exAudio": "audio/exp31.mp3"
+  "exAudio": "audio/exp31.mp3",
+  "grp": [
+   "bye"
+  ]
  },
  {
   "id": "p32",
@@ -317,6 +381,9 @@
   "audio": "audio/p32.mp3",
   "ex": "Doei, tot snel!",
   "exEn": "Bye, see you soon!",
-  "exAudio": "audio/exp32.mp3"
+  "exAudio": "audio/exp32.mp3",
+  "grp": [
+   "bye"
+  ]
  }
 ]

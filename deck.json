@@ -726,7 +726,8 @@
   "audio": "audio/0081.mp3",
   "ex": "Ik ben moe.",
   "exEn": "I am tired.",
-  "exAudio": "audio/ex0081.mp3"
+  "exAudio": "audio/ex0081.mp3",
+  "hl": "ben"
  },
  {
   "id": 82,
@@ -735,7 +736,8 @@
   "audio": "audio/0082.mp3",
   "ex": "Ik heb een auto.",
   "exEn": "I have a car.",
-  "exAudio": "audio/ex0082.mp3"
+  "exAudio": "audio/ex0082.mp3",
+  "hl": "heb"
  },
  {
   "id": 83,
@@ -753,7 +755,8 @@
   "audio": "audio/0084.mp3",
   "ex": "Ik kan zwemmen.",
   "exEn": "I can swim.",
-  "exAudio": "audio/ex0084.mp3"
+  "exAudio": "audio/ex0084.mp3",
+  "hl": "kan"
  },
  {
   "id": 85,
@@ -771,7 +774,8 @@
   "audio": "audio/0086.mp3",
   "ex": "Ik wil koffie.",
   "exEn": "I want coffee.",
-  "exAudio": "audio/ex0086.mp3"
+  "exAudio": "audio/ex0086.mp3",
+  "hl": "wil"
  },
  {
   "id": 87,
@@ -780,7 +784,8 @@
   "audio": "audio/0087.mp3",
   "ex": "Ik zal je helpen.",
   "exEn": "I will help you.",
-  "exAudio": "audio/ex0087.mp3"
+  "exAudio": "audio/ex0087.mp3",
+  "hl": "zal"
  },
  {
   "id": 88,
@@ -789,7 +794,8 @@
   "audio": "audio/0088.mp3",
   "ex": "Mag ik binnenkomen?",
   "exEn": "May I come in?",
-  "exAudio": "audio/ex0088.mp3"
+  "exAudio": "audio/ex0088.mp3",
+  "hl": "Mag"
  },
  {
   "id": 89,
@@ -798,7 +804,8 @@
   "audio": "audio/0089.mp3",
   "ex": "Ik ga naar huis.",
   "exEn": "I'm going home.",
-  "exAudio": "audio/ex0089.mp3"
+  "exAudio": "audio/ex0089.mp3",
+  "hl": "ga"
  },
  {
   "id": 90,
@@ -825,7 +832,8 @@
   "audio": "audio/0092.mp3",
   "ex": "Ik maak het ontbijt.",
   "exEn": "I'm making breakfast.",
-  "exAudio": "audio/ex0092.mp3"
+  "exAudio": "audio/ex0092.mp3",
+  "hl": "maak"
  },
  {
   "id": 93,
@@ -834,7 +842,8 @@
   "audio": "audio/0093.mp3",
   "ex": "Wat zeg je?",
   "exEn": "What are you saying?",
-  "exAudio": "audio/ex0093.mp3"
+  "exAudio": "audio/ex0093.mp3",
+  "hl": "zeg"
  },
  {
   "id": 94,
@@ -852,7 +861,8 @@
   "audio": "audio/0095.mp3",
   "ex": "Ik weet het.",
   "exEn": "I know.",
-  "exAudio": "audio/ex0095.mp3"
+  "exAudio": "audio/ex0095.mp3",
+  "hl": "weet"
  },
  {
   "id": 96,
@@ -861,7 +871,8 @@
   "audio": "audio/0096.mp3",
   "ex": "Ik ken hem niet.",
   "exEn": "I don't know him.",
-  "exAudio": "audio/ex0096.mp3"
+  "exAudio": "audio/ex0096.mp3",
+  "hl": "ken"
  },
  {
   "id": 97,
@@ -888,7 +899,8 @@
   "audio": "audio/0099.mp3",
   "ex": "Geef mij het brood.",
   "exEn": "Give me the bread.",
-  "exAudio": "audio/ex0099.mp3"
+  "exAudio": "audio/ex0099.mp3",
+  "hl": "Geef"
  },
  {
   "id": 100,
@@ -897,7 +909,8 @@
   "audio": "audio/0100.mp3",
   "ex": "Ik neem de bus.",
   "exEn": "I'm taking the bus.",
-  "exAudio": "audio/ex0100.mp3"
+  "exAudio": "audio/ex0100.mp3",
+  "hl": "neem"
  },
  {
   "id": 101,
@@ -924,7 +937,8 @@
   "audio": "audio/0103.mp3",
   "ex": "Ik zit op een stoel.",
   "exEn": "I'm sitting on a chair.",
-  "exAudio": "audio/ex0103.mp3"
+  "exAudio": "audio/ex0103.mp3",
+  "hl": "zit"
  },
  {
   "id": 104,
@@ -933,7 +947,8 @@
   "audio": "audio/0104.mp3",
   "ex": "Hij ligt in bed.",
   "exEn": "He is lying in bed.",
-  "exAudio": "audio/ex0104.mp3"
+  "exAudio": "audio/ex0104.mp3",
+  "hl": "ligt"
  },
  {
   "id": 105,
@@ -942,7 +957,8 @@
   "audio": "audio/0105.mp3",
   "ex": "Ik loop naar school.",
   "exEn": "I'm walking to school.",
-  "exAudio": "audio/ex0105.mp3"
+  "exAudio": "audio/ex0105.mp3",
+  "hl": "loop"
  },
  {
   "id": 106,
@@ -960,7 +976,8 @@
   "audio": "audio/0107.mp3",
   "ex": "Ik blijf een week.",
   "exEn": "I'm staying for a week.",
-  "exAudio": "audio/ex0107.mp3"
+  "exAudio": "audio/ex0107.mp3",
+  "hl": "blijf"
  },
  {
   "id": 108,
@@ -987,7 +1004,8 @@
   "audio": "audio/0110.mp3",
   "ex": "Laat mij maar.",
   "exEn": "Let me do it.",
-  "exAudio": "audio/ex0110.mp3"
+  "exAudio": "audio/ex0110.mp3",
+  "hl": "Laat"
  },
  {
   "id": 111,
@@ -1014,7 +1032,8 @@
   "audio": "audio/0113.mp3",
   "ex": "Ik spreek een beetje Nederlands.",
   "exEn": "I speak a little Dutch.",
-  "exAudio": "audio/ex0113.mp3"
+  "exAudio": "audio/ex0113.mp3",
+  "hl": "spreek"
  },
  {
   "id": 114,
@@ -1032,7 +1051,8 @@
   "audio": "audio/0115.mp3",
   "ex": "Ik hoor muziek.",
   "exEn": "I hear music.",
-  "exAudio": "audio/ex0115.mp3"
+  "exAudio": "audio/ex0115.mp3",
+  "hl": "hoor"
  },
  {
   "id": 116,
@@ -1059,7 +1079,8 @@
   "audio": "audio/0118.mp3",
   "ex": "Ik lees een boek.",
   "exEn": "I'm reading a book.",
-  "exAudio": "audio/ex0118.mp3"
+  "exAudio": "audio/ex0118.mp3",
+  "hl": "lees"
  },
  {
   "id": 119,
@@ -1068,7 +1089,8 @@
   "audio": "audio/0119.mp3",
   "ex": "Ik schrijf een brief.",
   "exEn": "I'm writing a letter.",
-  "exAudio": "audio/ex0119.mp3"
+  "exAudio": "audio/ex0119.mp3",
+  "hl": "schrijf"
  },
  {
   "id": 120,
@@ -1077,7 +1099,8 @@
   "audio": "audio/0120.mp3",
   "ex": "Ik leer Nederlands.",
   "exEn": "I'm learning Dutch.",
-  "exAudio": "audio/ex0120.mp3"
+  "exAudio": "audio/ex0120.mp3",
+  "hl": "leer"
  },
  {
   "id": 121,
@@ -1095,7 +1118,8 @@
   "audio": "audio/0122.mp3",
   "ex": "Waar woon je?",
   "exEn": "Where do you live?",
-  "exAudio": "audio/ex0122.mp3"
+  "exAudio": "audio/ex0122.mp3",
+  "hl": "woon"
  },
  {
   "id": 123,
@@ -1104,7 +1128,8 @@
   "audio": "audio/0123.mp3",
   "ex": "Hij leeft nog.",
   "exEn": "He is still alive.",
-  "exAudio": "audio/ex0123.mp3"
+  "exAudio": "audio/ex0123.mp3",
+  "hl": "leeft"
  },
  {
   "id": 124,
@@ -1131,7 +1156,8 @@
   "audio": "audio/0126.mp3",
   "ex": "Ik slaap slecht.",
   "exEn": "I'm sleeping badly.",
-  "exAudio": "audio/ex0126.mp3"
+  "exAudio": "audio/ex0126.mp3",
+  "hl": "slaap"
  },
  {
   "id": 127,
@@ -1140,7 +1166,8 @@
   "audio": "audio/0127.mp3",
   "ex": "Ik koop brood.",
   "exEn": "I'm buying bread.",
-  "exAudio": "audio/ex0127.mp3"
+  "exAudio": "audio/ex0127.mp3",
+  "hl": "koop"
  },
  {
   "id": 128,
@@ -1176,7 +1203,8 @@
   "audio": "audio/0131.mp3",
   "ex": "De film begint om acht uur.",
   "exEn": "The film starts at eight o'clock.",
-  "exAudio": "audio/ex0131.mp3"
+  "exAudio": "audio/ex0131.mp3",
+  "hl": "begint"
  },
  {
   "id": 132,
@@ -1185,7 +1213,8 @@
   "audio": "audio/0132.mp3",
   "ex": "Stop hier, alsjeblieft.",
   "exEn": "Stop here, please.",
-  "exAudio": "audio/ex0132.mp3"
+  "exAudio": "audio/ex0132.mp3",
+  "hl": "Stop"
  },
  {
   "id": 133,
@@ -1203,7 +1232,8 @@
   "audio": "audio/0134.mp3",
   "ex": "Ik probeer het.",
   "exEn": "I'll try.",
-  "exAudio": "audio/ex0134.mp3"
+  "exAudio": "audio/ex0134.mp3",
+  "hl": "probeer"
  },
  {
   "id": 135,
@@ -1230,7 +1260,8 @@
   "audio": "audio/0137.mp3",
   "ex": "Ik kook vanavond.",
   "exEn": "I'm cooking tonight.",
-  "exAudio": "audio/ex0137.mp3"
+  "exAudio": "audio/ex0137.mp3",
+  "hl": "kook"
  },
  {
   "id": 138,
@@ -1239,7 +1270,8 @@
   "audio": "audio/0138.mp3",
   "ex": "Ik bel je morgen.",
   "exEn": "I'll call you tomorrow.",
-  "exAudio": "audio/ex0138.mp3"
+  "exAudio": "audio/ex0138.mp3",
+  "hl": "bel"
  },
  {
   "id": 139,
@@ -1248,7 +1280,8 @@
   "audio": "audio/0139.mp3",
   "ex": "Ik stuur je een bericht.",
   "exEn": "I'll send you a message.",
-  "exAudio": "audio/ex0139.mp3"
+  "exAudio": "audio/ex0139.mp3",
+  "hl": "stuur"
  },
  {
   "id": 140,
@@ -1518,7 +1551,8 @@
   "audio": "audio/0169.mp3",
   "ex": "We hebben dezelfde auto.",
   "exEn": "We have the same car.",
-  "exAudio": "audio/ex0169.mp3"
+  "exAudio": "audio/ex0169.mp3",
+  "hl": "dezelfde"
  },
  {
   "id": 170,
@@ -2436,7 +2470,8 @@
   "audio": "audio/0271.mp3",
   "ex": "Vanmiddag ga ik wandelen.",
   "exEn": "This afternoon I'm going for a walk.",
-  "exAudio": "audio/ex0271.mp3"
+  "exAudio": "audio/ex0271.mp3",
+  "hl": "Vanmiddag"
  },
  {
   "id": 272,
@@ -2445,7 +2480,8 @@
   "audio": "audio/0272.mp3",
   "ex": "Wat doe je vanavond?",
   "exEn": "What are you doing this evening?",
-  "exAudio": "audio/ex0272.mp3"
+  "exAudio": "audio/ex0272.mp3",
+  "hl": "vanavond"
  },
  {
   "id": 273,
@@ -2778,7 +2814,8 @@
   "audio": "audio/0309.mp3",
   "ex": "Ze heeft blauwe ogen.",
   "exEn": "She has blue eyes.",
-  "exAudio": "audio/ex0309.mp3"
+  "exAudio": "audio/ex0309.mp3",
+  "hl": "ogen"
  },
  {
   "id": 310,

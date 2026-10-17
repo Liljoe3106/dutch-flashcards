@@ -3,6 +3,7 @@ const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"streak":0,"last":null
 if(!st.migr2){st.show=false;st.migr2=1;}
 if(!st.dir)st.dir=st.rev?'en':'mix';
 if(!st.deckSel)st.deckSel='both';
+if(st.listen===undefined)st.listen=true;const LISTEN_P=.25;let lis=false;
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
 if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;}
@@ -16,7 +17,7 @@ const fresh=()=>deck.filter(c=>!st.cards[c.id]);
 function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(lim()-st.newCount,fresh().length));
 $('sLearned').textContent=deck.filter(c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1).length;$('sStreak').textContent=st.streak;}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){['back','typebox','exbox','showbtn','cont','btns'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
+function hideAll(){['back','typebox','exbox','showbtn','cont','btns','lisbox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 if(d.length)return d[0];
 if(st.newCount<lim()&&fresh().length)return fresh()[0];
@@ -31,9 +32,12 @@ lastId=cur.id;
 if(stage(cur)==='new'){st.cards[cur.id]={stage:'intro',mc:0,ef:2.5,ivl:0,reps:0,due:Date.now(),t:Date.now()};st.newCount++;save();}
 if(stage(cur)==='intro')showMC();else showRecall();}
 function typeOf(c){return c.en.startsWith('the ')?'n':c.en.startsWith('to ')?'v':'o';}
+const STOP=new Set('the a an to you your i im it its is of for with that this me my be do does can could would some one up on in at and or so not are was what how be there here out please informal polite casual words'.split(' '));
+const toks=c=>new Set(c.en.toLowerCase().replace(/[’']/g,'').split(/[^a-z]+/).filter(w=>w.length>2&&!STOP.has(w)).map(w=>w.replace(/(ing|s)$/,'')));
+function overlap(a,b){if((a.grp||[]).some(g=>(b.grp||[]).includes(g)))return true;const ta=toks(a);for(const t of toks(b))if(ta.has(t))return true;return false;}
 function showMC(){mode='mc';$('front').textContent=cur.nl;$('hint').textContent='Which is the meaning?';speak();
 const t=typeOf(cur),same=all.filter(c=>(c.deck||'top')===(cur.deck||'top')&&c.id!==cur.id&&c.en!==cur.en);let pool=cur.deck==='phr'?same:same.filter(c=>typeOf(c)===t);if(pool.length<2)pool=same;
-pool=pool.sort(()=>Math.random()-.5).slice(0,2);const opts=[cur,...pool].sort(()=>Math.random()-.5);
+pool=pool.sort(()=>Math.random()-.5);const ch=[];for(const c of pool){if(ch.length>=2)break;if([cur,...ch].every(o=>!overlap(o,c)))ch.push(c);}for(const c of pool){if(ch.length>=2)break;if(!ch.includes(c)&&!overlap(cur,c))ch.push(c);}pool=ch;const opts=[cur,...pool].sort(()=>Math.random()-.5);
 opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o.en;b.onclick=()=>answerMC(b,o.id===cur.id);$('mc').appendChild(b);});}
 function answerMC(btn,ok){if(mode!=='mc')return;mode='mcdone';const s=st.cards[cur.id];
 [...$('mc').children].forEach(b=>{b.disabled=true;if(b.textContent===cur.en)b.classList.add('right');});
@@ -41,13 +45,23 @@ if(ok){s.mc++;$('hint').textContent=s.mc>=MC_NEED?'✅ Correct! Moving to recall
 if(s.mc>=MC_NEED){s.stage='rev';s.reps=1;s.ivl=1;s.due=Date.now()+DAY;}else s.due=Date.now()+90e3;}
 else{btn.classList.add('wrong');$('hint').textContent='❌ Not quite. You will see this one again soon.';s.due=Date.now()+45e3;}
 s.t=Date.now();bumpStreak();save();showEx();$('cont').hidden=false;playEx();}
-function showEx(){if(!cur.ex)return;$('exbox').hidden=false;$('ex').textContent=cur.ex;$('exEn').textContent=cur.exEn||'';}
-function showRecall(){mode='recall';shown=false;rev=st.dir==='en'||(st.dir==='mix'&&Math.random()<.5);
+function showEx(){if(!cur.ex)return;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';}
+function hl(c){const esc=t=>t.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]),ex=c.ex||'';
+let t=c.nl.replace(/\.\.\./g,'').replace(/[.!?,]+$/,'').replace(/^(de|het|een)\s+/i,'').trim();if(c.deck!=='phr')t=t.split(/\s*[\/(]/)[0].trim();if(c.hl)t=c.hl;
+const re=s=>new RegExp('(^|[^\\p{L}])('+s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=[^\\p{L}]|$)','iu');
+let m=t&&ex.match(re(t));if(!m&&t&&!t.includes(' ')&&t.length>3)m=ex.match(new RegExp('(^|[^\\p{L}])('+t.slice(0,Math.max(3,t.length-2)).replace(/[.*+?^${}()|[\]\\]/g,'')+'\\p{L}*)','iu'));
+if(!m&&t.includes(' ')){const ws=new Set(t.toLowerCase().split(/[^\p{L}]+/u).filter(w=>w.length>1));if(ws.size)return ex.split(/([^\p{L}]+)/u).map(p=>ws.has(p.toLowerCase())?'<mark>'+esc(p)+'</mark>':esc(p)).join('');}
+if(!m)return esc(ex);const i=m.index+m[1].length,L=m[2].length;return esc(ex.slice(0,i))+'<mark>'+esc(ex.slice(i,i+L))+'</mark>'+esc(ex.slice(i+L));}
+function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').textContent='🎧 Listen';$('hint').textContent='What does the sentence mean?';
+$('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playEx();}
+function showRecall(){lis=false;if(st.listen&&cur.ex&&Math.random()<LISTEN_P)return showListen();mode='recall';shown=false;rev=st.dir==='en'||(st.dir==='mix'&&Math.random()<.5);
 $('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;
 if(rev){$('typebox').hidden=false;$('hint').textContent='Say or type the Dutch';}else{$('hint').textContent='What does it mean?';speak();}
 labels();if(st.show)reveal();else $('showbtn').hidden=false;}
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/^\s*(de|het|een)\s+/,'').replace(/\s+/g,' ').trim();
-function reveal(){if(mode!=='recall'||shown)return;shown=true;$('showbtn').hidden=true;$('back').hidden=false;$('hint').textContent='';
+function reveal(){if(mode!=='recall'||shown)return;if(lis){shown=true;$('showbtn').hidden=true;$('lisbox').hidden=true;$('hint').textContent='';
+$('front').textContent=cur.nl;$('back').hidden=false;$('back').textContent=cur.en;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';$('btns').hidden=false;return;}
+shown=true;$('showbtn').hidden=true;$('back').hidden=false;$('hint').textContent='';
 const ty=$('typed').value.trim();if(rev&&ty){const ok=norm(ty)===norm(cur.nl.replace(/\.\.\./g,''));$('check').textContent=ok?'✅ Spot on!':'✏️ You typed: '+ty;$('check').style.color=ok?'#27ae60':'#c0392b';}
 if(rev)speak();showEx();$('btns').hidden=false;}
 function sched(q,o){const s=Object.assign({ef:2.5,ivl:0,reps:0,due:0},o||{});
@@ -66,7 +80,8 @@ function playEx(){if(cur&&cur.ex)play(cur.exAudio,cur.ex);}
 $('showbtn').onclick=reveal;$('cont').onclick=next;
 $('typed').onkeydown=e=>{if(e.key==='Enter')reveal();};
 document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
-$('say').onclick=speak;$('exsay').onclick=e=>{e.stopPropagation();playEx();};
+$('say').onclick=()=>lis&&!shown?playEx():speak();$('replay').onclick=playEx;$('showtxt').onclick=()=>$('listxt').hidden=false;
+const setLis=()=>$('lis').textContent='Listening cards: '+(st.listen?'ON':'OFF');setLis();$('lis').onclick=()=>{st.listen=!st.listen;save();setLis();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
 $('more10').onclick=()=>{st.extra=(st.extra||0)+10;save();if(left<=0)left=SESSION;next();};
 $('ahead').onclick=()=>{ahead=true;if(left<=0)left=SESSION;next();};
 const setShow=()=>$('show').textContent='Show answers immediately (easy mode): '+(st.show?'ON':'OFF');setShow();
