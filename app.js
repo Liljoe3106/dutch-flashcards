@@ -15,9 +15,9 @@ const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
 const due=()=>{const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);};
 let CAL=new Set();
 function fresh(){const f=deck.filter(c=>!st.cards[c.id]);if(st.deckSel!=='both')return f;
-// Both: days first, then remaining phrases alternate with months/time words, then other top words.
-const dy=f.filter(c=>c.mcg==='day'),ph=f.filter(c=>c.deck==='phr'),ca=f.filter(c=>CAL.has(c.id)),o=[...dy];
-for(let i=0;i<Math.max(ph.length,ca.length);i++){if(ph[i])o.push(ph[i]);if(ca[i])o.push(ca[i]);}
+// Both: this week's phrases lead (2 phrases : 1 day/month/time word), so funeral phrases come first and days still come early; then other top words.
+const ph=f.filter(c=>c.deck==='phr'),ca=[...f.filter(c=>c.mcg==='day'),...f.filter(c=>CAL.has(c.id))],o=[];
+for(let i=0,j=0;i<ph.length||j<ca.length;){if(i<ph.length)o.push(ph[i++]);if(i<ph.length)o.push(ph[i++]);if(j<ca.length)o.push(ca[j++]);}
 return o.concat(f.filter(c=>c.mcg!=='day'&&c.deck!=='phr'&&!CAL.has(c.id)));}
 function stats(){const du=due().length,nl=Math.max(0,Math.min(lim()-st.newCount,fresh().length)),lr=c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1;
 const intro=deck.filter(c=>stage(c)==='intro').length,done=st.doneToday||0,tot=done+du+nl+intro;
