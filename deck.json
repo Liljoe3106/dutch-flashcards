@@ -1948,7 +1948,8 @@
   "audio": "audio/0213.mp3",
   "ex": "Op maandag werk ik.",
   "exEn": "On Monday I work.",
-  "exAudio": "audio/ex0213.mp3"
+  "exAudio": "audio/ex0213.mp3",
+  "mcg": "day"
  },
  {
   "id": 214,
@@ -1957,7 +1958,8 @@
   "audio": "audio/0214.mp3",
   "ex": "Dinsdag ga ik naar de dokter.",
   "exEn": "On Tuesday I'm going to the doctor.",
-  "exAudio": "audio/ex0214.mp3"
+  "exAudio": "audio/ex0214.mp3",
+  "mcg": "day"
  },
  {
   "id": 215,
@@ -1966,7 +1968,8 @@
   "audio": "audio/0215.mp3",
   "ex": "Woensdag is de markt.",
   "exEn": "Wednesday is market day.",
-  "exAudio": "audio/ex0215.mp3"
+  "exAudio": "audio/ex0215.mp3",
+  "mcg": "day"
  },
  {
   "id": 216,
@@ -1975,7 +1978,8 @@
   "audio": "audio/0216.mp3",
   "ex": "Ik vlieg op donderdag.",
   "exEn": "I'm flying on Thursday.",
-  "exAudio": "audio/ex0216.mp3"
+  "exAudio": "audio/ex0216.mp3",
+  "mcg": "day"
  },
  {
   "id": 217,
@@ -1984,7 +1988,8 @@
   "audio": "audio/0217.mp3",
   "ex": "Vrijdag eten we samen.",
   "exEn": "On Friday we eat together.",
-  "exAudio": "audio/ex0217.mp3"
+  "exAudio": "audio/ex0217.mp3",
+  "mcg": "day"
  },
  {
   "id": 218,
@@ -1993,7 +1998,8 @@
   "audio": "audio/0218.mp3",
   "ex": "Zaterdag slaap ik lang.",
   "exEn": "On Saturday I sleep in.",
-  "exAudio": "audio/ex0218.mp3"
+  "exAudio": "audio/ex0218.mp3",
+  "mcg": "day"
  },
  {
   "id": 219,
@@ -2002,7 +2008,8 @@
   "audio": "audio/0219.mp3",
   "ex": "Zondag is een rustige dag.",
   "exEn": "Sunday is a quiet day.",
-  "exAudio": "audio/ex0219.mp3"
+  "exAudio": "audio/ex0219.mp3",
+  "mcg": "day"
  },
  {
   "id": 220,
@@ -2933,5 +2940,161 @@
   "ex": "Is het ver?",
   "exEn": "Is it far?",
   "exAudio": "audio/ex0322.mp3"
+ },
+ {
+  "id": "m01",
+  "nl": "januari",
+  "en": "January",
+  "audio": "audio/m01.mp3",
+  "ex": "In januari is het vaak koud.",
+  "exEn": "In January it's often cold.",
+  "exAudio": "audio/exm01.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m02",
+  "nl": "februari",
+  "en": "February",
+  "audio": "audio/m02.mp3",
+  "ex": "Mijn verjaardag is in februari.",
+  "exEn": "My birthday is in February.",
+  "exAudio": "audio/exm02.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m03",
+  "nl": "maart",
+  "en": "March",
+  "audio": "audio/m03.mp3",
+  "ex": "In maart begint de lente.",
+  "exEn": "Spring begins in March.",
+  "exAudio": "audio/exm03.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m04",
+  "nl": "april",
+  "en": "April",
+  "audio": "audio/m04.mp3",
+  "ex": "We gaan in april naar Florida.",
+  "exEn": "We're going to Florida in April.",
+  "exAudio": "audio/exm04.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m05",
+  "nl": "mei",
+  "en": "May",
+  "audio": "audio/m05.mp3",
+  "ex": "In mei bloeien de tulpen.",
+  "exEn": "The tulips bloom in May.",
+  "exAudio": "audio/exm05.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m06",
+  "nl": "juni",
+  "en": "June",
+  "audio": "audio/m06.mp3",
+  "ex": "In juni zijn de dagen lang.",
+  "exEn": "In June the days are long.",
+  "exAudio": "audio/exm06.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m07",
+  "nl": "juli",
+  "en": "July",
+  "audio": "audio/m07.mp3",
+  "ex": "In juli gaan we op vakantie.",
+  "exEn": "In July we go on holiday.",
+  "exAudio": "audio/exm07.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m08",
+  "nl": "augustus",
+  "en": "August",
+  "audio": "audio/m08.mp3",
+  "ex": "Het is warm in augustus.",
+  "exEn": "It's warm in August.",
+  "exAudio": "audio/exm08.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m09",
+  "nl": "september",
+  "en": "September",
+  "audio": "audio/m09.mp3",
+  "ex": "In september gaat ze naar school.",
+  "exEn": "In September she starts school.",
+  "exAudio": "audio/exm09.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m10",
+  "nl": "oktober",
+  "en": "October",
+  "audio": "audio/m10.mp3",
+  "ex": "Het regent veel in oktober.",
+  "exEn": "It rains a lot in October.",
+  "exAudio": "audio/exm10.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m11",
+  "nl": "november",
+  "en": "November",
+  "audio": "audio/m11.mp3",
+  "ex": "Sinterklaas komt in november.",
+  "exEn": "Sinterklaas arrives in November.",
+  "exAudio": "audio/exm11.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "m12",
+  "nl": "december",
+  "en": "December",
+  "audio": "audio/m12.mp3",
+  "ex": "In december vieren we kerst.",
+  "exEn": "In December we celebrate Christmas.",
+  "exAudio": "audio/exm12.mp3",
+  "mcg": "month"
+ },
+ {
+  "id": "t01",
+  "nl": "het weekend",
+  "en": "the weekend",
+  "audio": "audio/t01.mp3",
+  "ex": "Wat doe je dit weekend?",
+  "exEn": "What are you doing this weekend?",
+  "exAudio": "audio/ext01.mp3"
+ },
+ {
+  "id": "t02",
+  "nl": "volgende week",
+  "en": "next week",
+  "audio": "audio/t02.mp3",
+  "ex": "Volgende week ben ik weer thuis.",
+  "exEn": "Next week I'll be home again.",
+  "exAudio": "audio/ext02.mp3"
+ },
+ {
+  "id": "t03",
+  "nl": "vorige week",
+  "en": "last week",
+  "audio": "audio/t03.mp3",
+  "ex": "Vorige week was ik in Engeland.",
+  "exEn": "Last week I was in England.",
+  "exAudio": "audio/ext03.mp3"
+ },
+ {
+  "id": "t04",
+  "nl": "overmorgen",
+  "en": "the day after tomorrow",
+  "audio": "audio/t04.mp3",
+  "ex": "Overmorgen vlieg ik terug.",
+  "exEn": "The day after tomorrow I fly back.",
+  "exAudio": "audio/ext04.mp3"
  }
 ]

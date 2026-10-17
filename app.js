@@ -13,7 +13,12 @@ const $=id=>document.getElementById(id);
 const lim=()=>NEW_PER_DAY+(st.extra||0);
 const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
 const due=()=>{const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);};
-const fresh=()=>deck.filter(c=>!st.cards[c.id]);
+let CAL=new Set();
+function fresh(){const f=deck.filter(c=>!st.cards[c.id]);if(st.deckSel!=='both')return f;
+// Both: days first, then remaining phrases alternate with months/time words, then other top words.
+const dy=f.filter(c=>c.mcg==='day'),ph=f.filter(c=>c.deck==='phr'),ca=f.filter(c=>CAL.has(c.id)),o=[...dy];
+for(let i=0;i<Math.max(ph.length,ca.length);i++){if(ph[i])o.push(ph[i]);if(ca[i])o.push(ca[i]);}
+return o.concat(f.filter(c=>c.mcg!=='day'&&c.deck!=='phr'&&!CAL.has(c.id)));}
 function stats(){$('sDue').textContent=due().length;$('sNew').textContent=Math.max(0,Math.min(lim()-st.newCount,fresh().length));
 $('sLearned').textContent=deck.filter(c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1).length;$('sStreak').textContent=st.streak;}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
@@ -36,8 +41,8 @@ const STOP=new Set('the a an to you your i im it its is of for with that this me
 const toks=c=>new Set(c.en.toLowerCase().replace(/[’']/g,'').split(/[^a-z]+/).filter(w=>w.length>2&&!STOP.has(w)).map(w=>w.replace(/(ing|s)$/,'')));
 function overlap(a,b){if((a.grp||[]).some(g=>(b.grp||[]).includes(g)))return true;const ta=toks(a);for(const t of toks(b))if(ta.has(t))return true;return false;}
 function showMC(){mode='mc';$('front').textContent=cur.nl;$('hint').textContent='Which is the meaning?';speak();
-const t=typeOf(cur),same=all.filter(c=>(c.deck||'top')===(cur.deck||'top')&&c.id!==cur.id&&c.en!==cur.en);let pool=cur.deck==='phr'?same:same.filter(c=>typeOf(c)===t);if(pool.length<2)pool=same;
-pool=pool.sort(()=>Math.random()-.5);const ch=[];for(const c of pool){if(ch.length>=2)break;if([cur,...ch].every(o=>!overlap(o,c)))ch.push(c);}for(const c of pool){if(ch.length>=2)break;if(!ch.includes(c)&&!overlap(cur,c))ch.push(c);}pool=ch;const opts=[cur,...pool].sort(()=>Math.random()-.5);
+const t=typeOf(cur),same=cur.mcg?all.filter(c=>c.mcg===cur.mcg&&c.id!==cur.id&&c.en!==cur.en):all.filter(c=>(c.deck||'top')===(cur.deck||'top')&&c.id!==cur.id&&c.en!==cur.en);let pool=cur.deck==='phr'||cur.mcg?same:same.filter(c=>typeOf(c)===t);if(pool.length<2)pool=same;
+pool=pool.sort(()=>Math.random()-.5);const ch=[];for(const c of pool){if(ch.length>=2)break;if(cur.mcg||[cur,...ch].every(o=>!overlap(o,c)))ch.push(c);}for(const c of pool){if(ch.length>=2)break;if(!ch.includes(c)&&!overlap(cur,c))ch.push(c);}pool=ch;const opts=[cur,...pool].sort(()=>Math.random()-.5);
 opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o.en;b.onclick=()=>answerMC(b,o.id===cur.id);$('mc').appendChild(b);});}
 function answerMC(btn,ok){if(mode!=='mc')return;mode='mcdone';const s=st.cards[cur.id];
 [...$('mc').children].forEach(b=>{b.disabled=true;if(b.textContent===cur.en)b.classList.add('right');});
@@ -103,4 +108,7 @@ const DECKS={both:'Both (phrases first)',phr:'📌 Phrases this week',top:'📚 
 function setDeck(k){st.deckSel=k;save();deck=k==='both'?all:all.filter(c=>(c.deck||'top')===k);
 document.querySelectorAll('#decks button').forEach(b=>b.style.background=b.dataset.d===k?'#ae1c28':'#888');ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
 document.querySelectorAll('#decks button').forEach(b=>b.onclick=()=>setDeck(b.dataset.d));
-Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{all=[...p,...d.map(c=>Object.assign({deck:'top'},c))];setDeck(DECKS[st.deckSel]?st.deckSel:'both');});
+Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{d=d.map(c=>Object.assign({deck:'top'},c));
+// New-card order: days first, then months + time words; in Both mode days lead, then phrases alternate with months/time words.
+const isDay=c=>c.mcg==='day',cal=[...d.filter(c=>c.mcg==='month'),...d.filter(c=>/^t\d/.test(c.id)||[267,268,269].includes(c.id))];
+const days=d.filter(isDay),rest=d.filter(c=>!isDay(c)&&!cal.includes(c));CAL=new Set(cal.map(c=>c.id));all=[...days,...cal,...p,...rest];setDeck(DECKS[st.deckSel]?st.deckSel:'both');});
