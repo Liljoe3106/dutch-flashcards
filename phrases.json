@@ -413,66 +413,6 @@
   ]
  },
  {
-  "id": "s01",
-  "deck": "phr",
-  "nl": "Odi!",
-  "en": "Hello! (Sranan)",
-  "audio": "audio/s01.mp3",
-  "ex": "Odi, fa yu tan?",
-  "exEn": "Hello, how are you? (Sranan)",
-  "exAudio": "audio/exs01.mp3",
-  "say": "Oodie!",
-  "exSay": "Oodie, fa joe tan?",
-  "grp": [
-   "greet"
-  ]
- },
- {
-  "id": "s02",
-  "deck": "phr",
-  "nl": "Fa yu tan?",
-  "en": "How are you? (Sranan)",
-  "audio": "audio/s02.mp3",
-  "ex": "Morgu. Fa yu tan?",
-  "exEn": "Good morning. How are you? (Sranan)",
-  "exAudio": "audio/exs02.mp3",
-  "say": "Fa joe tan?",
-  "exSay": "Morgoe. Fa joe tan?",
-  "grp": [
-   "howru"
-  ]
- },
- {
-  "id": "s03",
-  "deck": "phr",
-  "nl": "Mi de bun.",
-  "en": "I'm fine. (Sranan)",
-  "audio": "audio/s03.mp3",
-  "ex": "Mi de bun, grantangi.",
-  "exEn": "I'm fine, thank you. (Sranan)",
-  "exAudio": "audio/exs03.mp3",
-  "say": "Mie die boeng.",
-  "exSay": "Mie die boeng, grantangie.",
-  "grp": [
-   "howru"
-  ]
- },
- {
-  "id": "s04",
-  "deck": "phr",
-  "nl": "Grantangi.",
-  "en": "Thank you. (Sranan)",
-  "audio": "audio/s04.mp3",
-  "ex": "Ay, grantangi.",
-  "exEn": "Yes, thank you. (Sranan)",
-  "exAudio": "audio/exs04.mp3",
-  "say": "Grantangie.",
-  "exSay": "Aai, grantangie.",
-  "grp": [
-   "thanks"
-  ]
- },
- {
   "id": "p07",
   "deck": "phr",
   "nl": "Goedemorgen!",
