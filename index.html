@@ -41,6 +41,8 @@ display:flex;flex-direction:column;align-items:center;justify-content:center;tex
 #typed:focus{border-color:var(--accent)}#check{margin-top:6px;font-weight:600;min-height:1.2em}
 #lisbox{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
 #lisbox .row{display:flex;gap:10px}.pill{padding:10px 16px;border-radius:99px;background:var(--soft);font-weight:600;font-size:.95rem}
+#spkbox{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px}#heard{font-weight:600;font-size:.95rem;min-height:1.2em}
+#mic.on{background:var(--again);color:#fff;animation:pulse 1.2s ease-in-out infinite}#mic:disabled{opacity:.45;cursor:default}#mic:active{transform:scale(.96)}@keyframes pulse{50%{opacity:.7}}
 #replay{background:var(--orange);color:#fff}#listxt{font-size:1.15rem}
 #exbox{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);width:100%;font-size:1.02rem}
 #exbox .exl{display:flex;align-items:flex-start;justify-content:center;gap:8px}
@@ -91,6 +93,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="card"><div id="tag"></div><button id="say" aria-label="Play audio">🔊</button>
 <div id="front">Loading…</div><div id="back" hidden></div>
 <div id="typebox" hidden><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the Dutch (optional)"><div id="check"></div></div>
+<div id="spkbox" hidden><button id="mic" class="pill">🎤 Say it</button><div id="heard"></div></div>
 <div id="lisbox" hidden><div class="row"><button id="replay" class="pill">🔁 Replay</button><button id="showtxt" class="pill">Show Dutch text</button></div><div id="listxt" hidden></div></div>
 <div id="exbox" hidden><div class="exl"><span id="ex"></span><button id="exsay" aria-label="Play sentence">🔊</button></div><div id="exEn"></div></div>
 <div id="donebox" hidden></div>
@@ -109,6 +112,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div class="group"><h3>Study</h3>
 <div class="rowi"><label>Review direction</label><div class="seg" id="dir"><button data-v="nl">NL→EN</button><button data-v="mix">Mixed</button><button data-v="en">EN→NL</button></div></div>
 <div class="rowi"><label for="lis">Listening cards<small>Hear the sentence, then recall</small></label><input type="checkbox" class="sw" id="lis"></div>
+<div class="rowi"><label for="spk">Speaking practice<small id="spkn">Say the Dutch out loud with your mic</small></label><input type="checkbox" class="sw" id="spk"></div>
 <div class="rowi"><label for="show">Easy mode<small>Show answers immediately</small></label><input type="checkbox" class="sw" id="show"></div>
 <div class="rowi"><label>New cards per day</label><div class="step"><button id="npdm" aria-label="Fewer">−</button><b id="npd">15</b><button id="npdp" aria-label="More">+</button></div></div></div>
 <div class="group"><h3>Stats</h3><div class="sgrid" id="sgrid">
@@ -117,4 +121,4 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div class="stat"><b id="sMature">0</b><span>Strong (21d+)</span></div><div class="stat"><b id="sSeen">0</b><span>Cards seen</span></div><div class="stat"><b id="sTotal">0</b><span>Total cards</span></div></div></div>
 <div class="group"><h3>Sync between devices</h3><div class="btnrow"><button id="exp">⬆ Export progress</button><button id="imp">⬇ Import progress</button></div><input type="file" id="impf" accept=".json,.txt" hidden></div>
 </div></div>
-<audio id="aud" preload="none"></audio><script src="app.js"></script></body></html>
+<audio id="aud" preload="none"></audio><script src="say.js?v=say1"></script><script src="app.js?v=say1"></script></body></html>

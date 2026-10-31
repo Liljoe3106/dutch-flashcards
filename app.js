@@ -3,7 +3,7 @@ const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"streak":0,"last":null
 if(!st.migr2){st.show=false;st.migr2=1;}
 if(!st.dir)st.dir=st.rev?'en':'mix';
 if(!st.deckSel)st.deckSel='both';
-if(st.listen===undefined)st.listen=true;const LISTEN_P=.25;let lis=false;
+if(st.listen===undefined)st.listen=true;if(st.speak===undefined)st.speak=true;const LISTEN_P=.25;let lis=false;
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
 if(st.newDay!==today()){st.newDay=today();st.newCount=0;st.extra=0;st.doneToday=0;}
@@ -27,7 +27,7 @@ $('sMature').textContent=all.filter(c=>lr(c)&&st.cards[c.id].ivl>=21).length;$('
 $('pbar').style.width=(tot?Math.round(done/tot*100):100)+'%';$('ptext').textContent=tot&&done<tot?done+' / '+tot+' today':done?'All done today ✓':'Today';}
 function anim(){const c=$('card');c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){$('say').hidden=false;$('tag').textContent='';['back','typebox','exbox','showbtn','cont','btns','lisbox','donebox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
+function hideAll(){$('say').hidden=false;$('tag').textContent='';micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 if(d.length)return d[0];
 if(st.newCount<lim()&&fresh().length)return fresh()[0];
@@ -55,7 +55,7 @@ function answerMC(btn,ok){if(mode!=='mc')return;mode='mcdone';const s=st.cards[c
 if(ok){s.mc++;$('hint').textContent=s.mc>=MC_NEED?'✅ Correct! Moving to recall practice.':'✅ Correct!';
 if(s.mc>=MC_NEED){s.stage='rev';s.reps=1;s.ivl=1;s.due=Date.now()+DAY;}else s.due=Date.now()+90e3;}
 else{btn.classList.add('wrong');$('hint').textContent='❌ Not quite. You will see this one again soon.';s.due=Date.now()+45e3;}
-s.t=Date.now();st.doneToday=(st.doneToday||0)+1;bumpStreak();save();stats();showEx();$('cont').hidden=false;playEx();}
+s.t=Date.now();st.doneToday=(st.doneToday||0)+1;bumpStreak();save();stats();showEx();$('cont').hidden=false;spkShow();playEx();}
 function showEx(){if(!cur.ex)return;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';}
 function hl(c){const esc=t=>t.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]),ex=c.ex||'';
 let t=c.nl.replace(/\.\.\./g,'').replace(/[.!?,]+$/,'').replace(/^(de|het|een)\s+/i,'').trim();if(c.deck!=='phr')t=t.split(/\s*[\/(]/)[0].trim();if(c.hl)t=c.hl;
@@ -67,14 +67,14 @@ function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').te
 $('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playEx();}
 function showRecall(){lis=false;if(st.listen&&cur.ex&&Math.random()<LISTEN_P)return showListen();mode='recall';shown=false;rev=st.dir==='en'||(st.dir==='mix'&&Math.random()<.5);
 $('tag').textContent='Review · '+(cur.deck==='phr'?'phrase':'word');$('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;
-if(rev){$('typebox').hidden=false;$('hint').textContent='Say or type the Dutch';}else{$('hint').textContent='What does it mean?';speak();}
-labels();if(st.show)reveal();else $('showbtn').hidden=false;}
+if(rev){$('typebox').hidden=false;$('hint').textContent=SR&&st.speak?'Say or type the Dutch':'Type the Dutch';}else{$('hint').textContent='What does it mean?';speak();}
+if(rev)spkShow();labels();if(st.show)reveal();else $('showbtn').hidden=false;}
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/^\s*(de|het|een)\s+/,'').replace(/\s+/g,' ').trim();
 function reveal(){if(mode!=='recall'||shown)return;if(lis){shown=true;$('showbtn').hidden=true;$('lisbox').hidden=true;$('hint').textContent='';
-$('front').textContent=cur.nl;$('back').hidden=false;$('back').textContent=cur.en;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';$('btns').hidden=false;return;}
+$('front').textContent=cur.nl;$('back').hidden=false;$('back').textContent=cur.en;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';$('btns').hidden=false;spkShow();return;}
 shown=true;$('showbtn').hidden=true;$('back').hidden=false;$('hint').textContent='';
 const ty=$('typed').value.trim();if(rev&&ty){const ok=norm(ty)===norm(cur.nl.replace(/\.\.\./g,''));$('check').textContent=ok?'✅ Spot on!':'✏️ You typed: '+ty;$('check').style.color=ok?'#27ae60':'#c0392b';}
-if(rev)speak();showEx();$('btns').hidden=false;}
+if(rev)speak();else spkShow();showEx();$('btns').hidden=false;}
 function sched(q,o){const s=Object.assign({ef:2.5,ivl:0,reps:0,due:0},o||{});
 const early=ahead&&o&&o.due>Date.now()&&o.reps>0;
 if(early&&q>=3){const el=Math.max(1,(Date.now()-(o.t||Date.now()))/DAY);s.reps++;s.ivl=Math.max(s.ivl,Math.round(el*s.ef*(q==3?.8:q==5?1.3:1)));s.due=Date.now()+s.ivl*DAY;return s;}
@@ -84,6 +84,27 @@ s.ef=Math.max(1.3,s.ef+0.1-(5-q)*(0.08+(5-q)*0.02));s.due=Date.now()+s.ivl*DAY;}
 const fmt=s=>s.ivl==0?'1 min':s.ivl==1?'1 day':s.ivl<31?s.ivl+' days':s.ivl<365?Math.round(s.ivl/30)+' mo':(s.ivl/365).toFixed(1)+' yr';
 function labels(){[0,3,4,5].forEach(q=>$('n'+q).textContent=fmt(sched(q,st.cards[cur.id])));}
 function grade(q){const s=sched(q,st.cards[cur.id]);s.stage='rev';s.t=Date.now();st.cards[cur.id]=s;st.doneToday=(st.doneToday||0)+1;bumpStreak();save();next();}
+// Say it: speak the Dutch into the mic (Web Speech API, nl-NL). EN→NL recall: Correct/Close reveals the answer, then grade as usual.
+// Other cards: pronunciation practice once the Dutch is on screen. Typing stays as the backup where recognition is missing.
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null;
+const heard=(t,col)=>{$('heard').textContent=t;$('heard').style.color=col||'';};
+function spkShow(){if(!st.speak||!cur||(!SR&&!(mode==='recall'&&rev)))return;$('spkbox').hidden=false;$('mic').disabled=!SR;
+heard(SR?'':'🎤 Speaking practice isn’t available in this browser. Type instead.',SR?'':'var(--muted)');}
+function micStop(){if(rec){const r=rec;rec=null;r.onresult=r.onerror=r.onend=null;try{r.abort();}catch(e){}}$('mic').classList.remove('on');$('mic').textContent='🎤 Say it';}
+function micStart(){if(!SR||!cur)return;if(rec)return micStop();$('aud').pause();speechSynthesis.cancel();
+const c=cur,r=new SR();let got=false;rec=r;r.lang='nl-NL';r.interimResults=false;r.continuous=false;r.maxAlternatives=5;
+$('mic').classList.add('on');$('mic').textContent='● Listening…';heard('Say it in Dutch','var(--muted)');
+r.onresult=e=>{got=true;if(c!==cur)return;const m=sayMatch([...e.results[0]].map(x=>x.transcript.trim()),c.nl),said='“'+m.heard+'”';
+heard(m.res==='correct'?'✅ Correct! You said '+said:m.res==='close'?'🟡 Close. You said '+said:'❌ Try again. I heard '+said,m.res==='correct'?'var(--good)':m.res==='close'?'var(--hard)':'var(--again)');
+if(m.res!=='try'&&mode==='recall'&&rev&&!shown)reveal();};
+r.onerror=e=>{got=true;const blocked='🎤 Microphone blocked. Allow mic access for this site in your browser settings, or type instead.';
+const msg={'not-allowed':blocked,'service-not-allowed':blocked,'no-speech':'Didn’t catch that. Tap 🎤 and try again.','audio-capture':'No microphone found. Type instead.','network':'Speech recognition needs an internet connection. Type instead.','language-not-supported':'Dutch speech recognition isn’t available here. Type instead.'}[e.error];
+if(msg!==undefined)heard(msg,'var(--muted)');else if(e.error!=='aborted')heard('Something went wrong with the mic. Tap 🎤 to try again.','var(--muted)');};
+r.onend=()=>{if(rec!==r)return;rec=null;$('mic').classList.remove('on');$('mic').textContent='🎤 Say it';if(!got)heard('Didn’t catch that. Tap 🎤 and try again.','var(--muted)');};
+try{r.start();}catch(e){rec=null;micStop();heard('Couldn’t start the mic. Tap 🎤 to try again.','var(--muted)');}}
+$('mic').onclick=e=>{e.stopPropagation();micStart();};
+$('spk').checked=!!st.speak&&!!SR;$('spk').disabled=!SR;if(!SR)$('spkn').textContent='Not available in this browser (try Chrome). Typing still works.';
+$('spk').onchange=()=>{st.speak=$('spk').checked;save();if(!st.speak){micStop();$('spkbox').hidden=true;}else if(mode==='recall'&&(rev||shown)||mode==='mcdone')spkShow();};
 function tts(t){const u=new SpeechSynthesisUtterance(t);u.lang='nl-NL';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith('nl'));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u);}
 function play(src,text){const a=$('aud');if(src){a.onerror=()=>tts(text);a.src=src;a.play().catch(()=>{});}else tts(text);}
 function speak(){if(cur)play(cur.audio,cur.nl);}
