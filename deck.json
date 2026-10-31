@@ -166,9 +166,9 @@
   "nl": "hoe",
   "en": "how",
   "audio": "audio/0019.mp3",
-  "ex": "Hoe heet je?",
-  "exEn": "What is your name?",
-  "exAudio": "audio/ex0019.mp3"
+  "ex": "Hoe kom ik bij het station?",
+  "exEn": "How do I get to the station?",
+  "exAudio": "audio/ex0019-v2.mp3"
  },
  {
   "id": 20,
@@ -267,7 +267,8 @@
   "audio": "audio/0030.mp3",
   "ex": "Dat is zijn auto.",
   "exEn": "That is his car.",
-  "exAudio": "audio/ex0030.mp3"
+  "exAudio": "audio/ex0030.mp3",
+  "fh": "possessive"
  },
  {
   "id": 31,
@@ -562,9 +563,9 @@
   "nl": "met",
   "en": "with",
   "audio": "audio/0063.mp3",
-  "ex": "Ik ga met de trein.",
-  "exEn": "I'm going by train.",
-  "exAudio": "audio/ex0063.mp3"
+  "ex": "Ik drink koffie met melk.",
+  "exEn": "I drink coffee with milk.",
+  "exAudio": "audio/ex0063-v2.mp3"
  },
  {
   "id": 64,
@@ -697,9 +698,9 @@
   "nl": "tot",
   "en": "until",
   "audio": "audio/0078.mp3",
-  "ex": "Tot ziens!",
-  "exEn": "Goodbye!",
-  "exAudio": "audio/ex0078.mp3"
+  "ex": "De winkel is open tot zes uur.",
+  "exEn": "The shop is open until six o'clock.",
+  "exAudio": "audio/ex0078-v2.mp3"
  },
  {
   "id": 79,
@@ -727,7 +728,8 @@
   "ex": "Ik ben moe.",
   "exEn": "I am tired.",
   "exAudio": "audio/ex0081.mp3",
-  "hl": "ben"
+  "hl": "ben",
+  "fh": "verb"
  },
  {
   "id": 82,
@@ -1297,9 +1299,10 @@
   "nl": "sluiten",
   "en": "to close",
   "audio": "audio/0141.mp3",
-  "ex": "Doe de deur dicht.",
-  "exEn": "Close the door.",
-  "exAudio": "audio/ex0141.mp3"
+  "ex": "Ik sluit de deur.",
+  "exEn": "I'm closing the door.",
+  "exAudio": "audio/ex0141-v2.mp3",
+  "hl": "sluit"
  },
  {
   "id": 142,
@@ -1546,9 +1549,9 @@
  },
  {
   "id": 169,
-  "nl": "zelfde",
-  "en": "same",
-  "audio": "audio/0169.mp3",
+  "nl": "dezelfde / hetzelfde",
+  "en": "the same",
+  "audio": "audio/0169-v2.mp3",
   "ex": "We hebben dezelfde auto.",
   "exEn": "We have the same car.",
   "exAudio": "audio/ex0169.mp3",

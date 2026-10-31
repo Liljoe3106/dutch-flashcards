@@ -14,4 +14,4 @@ test('wrong answers are try again',()=>{assert.equal(sayMatch('dinsdag','vrijdag
 test('ellipsis means anything may follow',()=>{assert.equal(sayMatch('ik heet Joe','ik heet ...').res,'correct');assert.equal(sayMatch('ik heet','ik heet ...').res,'correct');});
 test('slash alternatives and brackets',()=>{assert.deepEqual(sayTargets('a / b').map(x=>x.t),['a','b']);assert.equal(sayMatch('zijn','zijn (hun)').res,'correct');assert.equal(sayMatch('b','a / b').res,'correct');});
 test('best of recogniser alternatives wins',()=>{const r=sayMatch(['dag maand','vrijdag'],'vrijdag');assert.equal(r.res,'correct');assert.equal(r.heard,'vrijdag');});
-test('every card matches its own Dutch',()=>{for(const c of deck)assert.equal(sayMatch(c.nl.replace(/\.\.\./g,''),c.nl).res,'correct',c.nl);});
+test('every card matches its own Dutch',()=>{for(const c of deck)for(const alt of c.nl.split(' / '))assert.equal(sayMatch(alt.replace(/\.\.\./g,''),c.nl).res,'correct',c.nl);});
