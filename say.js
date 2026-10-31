@@ -17,6 +17,24 @@ if(open&&n.startsWith(t))sc=1;else if(open)sc=Math.max(sc,ratio(n.slice(0,t.leng
 if(sc<close&&(' '+n+' ').includes(' '+t+' '))sc=close; // said the answer plus extra words
 if(sc>best.score)best={res:sc>=1?'correct':sc>=close?'close':'try',score:sc,heard:h};}}
 return best;}
-const api={sayNorm,sayTargets,sayMatch,lev,ratio};
+// Typed answers: same tolerance as Say it, plus articles. Leaving the article out is fine; the wrong one is Close.
+const artOf=s=>{const m=String(s||'').toLowerCase().trim().match(/^(de|het)\s+\S/);return m?m[1]:null;};
+function typeMatch(typed,nl){const r=sayMatch(typed,nl);if(r.res==='try')return {res:'wrong',why:null,score:r.score};
+const ta=artOf(String(nl).split('/')[0]),ha=artOf(typed);if(ta&&ha&&ta!==ha)return {res:'close',why:'article',score:r.score};
+return {res:r.res,why:r.res==='close'?'typo':null,score:r.score};}
+// Letter-by-letter diff of what was typed against the nearest accepted answer, for wrong/close feedback.
+// Returns [{t, ok}] where ok=false marks a wrong or extra letter, and {t:'_', ok:false, miss:true} a missing one.
+function typeDiff(typed,nl){const low=x=>String(x||'').toLowerCase().replace(/[.!?,;:¿¡…]+/g,'').replace(/\.\.\./g,'').replace(/\s+/g,' ').trim();
+const flat=x=>x.normalize('NFD').replace(/[\u0300-\u036f]/g,'');let a=low(typed);const ha=artOf(a);
+let best=null;for(let t of String(nl||'').split('/')){t=low(t.replace(/\([^)]*\)/g,' '));if(!ha)t=t.replace(/^(de|het|een)\s+(?=\S)/,'');
+const d=lev(flat(a),flat(t));if(!best||d<best.d)best={t,d};}
+const b=best?best.t:'',A=flat(a),B=flat(b),D=[...Array(A.length+1)].map(()=>Array(B.length+1).fill(0));
+for(let i=0;i<=A.length;i++)D[i][0]=i;for(let j=0;j<=B.length;j++)D[0][j]=j;
+for(let i=1;i<=A.length;i++)for(let j=1;j<=B.length;j++)D[i][j]=Math.min(D[i-1][j]+1,D[i][j-1]+1,D[i-1][j-1]+(A[i-1]===B[j-1]?0:1));
+const out=[];let i=A.length,j=B.length;while(i>0||j>0){
+if(i>0&&j>0&&D[i][j]===D[i-1][j-1]+(A[i-1]===B[j-1]?0:1)){out.unshift({t:a[i-1],ok:A[i-1]===B[j-1]});i--;j--;}
+else if(i>0&&D[i][j]===D[i-1][j]+1){out.unshift({t:a[i-1],ok:false});i--;}else{out.unshift({t:'_',ok:false,miss:true});j--;}}
+const m=[];for(const x of out){const l=m[m.length-1];if(l&&l.ok===x.ok&&!l.miss&&!x.miss)l.t+=x.t;else m.push(Object.assign({},x));}return m;}
+const api={sayNorm,sayTargets,sayMatch,lev,ratio,typeMatch,typeDiff,artOf};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else Object.assign(g,api);
 })(this);
