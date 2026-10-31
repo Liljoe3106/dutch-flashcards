@@ -2,7 +2,7 @@ const NEW_PER_DAY=15,SESSION=15*60,K='dfc_v1',DAY=864e5,MC_NEED=2;
 const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"streak":0,"last":null,"newDay":null,"newCount":0}');
 if(!st.migr2){st.show=false;st.migr2=1;}
 if(!st.dir)st.dir=st.rev?'en':'mix';
-if(!st.deckSel)st.deckSel='both';
+st.deckSel=deckSel(st.deckSel); // old "Both" option is gone: falls back to Top words
 if(st.listen===undefined)st.listen=true;if(st.speak===undefined)st.speak=true;const LISTEN_P=.25;let lis=false;
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
@@ -13,12 +13,7 @@ const $=id=>document.getElementById(id);
 const lim=()=>(st.npd??NEW_PER_DAY)+(st.extra||0);
 const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
 const due=()=>{const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);};
-let CAL=new Set();
-function fresh(){const f=deck.filter(c=>!st.cards[c.id]);if(st.deckSel!=='both')return f;
-// Both: this week's phrases lead (2 phrases : 1 day/month/time word), so funeral phrases come first and days still come early; then other top words.
-const ph=f.filter(c=>c.deck==='phr'),ca=[...f.filter(c=>c.mcg==='day'),...f.filter(c=>CAL.has(c.id))],o=[];
-for(let i=0,j=0;i<ph.length||j<ca.length;){if(i<ph.length)o.push(ph[i++]);if(i<ph.length)o.push(ph[i++]);if(j<ca.length)o.push(ca[j++]);}
-return o.concat(f.filter(c=>c.mcg!=='day'&&c.deck!=='phr'&&!CAL.has(c.id)));}
+function fresh(){return deck.filter(c=>!st.cards[c.id]);}
 function stats(){const du=due().length,nl=Math.max(0,Math.min(lim()-st.newCount,fresh().length)),lr=c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1;
 const intro=deck.filter(c=>stage(c)==='intro').length,done=st.doneToday||0,tot=done+du+nl+intro;
 $('sDue').textContent=du;$('sNew').textContent=nl;$('sLearned').textContent=deck.filter(lr).length;$('sStreak').textContent=st.streak;$('sToday').textContent=done;
@@ -27,7 +22,7 @@ $('sMature').textContent=all.filter(c=>lr(c)&&st.cards[c.id].ivl>=21).length;$('
 $('pbar').style.width=(tot?Math.round(done/tot*100):100)+'%';$('ptext').textContent=tot&&done<tot?done+' / '+tot+' today':done?'All done today ✓':'Today';}
 function anim(){const c=$('card');c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){$('say').hidden=false;$('tag').textContent='';micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
+function hideAll(){$('say').hidden=false;$('tag').textContent='';seq++;micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').textContent='';$('typed').value='';}
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 if(d.length)return d[0];
 if(st.newCount<lim()&&fresh().length)return fresh()[0];
@@ -38,7 +33,8 @@ return null;}
 function next(){hideAll();cur=left>0?pick():null;stats();anim();
 if(!cur){mode='done';$('say').hidden=true;$('front').textContent=left<=0?'⏰ 15 minutes done':'🎉 Done for today';$('hint').textContent=left<=0?'Nice work. Come back tomorrow, or keep going.':'Everything due is done. Want to keep going?';
 $('donebox').hidden=false;$('donebox').innerHTML='<div class="stat"><b>'+(st.doneToday||0)+'</b><span>Answered</span></div><div class="stat"><b>'+$('sLearned').textContent+'</b><span>Learned</span></div><div class="stat"><b>'+st.streak+'🔥</b><span>Streak</span></div>';
-$('more').style.display='flex';$('ahead').hidden=!deck.some(c=>stage(c)==='rev');return;}
+$('more').style.display='flex';$('ahead').hidden=!deck.some(c=>stage(c)==='rev');
+const tw=all.filter(c=>c.deck!=='phr');$('tophr').hidden=!phraseNudge(st.deckSel,tw.filter(c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1).length,tw.length,fresh().length);return;}
 lastId=cur.id;
 if(stage(cur)==='new'){st.cards[cur.id]={stage:'intro',mc:0,ef:2.5,ivl:0,reps:0,due:Date.now(),t:Date.now()};st.newCount++;save();}
 if(stage(cur)==='intro')showMC();else showRecall();}
@@ -64,7 +60,7 @@ let m=t&&ex.match(re(t));if(!m&&t&&!t.includes(' ')&&t.length>3)m=ex.match(new R
 if(!m&&t.includes(' ')){const ws=new Set(t.toLowerCase().split(/[^\p{L}]+/u).filter(w=>w.length>1));if(ws.size)return ex.split(/([^\p{L}]+)/u).map(p=>ws.has(p.toLowerCase())?'<mark>'+esc(p)+'</mark>':esc(p)).join('');}
 if(!m)return esc(ex);const i=m.index+m[1].length,L=m[2].length;return esc(ex.slice(0,i))+'<mark>'+esc(ex.slice(i,i+L))+'</mark>'+esc(ex.slice(i+L));}
 function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').textContent='🎧 Listen';$('tag').textContent='Listen';$('hint').textContent='What does the sentence mean?';
-$('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playEx();}
+$('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playListen();}
 function showRecall(){lis=false;if(st.listen&&cur.ex&&Math.random()<LISTEN_P)return showListen();mode='recall';shown=false;rev=st.dir==='en'||(st.dir==='mix'&&Math.random()<.5);
 $('tag').textContent='Review · '+(cur.deck==='phr'?'phrase':'word');$('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;
 if(rev){$('typebox').hidden=false;$('hint').textContent=SR&&st.speak?'Say or type the Dutch':'Type the Dutch';}else{$('hint').textContent='What does it mean?';speak();}
@@ -92,7 +88,7 @@ function spkShow(){if(!st.speak||!cur||(!SR&&!(mode==='recall'&&rev)))return;$('
 heard(SR?'':'🎤 Speaking practice isn’t available in this browser. Type instead.',SR?'':'var(--muted)');}
 function micStop(){if(rec){const r=rec;rec=null;r.onresult=r.onerror=r.onend=null;try{r.abort();}catch(e){}}$('mic').classList.remove('on');$('mic').textContent='🎤 Say it';}
 function micStart(){if(!SR||!cur)return;if(rec)return micStop();$('aud').pause();speechSynthesis.cancel();
-const c=cur,r=new SR();let got=false;rec=r;r.lang='nl-NL';r.interimResults=false;r.continuous=false;r.maxAlternatives=5;
+const c=cur,r=new SR();let got=false;seq++;rec=r;r.lang='nl-NL';r.interimResults=false;r.continuous=false;r.maxAlternatives=5;
 $('mic').classList.add('on');$('mic').textContent='● Listening…';heard('Say it in Dutch','var(--muted)');
 r.onresult=e=>{got=true;if(c!==cur)return;const m=sayMatch([...e.results[0]].map(x=>x.transcript.trim()),c.nl),said='“'+m.heard+'”';
 heard(m.res==='correct'?'✅ Correct! You said '+said:m.res==='close'?'🟡 Close. You said '+said:'❌ Try again. I heard '+said,m.res==='correct'?'var(--good)':m.res==='close'?'var(--hard)':'var(--again)');
@@ -105,16 +101,21 @@ try{r.start();}catch(e){rec=null;micStop();heard('Couldn’t start the mic. Tap 
 $('mic').onclick=e=>{e.stopPropagation();micStart();};
 $('spk').checked=!!st.speak&&!!SR;$('spk').disabled=!SR;if(!SR)$('spkn').textContent='Not available in this browser (try Chrome). Typing still works.';
 $('spk').onchange=()=>{st.speak=$('spk').checked;save();if(!st.speak){micStop();$('spkbox').hidden=true;}else if(mode==='recall'&&(rev||shown)||mode==='mcdone')spkShow();};
-function tts(t){const u=new SpeechSynthesisUtterance(t);u.lang='nl-NL';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith('nl'));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u);}
-function play(src,text){const a=$('aud');if(src){a.onerror=()=>tts(text);a.src=src;a.play().catch(()=>{});}else tts(text);}
+function tts(t,done){const u=new SpeechSynthesisUtterance(t);if(done)u.onend=done;u.lang='nl-NL';const v=speechSynthesis.getVoices().find(v=>v.lang.replace('_','-').startsWith('nl'));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u);}
+let seq=0; // bumped by every new playback so a pending word→sentence sequence stops
+function play(src,text,done){seq++;const a=$('aud');a.onended=null;if(src){a.onended=done||null;a.onerror=()=>tts(text,done);a.src=src;a.play().catch(()=>{});}else tts(text,done);}
 function speak(){if(cur)play(cur.audio,cur.nl);}
 function playEx(){if(cur&&cur.ex)play(cur.exAudio,cur.ex);}
+// Listening questions: word cards say the word, pause, then the sentence (study.js listenQueue); phrase cards just the sentence.
+function playListen(){const c=cur,q=listenQueue(c);let tok;const step=i=>{if(tok!==undefined&&tok!==seq||c!==cur||!lis||shown)return;const it=q[i];if(!it)return;
+if(it.pause){setTimeout(()=>step(i+1),it.pause);return;}play(it.src,it.text,()=>step(i+1));tok=seq;};step(0);}
 $('showbtn').onclick=reveal;$('cont').onclick=next;
 $('typed').onkeydown=e=>{if(e.key==='Enter')reveal();};
 document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
-$('say').onclick=()=>lis&&!shown?playEx():speak();$('replay').onclick=playEx;$('showtxt').onclick=()=>$('listxt').hidden=false;
+$('say').onclick=()=>lis&&!shown?playListen():speak();$('replay').onclick=playListen;$('showtxt').onclick=()=>$('listxt').hidden=false;
 $('lis').checked=!!st.listen;$('lis').onchange=()=>{st.listen=$('lis').checked;save();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
 $('more10').onclick=()=>{st.extra=(st.extra||0)+10;save();if(left<=0)left=SESSION;next();};
+$('tophr').onclick=()=>setDeck('phr');
 $('ahead').onclick=()=>{ahead=true;if(left<=0)left=SESSION;next();};
 $('show').checked=!!st.show;$('show').onchange=()=>{st.show=$('show').checked;save();if(mode==='recall'&&st.show)reveal();};
 const setDir=()=>document.querySelectorAll('#dir button').forEach(b=>b.classList.toggle('on',b.dataset.v===st.dir));setDir();
@@ -134,11 +135,11 @@ if(o.newDay===st.newDay)st.newCount=Math.max(st.newCount,o.newCount);save();aler
 $('imp').onclick=()=>{const t=prompt('Paste your progress code (or press Cancel to choose a file):');if(t)merge(t);else $('impf').click();};
 $('impf').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(merge);};
 setInterval(()=>{if(document.hidden||left<=0)return;left--;$('timer').textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left==0&&mode!=='mcdone')next();},1000);
-const DECKS={both:'Both (phrases first)',phr:'📌 Phrases this week',top:'📚 Top words'};
-function setDeck(k){st.deckSel=k;save();deck=k==='both'?all:all.filter(c=>(c.deck||'top')===k);
+
+function setDeck(k){st.deckSel=k;save();deck=all.filter(c=>(c.deck||'top')===k);
 document.querySelectorAll('#decks button').forEach(b=>b.classList.toggle('on',b.dataset.d===k));ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
 document.querySelectorAll('#decks button').forEach(b=>b.onclick=()=>setDeck(b.dataset.d));
 Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{d=d.map(c=>Object.assign({deck:'top'},c));
-// New-card order: days first, then months + time words; in Both mode days lead, then phrases alternate with months/time words.
+// New-card order for Top words: days first, then months + time words, then the rest.
 const isDay=c=>c.mcg==='day',cal=[...d.filter(c=>c.mcg==='month'),...d.filter(c=>/^t\d/.test(c.id)||[267,268,269].includes(c.id))];
-const days=d.filter(isDay),rest=d.filter(c=>!isDay(c)&&!cal.includes(c));CAL=new Set(cal.map(c=>c.id));all=[...days,...cal,...p,...rest];setDeck(DECKS[st.deckSel]?st.deckSel:'both');});
+const days=d.filter(isDay),rest=d.filter(c=>!isDay(c)&&!cal.includes(c));all=[...days,...cal,...p,...rest];setDeck(st.deckSel);});

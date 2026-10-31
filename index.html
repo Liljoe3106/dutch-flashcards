@@ -63,7 +63,7 @@ mark{background:var(--mark);color:var(--markText);padding:0 3px;border-radius:4p
 #btns button{min-height:64px;border-radius:16px;color:#fff;font-weight:700;font-size:1rem;line-height:1.15;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 #btns small{display:block;font-size:.72rem;font-weight:500;opacity:.9;margin-top:3px}
 .again{background:var(--again)}.hard{background:var(--hard)}.good{background:var(--good)}.easy{background:var(--easy)}
-#more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}
+#more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}#tophr{background:var(--orange)}
 /* settings sheet */
 #scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}
 #sheet{position:fixed;left:0;right:0;bottom:0;max-height:88dvh;overflow-y:auto;background:var(--bg);border-radius:24px 24px 0 0;z-index:11;
@@ -89,7 +89,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div class="prog"><div class="bar"><i id="pbar"></i></div><small id="ptext">Today</small></div>
 <span id="timer">15:00</span><button class="icon" id="gear" aria-label="Settings">⚙︎</button></div></div>
 <main><div class="wrap">
-<div class="seg" id="decks"><button data-d="phr">📌 Phrases</button><button data-d="top">📚 Top words</button><button data-d="both">Both</button></div>
+<div class="seg" id="decks"><button data-d="top">📚 1 · Top words</button><button data-d="phr">📌 2 · Phrases</button></div>
 <div id="card"><div id="tag"></div><button id="say" aria-label="Play audio">🔊</button>
 <div id="front">Loading…</div><div id="back" hidden></div>
 <div id="typebox" hidden><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the Dutch (optional)"><div id="check"></div></div>
@@ -103,7 +103,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="mc"></div>
 <button id="showbtn" class="big" hidden>Show answer</button>
 <button id="cont" class="big" hidden>Continue</button>
-<div id="more"><button id="more10" class="big">Learn 10 more</button><button id="ahead" class="big">Review ahead</button></div>
+<div id="more"><button id="tophr" class="big" hidden>📌 Ready for phrases?</button><button id="more10" class="big">Learn 10 more</button><button id="ahead" class="big">Review ahead</button></div>
 <div id="btns" hidden><button class="again" data-q="0">Again<small id="n0"></small></button><button class="hard" data-q="3">Hard<small id="n3"></small></button><button class="good" data-q="4">Good<small id="n4"></small></button><button class="easy" data-q="5">Easy<small id="n5"></small></button></div>
 </div></div>
 <div id="scrim"></div>
@@ -121,4 +121,4 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div class="stat"><b id="sMature">0</b><span>Strong (21d+)</span></div><div class="stat"><b id="sSeen">0</b><span>Cards seen</span></div><div class="stat"><b id="sTotal">0</b><span>Total cards</span></div></div></div>
 <div class="group"><h3>Sync between devices</h3><div class="btnrow"><button id="exp">⬆ Export progress</button><button id="imp">⬇ Import progress</button></div><input type="file" id="impf" accept=".json,.txt" hidden></div>
 </div></div>
-<audio id="aud" preload="none"></audio><script src="say.js?v=say1"></script><script src="app.js?v=say1"></script></body></html>
+<audio id="aud" preload="none"></audio><script src="say.js?v=deck2"></script><script src="study.js?v=deck2"></script><script src="app.js?v=deck2"></script></body></html>
