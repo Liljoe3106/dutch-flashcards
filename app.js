@@ -14,7 +14,7 @@ newDay();if(st.left===undefined)st.left=SESSION;if(!st.seenToday)st.seenToday=[]
 // Streak resets to 0 once a day has been missed, instead of showing the old number until the next answer.
 const fixStreak=()=>{if(st.streak&&!streakNow(st))st.streak=0;};fixStreak();
 save();
-let all=[],deck=[],cur=null,mode=null,rev=false,shown=false,left=Math.max(0,st.left),ahead=false,lastId=null,sug=null,saySug=null,lastAudio=null;
+let all=[],deck=[],cur=null,mode=null,rev=false,shown=false,left=Math.max(0,st.left),ahead=false,drill=null,drillEnd=false,lastId=null,sug=null,saySug=null,lastAudio=null;
 const dayCheck=()=>{if(newDay()){left=st.left;save();return true;}return false;};
 const DESK=matchMedia('(hover:hover) and (pointer:fine)').matches;
 const esc=t=>String(t).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]);
@@ -23,6 +23,13 @@ const lim=()=>(st.npd??NEW_PER_DAY)+(st.extra||0);
 const stage=c=>{const s=st.cards[c.id];return !s?'new':(s.stage||'rev');};
 const due=()=>{const n=Date.now();return deck.filter(c=>st.cards[c.id]&&st.cards[c.id].due<=n);};
 function fresh(){return deck.filter(c=>!st.cards[c.id]);}
+// Weak cards: forgotten 2+ times (study.js weakIds). The drill grades with the normal buttons; cards not yet due use the review-ahead rule so intervals never jump.
+const byId=id=>all.find(c=>String(c.id)===String(id));
+const weakList=()=>weakIds(st.cards,all.map(c=>c.id)).map(byId).filter(Boolean);
+const gopt=()=>({ahead:ahead||!!drill});
+function weakUI(){const n=weakList().length;$('weakn').textContent=n?n+' card'+(n==1?'':'s')+' you have forgotten '+WEAK_MIN+'+ times':'None yet. Words you forget '+WEAK_MIN+' or more times will show up here.';
+$('weakgo').hidden=!n;$('weak').hidden=!n;$('weak').textContent='💪 Practise weak cards ('+n+')';}
+function startWeak(){const l=weakList();if(!l.length){weakUI();return;}drill={q:l,again:{}};drillEnd=false;openSet(false);next();}
 function stats(){const du=due().length,nl=Math.max(0,Math.min(lim()-st.newCount,fresh().length)),lr=c=>isLearned(st.cards[c.id]);
 const done=st.doneToday||0,pr=progress(st.cards,deck,st.seenToday,nl),fc=forecast(st.cards);
 $('sTom').textContent=fc.tom;$('sWeek').textContent=fc.week;
@@ -33,7 +40,7 @@ $('pbar').style.width=(pr.total?Math.round(pr.done/pr.total*100):100)+'%';$('pte
 const seen=()=>{if(!st.seenToday.includes(cur.id))st.seenToday.push(cur.id);};
 function anim(){const c=$('card');c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){$('say').hidden=false;$('tag').textContent='';seq++;micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox','fh','unmute','welcome','bkup'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').innerHTML='';$('typed').value='';
+function hideAll(){$('say').hidden=false;$('tag').textContent='';seq++;micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox','fh','unmute','welcome','bkup','weak'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').innerHTML='';$('typed').value='';
 $('front').lang=$('back').lang='en';$('cont').textContent='Continue';sug=saySug=null;suggest(null);}
 const nlFront=()=>{$('front').lang='nl';if(cur.fh){$('fh').hidden=false;$('fh').textContent=cur.fh;}};
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
@@ -43,14 +50,18 @@ const intro=deck.filter(c=>isLearning(st.cards[c.id])).sort((a,b)=>st.cards[a.id
 const i2=intro.filter(c=>c.id!==lastId);if(i2.length)return i2[0];if(intro.length)return intro[0];
 if(ahead){return deck.filter(c=>stage(c)==='rev').sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due)[0]||null;}
 return null;}
-function next(){dayCheck();fixStreak();hideAll();if(!st.seenIntro)return showWelcome();cur=left>0?pick():null;stats();anim();
-if(!cur){mode='done';$('say').hidden=true;$('front').textContent=left<=0?'⏰ 15 minutes done':'🎉 Done for today';const fc=forecast(st.cards);
-$('hint').textContent=(left<=0?'Nice work. Come back tomorrow, or keep going.':'Everything due is done. Want to keep going?')+' Tomorrow: '+fc.tom+' review'+(fc.tom==1?'':'s')+' due.';
+function next(){dayCheck();fixStreak();hideAll();if(!st.seenIntro)return showWelcome();
+if(drill){cur=drill.q.shift()||null;if(!cur){drill=null;drillEnd=true;}}else cur=left>0?pick():null;stats();anim();
+if(!cur){mode='done';$('say').hidden=true;const fc=forecast(st.cards);
+if(drillEnd){drillEnd=false;$('front').textContent='💪 Weak cards done';$('hint').textContent='Nice work. Those cards will come back on their normal schedule. Tomorrow: '+fc.tom+' review'+(fc.tom==1?'':'s')+' due.';}else{
+$('front').textContent=left<=0?'⏰ 15 minutes done':'🎉 Done for today';
+$('hint').textContent=(left<=0?'Nice work. Come back tomorrow, or keep going.':'Everything due is done. Want to keep going?')+' Tomorrow: '+fc.tom+' review'+(fc.tom==1?'':'s')+' due.';}
 $('donebox').hidden=false;$('donebox').innerHTML='<div class="stat"><b>'+(st.doneToday||0)+'</b><span>Answered</span></div><div class="stat"><b>'+$('sLearned').textContent+'</b><span>Learned</span></div><div class="stat"><b>'+streakNow(st)+'🔥</b><span>Streak</span></div>';
-$('more').style.display='flex';$('ahead').hidden=!deck.some(c=>isLearned(st.cards[c.id]));$('more10').hidden=!fresh().length;
+$('more').style.display='flex';$('ahead').hidden=!deck.some(c=>isLearned(st.cards[c.id]));$('more10').hidden=!fresh().length;weakUI();
 if(backupDue(st)){$('bkup').hidden=false;st.backupAsk=Date.now();save();}
 const tw=all.filter(c=>c.deck!=='phr');$('tophr').hidden=!phraseNudge(st.deckSel,tw.filter(c=>stage(c)==='rev'&&st.cards[c.id].ivl>=1).length,tw.length,fresh().length);return;}
 lastId=cur.id;
+if(drill){showRecall(false);$('tag').textContent='Weak cards · '+(drill.q.length+1)+' left';return;}
 if(stage(cur)==='new'){st.cards[cur.id]={stage:'intro',mc:0,ef:2.5,ivl:0,reps:0,due:Date.now(),t:Date.now()};st.newCount++;save();}
 const sg=stage(cur);if(sg==='intro')showMC();else showRecall(sg==='learn');}
 function typeOf(c){return c.en.startsWith('the ')?'n':c.en.startsWith('to ')?'v':'o';}
@@ -93,8 +104,10 @@ if(rev)speak();else spkShow();showEx();$('btns').hidden=false;}
 // Suggested grade: a ring and label on one button. All four buttons still work.
 function suggest(q){sug=q;document.querySelectorAll('#btns button').forEach(b=>{const on=q!==null&&+b.dataset.q===q;b.classList.toggle('sug',on);b.setAttribute('aria-describedby',on?'sugl':'');});}
 const fmt=s=>fmtIvl(s);
-function labels(){[0,3,4,5].forEach(q=>$('n'+q).textContent=fmt(sched(q,st.cards[cur.id],{ahead})));}
-function grade(q){if(mode!=='recall'||!shown)return;const o=st.cards[cur.id],s=sched(q,o,{ahead});s.stage=s.reps>0?'rev':(o&&o.stage==='learn'?'learn':'rev');s.t=Date.now();st.cards[cur.id]=s;st.doneToday=(st.doneToday||0)+1;seen();bumpStreak();save();next();}
+function labels(){[0,3,4,5].forEach(q=>$('n'+q).textContent=fmt(sched(q,st.cards[cur.id],gopt())));}
+function grade(q){if(mode!=='recall'||!shown)return;const o=st.cards[cur.id],s=sched(q,o,gopt());
+// Weak cards drill: Again brings the card back once more at the end of the drill.
+if(drill&&q<3&&!drill.again[cur.id]){drill.again[cur.id]=1;drill.q.push(cur);}s.stage=s.reps>0?'rev':(o&&o.stage==='learn'?'learn':'rev');s.t=Date.now();st.cards[cur.id]=s;st.doneToday=(st.doneToday||0)+1;seen();bumpStreak();save();next();}
 // Say it: speak the Dutch into the mic (Web Speech API, nl-NL). EN→NL recall: Correct/Close reveals the answer, then grade as usual.
 // Other cards: pronunciation practice once the Dutch is on screen. Typing stays as the backup where recognition is missing.
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null;
@@ -133,7 +146,7 @@ document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropaga
 $('say').onclick=()=>lis&&!shown?playListen():speak();$('replay').onclick=playListen;$('showtxt').onclick=()=>$('listxt').hidden=false;
 $('lis').checked=!!st.listen;$('lis').onchange=()=>{st.listen=$('lis').checked;save();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
 $('more10').onclick=()=>{st.extra=(st.extra||0)+10;if(left<=0)left=st.left=SESSION;save();next();};
-$('tophr').onclick=()=>setDeck('phr');
+$('tophr').onclick=()=>setDeck('phr');$('weak').onclick=startWeak;$('weakgo').onclick=startWeak;
 $('ahead').onclick=()=>{ahead=true;if(left<=0){left=st.left=SESSION;save();}next();};
 $('show').checked=!!st.show;$('show').onchange=()=>{st.show=$('show').checked;save();if(mode==='recall'&&st.show)reveal();};
 const setDir=()=>document.querySelectorAll('#dir button').forEach(b=>{b.classList.toggle('on',b.dataset.v===st.dir);b.setAttribute('aria-pressed',b.dataset.v===st.dir);});setDir();
@@ -141,7 +154,7 @@ document.querySelectorAll('#dir button').forEach(b=>b.onclick=()=>{st.dir=b.data
 const setNpd=()=>$('npd').textContent=(st.npd??NEW_PER_DAY);setNpd();
 const npd=d=>{st.npd=Math.max(5,Math.min(50,(st.npd??NEW_PER_DAY)+d));save();setNpd();if(mode==='done')next();else stats();};$('npdm').onclick=()=>npd(-5);$('npdp').onclick=()=>npd(5);
 const isSet=()=>document.body.classList.contains('set');
-const openSet=o=>{const was=isSet();document.body.classList.toggle('set',o);$('sheet').inert=!o;$('sheet').setAttribute('aria-hidden',!o);if(o){stats();$('resetbox').hidden=true;setTimeout(()=>$('close').focus(),50);}else if(was)$('gear').focus();};
+const openSet=o=>{const was=isSet();document.body.classList.toggle('set',o);$('sheet').inert=!o;$('sheet').setAttribute('aria-hidden',!o);if(o){stats();weakUI();$('resetbox').hidden=true;setTimeout(()=>$('close').focus(),50);}else if(was)$('gear').focus();};
 $('gear').onclick=()=>openSet(true);$('close').onclick=$('scrim').onclick=()=>openSet(false);
 // Keyboard (desktop): Space/Enter show answer, 1-4 grade (Enter = suggested grade), 1-3 pick a meaning, Enter/Space continue, R replay.
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){openSet(false);return;}if(isSet()||e.metaKey||e.ctrlKey||e.altKey)return;
@@ -159,7 +172,7 @@ function showWelcome(){hideAll();mode='welcome';cur=null;stats();anim();$('say')
 $('how').onclick=()=>{openSet(false);showWelcome();};
 // Reset progress: confirm first, with a backup offered. Keeps your settings.
 $('reset').onclick=()=>{$('resetbox').hidden=false;$('resetno').focus();};$('resetno').onclick=()=>$('resetbox').hidden=true;$('resetexp').onclick=()=>$('exp').click();
-$('resetyes').onclick=()=>{for(const k of ['cards','streak','last','newDay','newCount','extra','doneToday','seenToday','left','backupAsk'])delete st[k];st.cards={};st.streak=0;st.newCount=0;newDay();left=st.left=SESSION;save();openSet(false);ahead=false;lastId=null;next();};
+$('resetyes').onclick=()=>{for(const k of ['cards','streak','last','newDay','newCount','extra','doneToday','seenToday','left','backupAsk'])delete st[k];st.cards={};st.streak=0;st.newCount=0;newDay();left=st.left=SESSION;save();openSet(false);ahead=false;drill=null;lastId=null;next();};
 $('bkup').onclick=()=>$('exp').click();
 $('exp').onclick=async()=>{st.lastExport=Date.now();save();const code='DFC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(st))));
 try{await navigator.clipboard.writeText(code);}catch(e){}
@@ -176,7 +189,7 @@ const showT=()=>$('timer').textContent=String(Math.floor(left/60)).padStart(2,'0
 setInterval(()=>{if(dayCheck()&&mode==='done')next();showT();if(document.hidden||left<=0||mode==='done'||mode==='welcome')return;left--;st.left=left;save();showT();},1000);
 
 function setDeck(k){st.deckSel=k;save();deck=all.filter(c=>(c.deck||'top')===k);
-document.querySelectorAll('#decks button').forEach(b=>{b.classList.toggle('on',b.dataset.d===k);b.setAttribute('aria-pressed',b.dataset.d===k);});ahead=false;if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
+document.querySelectorAll('#decks button').forEach(b=>{b.classList.toggle('on',b.dataset.d===k);b.setAttribute('aria-pressed',b.dataset.d===k);});ahead=false;if(drill){drill=null;cur=null;}if(cur&&deck.includes(cur)&&(mode==='mc'||mode==='recall')){stats();return;}next();}
 document.querySelectorAll('#decks button').forEach(b=>b.onclick=()=>setDeck(b.dataset.d));
 Promise.all(['phrases.json','deck.json'].map(f=>fetch(f).then(r=>r.json()))).then(([p,d])=>{d=d.map(c=>Object.assign({deck:'top'},c));
 // New-card order for Top words: days first, then months + time words, then the rest.

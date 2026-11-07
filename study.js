@@ -39,6 +39,12 @@ const dstr=ms=>new Date(ms).toLocaleDateString('en-CA');
 const streakNow=(st,now)=>{now=now||Date.now();return st.last===dstr(now)||st.last===dstr(now-DAY)?(st.streak||0):0;};
 // Gentle backup reminder: at most once every 30 days, once 20+ cards are learned.
 const backupDue=(st,now)=>{now=now||Date.now();const n=Object.values(st.cards||{}).filter(isLearned).length;return n>=20&&now-Math.max(st.lastExport||0,st.backupAsk||0)>30*DAY;};
-const api={DECK_ORDER,deckSel,LISTEN_GAP,listenQueue,phraseNudge,sched,fmtIvl,isLearned,isLearning,progress,forecast,streakNow,backupDue,dstr};
+// Weak cards drill: cards forgotten (Again after being learned) at least WEAK_MIN times, worst first, at most WEAK_MAX per drill.
+// Reads the saved lapses count only; never changes saved cards.
+const WEAK_MIN=2,WEAK_MAX=15;
+function weakIds(cards,ids,max){max=max||WEAK_MAX;const ok=ids?new Set(ids.map(String)):null;
+return Object.entries(cards||{}).filter(([id,s])=>s&&(s.lapses||0)>=WEAK_MIN&&(!ok||ok.has(String(id))))
+.sort((a,b)=>(b[1].lapses-a[1].lapses)||((a[1].ef||2.5)-(b[1].ef||2.5))||((a[1].due||0)-(b[1].due||0))).slice(0,max).map(([id])=>id);}
+const api={WEAK_MIN,WEAK_MAX,weakIds,DECK_ORDER,deckSel,LISTEN_GAP,listenQueue,phraseNudge,sched,fmtIvl,isLearned,isLearning,progress,forecast,streakNow,backupDue,dstr};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else Object.assign(g,api);
 })(this);

@@ -63,7 +63,7 @@ mark{background:var(--mark);color:var(--markText);padding:0 3px;border-radius:4p
 #btns button{position:relative;min-height:64px;border-radius:16px;color:#fff;font-weight:700;font-size:1rem;line-height:1.15;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 #btns small{display:block;font-size:.72rem;font-weight:500;opacity:.9;margin-top:3px}
 .again{background:var(--again)}.hard{background:var(--hard)}.good{background:var(--good)}.easy{background:var(--easy)}
-#more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}#tophr{background:var(--orange)}
+#more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}#tophr{background:var(--orange)}#weak{background:var(--hard)}#weakgo{flex:none;min-height:44px;padding:10px 16px;border-radius:12px;background:var(--hard);color:#fff;font-weight:600}
 #btns button.sug{outline:3px solid var(--text);outline-offset:2px}
 #btns button.sug::before{content:"Suggested";position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:.6rem;font-weight:700;letter-spacing:.03em;background:var(--text);color:var(--bg);padding:1px 6px;border-radius:99px;white-space:nowrap}
 #fh{font-size:.85rem;color:var(--muted);margin-top:4px;font-style:italic}
@@ -118,7 +118,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="mc"></div>
 <button id="showbtn" class="big" hidden>Show answer</button>
 <button id="cont" class="big" hidden>Continue</button>
-<div id="more"><button id="tophr" class="big" hidden>📌 Ready for phrases?</button><button id="more10" class="big">Learn 10 more</button><button id="ahead" class="big">Review ahead</button><button id="bkup" class="big soft" hidden>⬆ Back up your progress</button></div>
+<div id="more"><button id="tophr" class="big" hidden>📌 Ready for phrases?</button><button id="more10" class="big">Learn 10 more</button><button id="ahead" class="big">Review ahead</button><button id="weak" class="big" hidden>💪 Practise weak cards</button><button id="bkup" class="big soft" hidden>⬆ Back up your progress</button></div>
 <div id="btns" hidden><button class="again" data-q="0">Again<small id="n0"></small></button><button class="hard" data-q="3">Hard<small id="n3"></small></button><button class="good" data-q="4">Good<small id="n4"></small></button><button class="easy" data-q="5">Easy<small id="n5"></small></button></div><span id="sugl" hidden>Suggested</span>
 <div id="kbd" class="kbd" hidden>Keys: Space show answer · 1–4 grade (Enter = suggested) · 1–3 choose · R replay</div>
 </div></div>
@@ -130,6 +130,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div class="rowi"><label for="lis">Listening cards<small>Hear the sentence, then recall</small></label><input type="checkbox" class="sw" id="lis"></div>
 <div class="rowi"><label for="spk">Speaking practice<small id="spkn">Say the Dutch out loud with your mic</small></label><input type="checkbox" class="sw" id="spk"></div>
 <div class="rowi"><label for="show">Easy mode<small>Show answers immediately</small></label><input type="checkbox" class="sw" id="show"></div>
+<div class="rowi"><label>Weak cards<small id="weakn">None yet.</small></label><button id="weakgo" hidden>💪 Practise</button></div>
 <div class="rowi"><label>New cards per day</label><div class="step"><button id="npdm" aria-label="Fewer">−</button><b id="npd">15</b><button id="npdp" aria-label="More">+</button></div></div></div>
 <div class="group"><h3>Stats</h3><div class="sgrid" id="sgrid">
 <div class="stat"><b id="sDue">0</b><span>Due now</span></div><div class="stat"><b id="sNew">0</b><span>New left today</span></div><div class="stat"><b id="sLearned">0</b><span>Learned</span></div>
@@ -140,4 +141,4 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="resetbox" hidden><b>This deletes all your progress on this device.</b> Your settings stay. Export a backup first if you might want it back.
 <div class="btnrow"><button id="resetexp">⬆ Export backup first</button><button id="resetyes">Yes, reset everything</button><button id="resetno">Cancel</button></div></div></div>
 </div></div>
-<audio id="aud" preload="none"></audio><script src="say.js?v=fix3"></script><script src="study.js?v=fix3"></script><script src="app.js?v=fix3"></script></body></html>
+<audio id="aud" preload="none"></audio><script src="say.js?v=weak1"></script><script src="study.js?v=weak1"></script><script src="app.js?v=weak1"></script></body></html>
