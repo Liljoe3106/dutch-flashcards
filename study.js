@@ -45,6 +45,29 @@ const WEAK_MIN=2,WEAK_MAX=15;
 function weakIds(cards,ids,max){max=max||WEAK_MAX;const ok=ids?new Set(ids.map(String)):null;
 return Object.entries(cards||{}).filter(([id,s])=>s&&(s.lapses||0)>=WEAK_MIN&&(!ok||ok.has(String(id))))
 .sort((a,b)=>(b[1].lapses-a[1].lapses)||((a[1].ef||2.5)-(b[1].ef||2.5))||((a[1].due||0)-(b[1].due||0))).slice(0,max).map(([id])=>id);}
-const api={WEAK_MIN,WEAK_MAX,weakIds,DECK_ORDER,deckSel,LISTEN_GAP,listenQueue,phraseNudge,sched,fmtIvl,isLearned,isLearning,progress,forecast,streakNow,backupDue,dstr};
+// Where a card's word sits in its example sentence (the same rule the highlight uses).
+// Returns {i,L} for one span, {words:[...]} when a multi-word card is spread over the sentence, or null.
+const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function exTarget(c){const ex=(c&&c.ex)||'';if(!ex)return null;
+let t=c.nl.replace(/\.\.\./g,'').replace(/[.!?,]+$/,'').replace(/^(de|het|een)\s+/i,'').trim();if(c.deck!=='phr')t=t.split(/\s*[\/(]/)[0].trim();if(c.hl)t=c.hl;
+let m=t&&ex.match(new RegExp('(^|[^\\p{L}])('+reEsc(t)+')(?=[^\\p{L}]|$)','iu'));
+if(!m&&t&&!t.includes(' ')&&t.length>3)m=ex.match(new RegExp('(^|[^\\p{L}])('+t.slice(0,Math.max(3,t.length-2)).replace(/[.*+?^${}()|[\]\\]/g,'')+'\\p{L}*)','iu'));
+if(!m&&t.includes(' ')){const ws=t.toLowerCase().split(/[^\p{L}]+/u).filter(w=>w.length>1);if(ws.length)return {words:[...new Set(ws)]};}
+if(!m)return null;return {i:m.index+m[1].length,L:m[2].length};}
+// Sentence-gap cards: a learned word comes back as its example sentence with the word blanked out.
+// Word cards only (phrases are already sentences). Returns {before,answer,after} or null when the word can't be cleanly blanked.
+function gapOf(c){if(!c||(c.deck||'top')!=='top'||!c.ex)return null;const m=exTarget(c);if(!m||m.words||!m.L)return null;
+const before=c.ex.slice(0,m.i),answer=c.ex.slice(m.i,m.i+m.L),after=c.ex.slice(m.i+m.L);
+if(!/\p{L}/u.test(before+after))return null;return {before,answer,after};}
+const GAP_P=.3; // share of reviews of a learned word that become a sentence gap (when switched on)
+// Which question a review shows: 'gap' (learned word, sentence gap), 'listen', or the normal 'recall'.
+// learn=true (same-session check for a new word) is always a normal recall. rnd: a 0-1 random function.
+function reviewKind(c,s,o,rnd){o=o||{};rnd=rnd||Math.random;if(o.learn||!c)return 'recall';
+if(o.gaps!==false&&isLearned(s)&&gapOf(c)&&rnd()<GAP_P)return 'gap';
+if(o.listen&&c.ex&&rnd()<(o.listenP??.25))return 'listen';return 'recall';}
+// Checks a typed gap answer: the form used in the sentence is Correct; the dictionary form (e.g. "slapen" for "slaapt") or a small typo is Close.
+function gapCheck(typed,c,typeMatch){const g=gapOf(c);if(!g)return {res:'wrong'};const m=typeMatch(typed,g.answer);
+if(m.res==='correct')return {res:'correct'};if(typeMatch(typed,c.nl).res==='correct')return {res:'close',why:'form'};return {res:m.res,why:m.why};}
+const api={exTarget,gapOf,GAP_P,reviewKind,gapCheck,WEAK_MIN,WEAK_MAX,weakIds,DECK_ORDER,deckSel,LISTEN_GAP,listenQueue,phraseNudge,sched,fmtIvl,isLearned,isLearning,progress,forecast,streakNow,backupDue,dstr};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else Object.assign(g,api);
 })(this);

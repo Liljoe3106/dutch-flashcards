@@ -3,7 +3,7 @@ const st=JSON.parse(localStorage.getItem(K)||'{"cards":{},"streak":0,"last":null
 if(!st.migr2){st.show=false;st.migr2=1;}
 if(!st.dir)st.dir=st.rev?'en':'mix';
 st.deckSel=deckSel(st.deckSel); // old "Both" option is gone: falls back to Top words
-if(st.listen===undefined)st.listen=true;if(st.speak===undefined)st.speak=true;const LISTEN_P=.25;let lis=false;
+if(st.listen===undefined)st.listen=true;if(st.speak===undefined)st.speak=true;if(st.gaps===undefined)st.gaps=true;const LISTEN_P=.25;let lis=false,gap=false;
 const save=()=>localStorage.setItem(K,JSON.stringify(st));
 const today=()=>new Date().toLocaleDateString('en-CA');
 // v3 (Oct 2026): saved cards are kept exactly as they are; only future answers use the new rules. Existing users skip the welcome.
@@ -40,8 +40,8 @@ $('pbar').style.width=(pr.total?Math.round(pr.done/pr.total*100):100)+'%';$('pte
 const seen=()=>{if(!st.seenToday.includes(cur.id))st.seenToday.push(cur.id);};
 function anim(){const c=$('card');c.classList.remove('in');void c.offsetWidth;c.classList.add('in');}
 function bumpStreak(){if(st.last!==today()){const y=new Date(Date.now()-DAY).toLocaleDateString('en-CA');st.streak=st.last===y?st.streak+1:1;st.last=today();}}
-function hideAll(){$('say').hidden=false;$('tag').textContent='';seq++;micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox','fh','unmute','welcome','bkup','weak'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').innerHTML='';$('typed').value='';
-$('front').lang=$('back').lang='en';$('cont').textContent='Continue';sug=saySug=null;suggest(null);}
+function hideAll(){gap=false;$('front').classList.remove('sent');$('say').hidden=false;$('tag').textContent='';seq++;micStop();['back','typebox','spkbox','exbox','showbtn','cont','btns','lisbox','donebox','fh','unmute','welcome','bkup','weak'].forEach(i=>$(i).hidden=true);$('mc').innerHTML='';$('more').style.display='none';$('hint').textContent='';$('check').innerHTML='';$('typed').value='';
+$('front').lang=$('back').lang='en';$('cont').textContent='Continue';$('typed').placeholder='Type the Dutch (optional)';sug=saySug=null;suggest(null);}
 const nlFront=()=>{$('front').lang='nl';if(cur.fh){$('fh').hidden=false;$('fh').textContent=cur.fh;}};
 function pick(){const d=due().filter(c=>c.id!==lastId||due().length===1).sort((a,b)=>st.cards[a.id].due-st.cards[b.id].due);
 if(d.length)return d[0];
@@ -80,20 +80,31 @@ if(s.mc>=MC_NEED){s.stage='learn';s.reps=0;s.ivl=0;s.due=Date.now()+60e3;}else s
 else{btn.classList.add('wrong');$('hint').textContent='❌ Not quite. You will see this one again soon.';s.due=Date.now()+45e3;}
 s.t=Date.now();st.doneToday=(st.doneToday||0)+1;seen();bumpStreak();save();stats();showEx();$('cont').hidden=false;spkShow();playEx();}
 function showEx(){if(!cur.ex)return;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';}
-function hl(c){const ex=c.ex||'';
-let t=c.nl.replace(/\.\.\./g,'').replace(/[.!?,]+$/,'').replace(/^(de|het|een)\s+/i,'').trim();if(c.deck!=='phr')t=t.split(/\s*[\/(]/)[0].trim();if(c.hl)t=c.hl;
-const re=s=>new RegExp('(^|[^\\p{L}])('+s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=[^\\p{L}]|$)','iu');
-let m=t&&ex.match(re(t));if(!m&&t&&!t.includes(' ')&&t.length>3)m=ex.match(new RegExp('(^|[^\\p{L}])('+t.slice(0,Math.max(3,t.length-2)).replace(/[.*+?^${}()|[\]\\]/g,'')+'\\p{L}*)','iu'));
-if(!m&&t.includes(' ')){const ws=new Set(t.toLowerCase().split(/[^\p{L}]+/u).filter(w=>w.length>1));if(ws.size)return ex.split(/([^\p{L}]+)/u).map(p=>ws.has(p.toLowerCase())?'<mark>'+esc(p)+'</mark>':esc(p)).join('');}
-if(!m)return esc(ex);const i=m.index+m[1].length,L=m[2].length;return esc(ex.slice(0,i))+'<mark>'+esc(ex.slice(i,i+L))+'</mark>'+esc(ex.slice(i+L));}
+function hl(c){const ex=c.ex||'',m=exTarget(c);if(!m)return esc(ex);
+if(m.words){const ws=new Set(m.words);return ex.split(/([^\p{L}]+)/u).map(p=>ws.has(p.toLowerCase())?'<mark>'+esc(p)+'</mark>':esc(p)).join('');}
+return esc(ex.slice(0,m.i))+'<mark>'+esc(ex.slice(m.i,m.i+m.L))+'</mark>'+esc(ex.slice(m.i+m.L));}
 function showListen(){mode='recall';shown=false;lis=true;rev=false;$('front').textContent='🎧 Listen';$('tag').textContent='Listen';$('hint').textContent='What does the sentence mean?';
 $('lisbox').hidden=false;$('listxt').hidden=true;$('listxt').textContent=cur.ex;labels();$('showbtn').hidden=false;playListen();}
+// Sentence gap (learned words): the example sentence with the word blanked out. Type the missing word, then hear the full sentence.
+function showGap(){const g=gapOf(cur);mode='recall';shown=false;gap=true;rev=false;$('say').hidden=true;
+$('tag').textContent='Fill the gap · word';$('front').classList.add('sent');$('front').lang='nl';
+$('front').innerHTML=esc(g.before)+'<span class="gap" aria-label="missing word">_____</span>'+esc(g.after);
+$('fh').hidden=false;$('fh').textContent=cur.exEn||'';$('hint').textContent='Type the missing word. Meaning: '+cur.en;
+$('typebox').hidden=false;$('typed').placeholder='Type the missing word';if(DESK)setTimeout(()=>{if(cur&&gap&&!shown)$('typed').focus();},50);
+labels();$('showbtn').hidden=false;}
 // learn=true: the same-session recall check for a new word (from English unless review direction is NL→EN).
-function showRecall(learn){lis=false;if(!learn&&st.listen&&cur.ex&&Math.random()<LISTEN_P)return showListen();mode='recall';shown=false;rev=learn?st.dir!=='nl':(st.dir==='en'||(st.dir==='mix'&&Math.random()<.5));
+function showRecall(learn){lis=false;gap=false;const kind=reviewKind(cur,st.cards[cur.id],{learn,gaps:st.gaps,listen:st.listen,listenP:LISTEN_P});
+if(kind==='gap')return showGap();if(kind==='listen')return showListen();mode='recall';shown=false;rev=learn?st.dir!=='nl':(st.dir==='en'||(st.dir==='mix'&&Math.random()<.5));
 $('tag').textContent=(learn?'Learning · ':'Review · ')+(cur.deck==='phr'?'phrase':'word');$('front').textContent=rev?cur.en:cur.nl;$('back').textContent=rev?cur.nl:cur.en;$('back').lang=rev?'nl':'en';
 if(rev){$('typebox').hidden=false;$('hint').textContent=SR&&st.speak?'Say or type the Dutch':'Type the Dutch';if(DESK&&!st.show)setTimeout(()=>{if(cur&&mode==='recall'&&!shown)$('typed').focus();},50);}else{nlFront();$('hint').textContent='What does it mean?';speak();}
 if(rev)spkShow();labels();if(st.show)reveal();else $('showbtn').hidden=false;}
-function reveal(){if(mode!=='recall'||shown)return;if(lis){shown=true;$('showbtn').hidden=true;$('lisbox').hidden=true;$('hint').textContent='';
+function reveal(){if(mode!=='recall'||shown)return;if(gap){shown=true;const g=gapOf(cur),ty=$('typed').value.trim();$('typed').blur();$('showbtn').hidden=true;$('typebox').hidden=!ty;$('say').hidden=false;
+$('front').innerHTML=esc(g.before)+'<mark>'+esc(g.answer)+'</mark>'+esc(g.after);$('back').hidden=false;$('back').lang='nl';$('back').textContent=cur.nl+' · '+cur.en;$('hint').textContent='';
+if(ty){const m=gapCheck(ty,cur,typeMatch),d=()=>typeDiff(ty,g.answer).map(x=>x.ok?esc(x.t):'<del>'+esc(x.t)+'</del>').join('');
+$('check').innerHTML=m.res==='correct'?'✅ Spot on!':m.why==='form'?'🟡 Right word. In this sentence it is <span lang="nl">'+esc(g.answer)+'</span>':m.res==='close'?'🟡 Close. You typed: <span class="diff" lang="nl">'+d()+'</span>':'✏️ You typed: <span class="diff" lang="nl">'+d()+'</span>';
+$('check').style.color=m.res==='correct'?'var(--good)':m.res==='close'?'var(--hard)':'var(--again)';suggest(m.res==='correct'?4:m.res==='close'?3:0);}
+$('btns').hidden=false;playEx();return;}
+if(lis){shown=true;$('showbtn').hidden=true;$('lisbox').hidden=true;$('hint').textContent='';
 $('front').textContent=cur.nl;$('front').lang='nl';$('back').hidden=false;$('back').textContent=cur.en;$('exbox').hidden=false;$('ex').innerHTML=hl(cur);$('exEn').textContent=cur.exEn||'';$('btns').hidden=false;spkShow();return;}
 shown=true;$('showbtn').hidden=true;$('back').hidden=false;$('hint').textContent='';
 // Typed answers: small typos and a wrong article count as Close, with the wrong letters marked. The result suggests a grade.
@@ -134,7 +145,7 @@ let seq=0; // bumped by every new playback so a pending word→sentence sequence
 // Browsers block sound until the first tap: say so and offer a tap to play, instead of failing silently.
 function blocked(e){if(e&&e.name==='NotAllowedError'&&lastAudio){$('unmute').hidden=false;}}
 function play(src,text,done){seq++;const a=$('aud');a.onended=null;if(src){a.onended=done||null;a.onerror=()=>tts(text,done);a.src=src;a.play().then(()=>{$('unmute').hidden=true;},blocked);}else tts(text,done);}
-function speak(){if(cur){lastAudio=speak;play(cur.audio,cur.nl);}}
+function speak(){if(gap){if(shown)playEx();return;}if(cur){lastAudio=speak;play(cur.audio,cur.nl);}}
 function playEx(){if(cur&&cur.ex){lastAudio=playEx;play(cur.exAudio,cur.ex);}}
 // Listening questions: word cards say the word, pause, then the sentence (study.js listenQueue); phrase cards just the sentence.
 function playListen(){lastAudio=playListen;const c=cur,q=listenQueue(c);let tok;const step=i=>{if(tok!==undefined&&tok!==seq||c!==cur||!lis||shown)return;const it=q[i];if(!it)return;
@@ -144,7 +155,7 @@ $('showbtn').onclick=reveal;$('cont').onclick=()=>{if(mode==='welcome'){st.seenI
 $('typed').onkeydown=e=>{if(e.key==='Enter'&&!shown){e.preventDefault();e.stopPropagation();reveal();}};
 document.querySelectorAll('#btns button').forEach(b=>b.onclick=e=>{e.stopPropagation();grade(+b.dataset.q);});
 $('say').onclick=()=>lis&&!shown?playListen():speak();$('replay').onclick=playListen;$('showtxt').onclick=()=>$('listxt').hidden=false;
-$('lis').checked=!!st.listen;$('lis').onchange=()=>{st.listen=$('lis').checked;save();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
+$('gapsw').checked=!!st.gaps;$('gapsw').onchange=()=>{st.gaps=$('gapsw').checked;save();};$('lis').checked=!!st.listen;$('lis').onchange=()=>{st.listen=$('lis').checked;save();};$('exsay').onclick=e=>{e.stopPropagation();playEx();};
 $('more10').onclick=()=>{st.extra=(st.extra||0)+10;if(left<=0)left=st.left=SESSION;save();next();};
 $('tophr').onclick=()=>setDeck('phr');$('weak').onclick=startWeak;$('weakgo').onclick=startWeak;
 $('ahead').onclick=()=>{ahead=true;if(left<=0){left=st.left=SESSION;save();}next();};

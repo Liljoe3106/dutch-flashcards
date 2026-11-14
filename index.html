@@ -66,6 +66,7 @@ mark{background:var(--mark);color:var(--markText);padding:0 3px;border-radius:4p
 #more{display:none;flex-direction:column;gap:10px}#ahead{background:var(--easy)}#more10{background:var(--good)}#tophr{background:var(--orange)}#weak{background:var(--hard)}#weakgo{flex:none;min-height:44px;padding:10px 16px;border-radius:12px;background:var(--hard);color:#fff;font-weight:600}
 #btns button.sug{outline:3px solid var(--text);outline-offset:2px}
 #btns button.sug::before{content:"Suggested";position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:.6rem;font-weight:700;letter-spacing:.03em;background:var(--text);color:var(--bg);padding:1px 6px;border-radius:99px;white-space:nowrap}
+#front.sent{font-size:clamp(1.35rem,5.6vw,1.7rem);line-height:1.35}.gap{display:inline-block;min-width:3.2em;border-bottom:3px solid var(--accent);color:transparent;line-height:1;margin:0 2px}
 #fh{font-size:.85rem;color:var(--muted);margin-top:4px;font-style:italic}
 #unmute{margin-top:12px}
 .diff del{text-decoration:none;background:var(--bad);color:var(--again);border-radius:3px;padding:0 1px}
@@ -110,6 +111,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="welcome" hidden><ul>
 <li>Start with <b>📚 Top words</b>, then move on to <b>📌 Phrases</b>.</li>
 <li><b>New words:</b> pick the meaning, then a little later recall it from English. Type it, tap 🎤 Say it, or just think it.</li>
+<li><b>Learned words</b> come back in their example sentence with a gap. Type the missing word, then hear the whole sentence. It is your step from words to phrases.</li>
 <li><b>Grade yourself honestly:</b> Again = forgot, Hard = struggled, Good = got it, Easy = instant. Each card comes back just before you'd forget it.</li>
 <li>About 15 minutes a day keeps your 🔥 streak going.</li></ul></div>
 <div class="hint" id="hint" aria-live="polite"></div></div>
@@ -127,6 +129,7 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <header><h2>Settings</h2><button class="icon" id="close" aria-label="Close">✕</button></header>
 <div class="group"><h3>Study</h3>
 <div class="rowi"><label>Review direction</label><div class="seg" id="dir"><button data-v="nl">NL→EN</button><button data-v="mix">Mixed</button><button data-v="en">EN→NL</button></div></div>
+<div class="rowi"><label for="gapsw">Sentence gaps<small>Learned words come back in a sentence: type the missing word</small></label><input type="checkbox" class="sw" id="gapsw"></div>
 <div class="rowi"><label for="lis">Listening cards<small>Hear the sentence, then recall</small></label><input type="checkbox" class="sw" id="lis"></div>
 <div class="rowi"><label for="spk">Speaking practice<small id="spkn">Say the Dutch out loud with your mic</small></label><input type="checkbox" class="sw" id="spk"></div>
 <div class="rowi"><label for="show">Easy mode<small>Show answers immediately</small></label><input type="checkbox" class="sw" id="show"></div>
@@ -141,4 +144,4 @@ body.set #scrim{opacity:1;pointer-events:auto}body.set #sheet{transform:none}
 <div id="resetbox" hidden><b>This deletes all your progress on this device.</b> Your settings stay. Export a backup first if you might want it back.
 <div class="btnrow"><button id="resetexp">⬆ Export backup first</button><button id="resetyes">Yes, reset everything</button><button id="resetno">Cancel</button></div></div></div>
 </div></div>
-<audio id="aud" preload="none"></audio><script src="say.js?v=weak1"></script><script src="study.js?v=weak1"></script><script src="app.js?v=weak1"></script></body></html>
+<audio id="aud" preload="none"></audio><script src="say.js?v=gap1"></script><script src="study.js?v=gap1"></script><script src="app.js?v=gap1"></script></body></html>
